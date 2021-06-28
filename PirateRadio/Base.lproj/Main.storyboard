@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xbJ-UK-VsZ">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Personal Music Playlist-->
+        <scene sceneID="xuI-BD-5tu">
+            <objects>
+                <viewController id="1LH-0j-LlX" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jeD-wb-lbn">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="KZe-hE-oZo"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Personal Music Playlist" image="music.note.house" catalog="system" id="IIL-l8-BAI"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qjy-jb-ZzP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1457" y="179"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="jZI-Ft-wjn">
+            <objects>
+                <tabBarController id="xbJ-UK-VsZ" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="fiB-Ul-loP">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="Ra4-jJ-chx" kind="relationship" relationship="viewControllers" id="4Lu-xX-qgk"/>
+                        <segue destination="1LH-0j-LlX" kind="relationship" relationship="viewControllers" id="tZl-5v-xAR"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dpg-j7-T9p" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="509" y="-243"/>
+        </scene>
+        <!--Music-->
+        <scene sceneID="ZjL-i9-88B">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ra4-jJ-chx" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Music" image="music.note.list" catalog="system" id="vcF-X6-aiG"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="zn4-ao-Qmx">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="lmc-kD-MZF" kind="relationship" relationship="rootViewController" id="rxw-LR-bLf"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gBW-cf-xPt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1456.521739130435" y="-501.5625"/>
+        </scene>
+        <!--Music Table View Controller-->
+        <scene sceneID="cDu-Yu-pKA">
+            <objects>
+                <tableViewController id="lmc-kD-MZF" customClass="MusicTableViewController" customModule="PirateRadio" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="YJh-Lc-Hee">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MusicSell" textLabel="xP3-AW-PQ7" rowHeight="235" style="IBUITableViewCellStyleDefault" id="k32-sr-yI1" customClass="MusicTableViewCell" customModule="PirateRadio" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="235"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="k32-sr-yI1" id="WO2-3T-KXm">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="235"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xP3-AW-PQ7">
+                                            <rect key="frame" x="20" y="0.0" width="374" height="235"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="lmc-kD-MZF" id="pjR-Z9-jd0"/>
+                            <outlet property="delegate" destination="lmc-kD-MZF" id="XbI-vZ-cKr"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="lQu-rf-DVB"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LOw-bE-uxY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2218.840579710145" y="-501.5625"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="music.note.house" catalog="system" width="128" height="106"/>
+        <image name="music.note.list" catalog="system" width="128" height="115"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
