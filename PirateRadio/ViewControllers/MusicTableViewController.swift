@@ -20,6 +20,8 @@ class MusicTableViewController: UITableViewController {
         self.navigationItem.searchController = searchController
         
         searchController.searchBar.delegate = self
+        
+        
     }
 
     // MARK: - Table view data source
@@ -95,7 +97,26 @@ class MusicTableViewController: UITableViewController {
 
 extension MusicTableViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        print(searchBar.text!)
-        //function
+//        let url = URL(string: Constants.URL)
+//
+//        guard url != nil else {
+//            return
+//        }
+//
+//        let session = URLSession.init(configuration:.default)
+//
+//        let dataTask = session.dataTask(with: url!) {
+//            (data, response, error) in
+//
+//            if error != nil || data != nil {
+//                return
+//            }
+//
+//            let jsonData = try? JSONSerialization.jsonObject(with: data!, options: [])
+//
+//            print(jsonData!)
+//        }
+//        
+//        dataTask.resume()
     }
 }

@@ -10,6 +10,9 @@
 		67FF6AA4E7D4FC77E86ABE54 /* Pods_PirateRadio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFF5042E2A3CFD2556D374D9 /* Pods_PirateRadio.framework */; };
 		8E0A7C7F2689BE6E009EA65C /* MusicTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0A7C7E2689BE6E009EA65C /* MusicTableViewController.swift */; };
 		8E0A7C832689BE91009EA65C /* MusicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0A7C822689BE91009EA65C /* MusicTableViewCell.swift */; };
+		8E0A7C8E2689FDA1009EA65C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0A7C8D2689FDA1009EA65C /* Constants.swift */; };
+		8E0A7C912689FF1F009EA65C /* VideoStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0A7C902689FF1F009EA65C /* VideoStructure.swift */; };
+		8E0A7C952689FFB7009EA65C /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0A7C942689FFB7009EA65C /* Model.swift */; };
 		8E4992E5267B373300E5BDBF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4992E4267B373300E5BDBF /* AppDelegate.swift */; };
 		8E4992E7267B373300E5BDBF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4992E6267B373300E5BDBF /* SceneDelegate.swift */; };
 		8E4992E9267B373300E5BDBF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4992E8267B373300E5BDBF /* ViewController.swift */; };
@@ -22,6 +25,9 @@
 		5E1839B6580C5CC675193C2F /* Pods-PirateRadio.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PirateRadio.release.xcconfig"; path = "Target Support Files/Pods-PirateRadio/Pods-PirateRadio.release.xcconfig"; sourceTree = "<group>"; };
 		8E0A7C7E2689BE6E009EA65C /* MusicTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicTableViewController.swift; sourceTree = "<group>"; };
 		8E0A7C822689BE91009EA65C /* MusicTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicTableViewCell.swift; sourceTree = "<group>"; };
+		8E0A7C8D2689FDA1009EA65C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		8E0A7C902689FF1F009EA65C /* VideoStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoStructure.swift; sourceTree = "<group>"; };
+		8E0A7C942689FFB7009EA65C /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		8E4992E1267B373300E5BDBF /* PirateRadio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PirateRadio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E4992E4267B373300E5BDBF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8E4992E6267B373300E5BDBF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -64,6 +70,16 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
+		8E0A7C932689FF2F009EA65C /* Structures */ = {
+			isa = PBXGroup;
+			children = (
+				8E0A7C8D2689FDA1009EA65C /* Constants.swift */,
+				8E0A7C902689FF1F009EA65C /* VideoStructure.swift */,
+				8E0A7C942689FFB7009EA65C /* Model.swift */,
+			);
+			path = Structures;
+			sourceTree = "<group>";
+		};
 		8E4992D8267B373300E5BDBF = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +101,7 @@
 		8E4992E3267B373300E5BDBF /* PirateRadio */ = {
 			isa = PBXGroup;
 			children = (
+				8E0A7C932689FF2F009EA65C /* Structures */,
 				8E0A7C7D2689BE2F009EA65C /* ViewControllers */,
 				8E4992E4267B373300E5BDBF /* AppDelegate.swift */,
 				8E4992E6267B373300E5BDBF /* SceneDelegate.swift */,
@@ -222,8 +239,11 @@
 				8E0A7C832689BE91009EA65C /* MusicTableViewCell.swift in Sources */,
 				8E4992E9267B373300E5BDBF /* ViewController.swift in Sources */,
 				8E0A7C7F2689BE6E009EA65C /* MusicTableViewController.swift in Sources */,
+				8E0A7C912689FF1F009EA65C /* VideoStructure.swift in Sources */,
 				8E4992E5267B373300E5BDBF /* AppDelegate.swift in Sources */,
 				8E4992E7267B373300E5BDBF /* SceneDelegate.swift in Sources */,
+				8E0A7C8E2689FDA1009EA65C /* Constants.swift in Sources */,
+				8E0A7C952689FFB7009EA65C /* Model.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
