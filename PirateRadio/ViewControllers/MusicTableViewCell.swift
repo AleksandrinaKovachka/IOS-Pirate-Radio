@@ -10,6 +10,10 @@ import UIKit
 class MusicTableViewCell: UITableViewCell {
 
 
+    @IBOutlet weak var videoImageView: UIImageView!
+    
+    @IBOutlet weak var nameAndAuthorLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

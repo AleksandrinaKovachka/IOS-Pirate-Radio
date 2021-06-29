@@ -7,10 +7,18 @@
 
 import Foundation
 
-struct Video {
-    var videoId = ""
-    var title = ""
-    var description = ""
-    var thumbnail = ""
-    var published = ""
+struct VideoResources : Codable {
+    let items : [VideoStruct]
 }
+
+struct VideoStruct : Codable{
+    let id : VideoIDStruct
+}
+
+struct VideoIDStruct: Codable {
+    let videoId : String
+}
+
+
+
+

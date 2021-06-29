@@ -11,6 +11,7 @@ class MusicTableViewController: UITableViewController {
     
     var searchController: UISearchController!
     var result: [String] = []
+    //var videoPlaylist: []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +21,8 @@ class MusicTableViewController: UITableViewController {
         self.navigationItem.searchController = searchController
         
         searchController.searchBar.delegate = self
+        
+        //get most popular songs - display in first visit
         
         
     }
@@ -38,9 +41,9 @@ class MusicTableViewController: UITableViewController {
 
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MusicSell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MusicCell", for: indexPath)
 
-        // Configure the cell...
+        // load data from structure Video
 
         return cell
     }
@@ -92,31 +95,48 @@ class MusicTableViewController: UITableViewController {
     }
     */
 
+    func searchVideos(searchText: String) {
+        let urlString = "https://www.googleapis.com/youtube/v3/search?part=snippet&q=\(searchText)&type=video&key=\(Constants.API_KEY)"
+        guard let url = URL(string: urlString) else {return}
+
+        let session = URLSession.init(configuration:.default)
+
+        let dataTask = session.dataTask(with: url) {
+            (data, response, error) in
+            
+            if error != nil {
+
+                print(error!.localizedDescription)
+                return
+            }
+            
+            guard let httpResponse = response as? HTTPURLResponse, (200...299).contains(httpResponse.statusCode) else {
+
+                print("client error")
+                return
+            }
+
+            print(data!)
+            do {
+                let jsonData = try JSONDecoder().decode(VideoResources.self, from: data!)
+                
+                for video in jsonData.items {
+                    print(video)
+                }
+            }
+            catch {
+                print(error.localizedDescription)
+            }
+
+        }
+
+        dataTask.resume()
+    }
     
 }
 
 extension MusicTableViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-//        let url = URL(string: Constants.URL)
-//
-//        guard url != nil else {
-//            return
-//        }
-//
-//        let session = URLSession.init(configuration:.default)
-//
-//        let dataTask = session.dataTask(with: url!) {
-//            (data, response, error) in
-//
-//            if error != nil || data != nil {
-//                return
-//            }
-//
-//            let jsonData = try? JSONSerialization.jsonObject(with: data!, options: [])
-//
-//            print(jsonData!)
-//        }
-//        
-//        dataTask.resume()
+        searchVideos(searchText: searchBar.text!)
     }
 }
