@@ -12,7 +12,7 @@ class MusicTableViewCell: UITableViewCell {
 
     @IBOutlet weak var videoImageView: UIImageView!
     
-    @IBOutlet weak var nameAndAuthorLabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

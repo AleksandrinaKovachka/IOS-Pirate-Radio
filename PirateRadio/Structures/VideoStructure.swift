@@ -13,10 +13,26 @@ struct VideoResources : Codable {
 
 struct VideoStruct : Codable{
     let id : VideoIDStruct
+    let snippet : VideoSnippetStruct
 }
 
-struct VideoIDStruct: Codable {
+struct VideoIDStruct : Codable {
     let videoId : String
+}
+
+struct VideoSnippetStruct : Codable {
+    let publishedAt: String
+    let title : String
+    let description : String
+    let thumbnails : VideoThumbnailsStruct
+}
+
+struct VideoThumbnailsStruct : Codable {
+    let high : VideoThumbnailsHighStruct
+}
+
+struct VideoThumbnailsHighStruct : Codable {
+    let url : String
 }
 
 
