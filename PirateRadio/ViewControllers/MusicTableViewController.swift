@@ -68,7 +68,14 @@ class MusicTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.present(VideoViewController(), animated: true, completion: nil)
+        
+        if let videoController = self.storyboard?.instantiateViewController(identifier: "VideoViewController") as? VideoViewController {
+            
+            videoController.videoID = self.videoResourses[indexPath.row].id.videoId
+            
+            self.navigationController?.pushViewController(videoController, animated: true)
+        }
+
     }
 
 

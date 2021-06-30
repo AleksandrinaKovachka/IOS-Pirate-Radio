@@ -8,46 +8,45 @@
 import UIKit
 
 class VideoViewController: UIViewController {
-
-    @IBOutlet weak var playerView: UIView!
     
-    @IBOutlet weak var titleLabel: UILabel!
-    
-    @IBOutlet weak var viewLabel: UILabel!
-    
-    @IBOutlet weak var dateOfPublicationLabel: UILabel!
-    
-    @IBOutlet weak var channelImageView: UIImageView!
-    
-    @IBOutlet weak var channelLabel: UILabel!
-    
-    @IBOutlet weak var subscribersLabel: UILabel!
-    
-    @IBOutlet weak var descriptionTextView: UITextView!
+    var videoID: String!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.titleLabel.text = "test"
-    }
-    
-
-    @IBAction func backToMusicTableOnAction(_ sender: Any) {
+        
+        print(self.videoID!)
     }
     
     @IBAction func downloadOnAction(_ sender: Any) {
     }
     
     
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+//        if let audioController = self.storyboard?.instantiateViewController(identifier: "AudioViewController") as? AudioPlayerViewController {
+//
+//            audioController.videoID = self.videoID
+//        }
+        
+        if segue.destination is AudioPlayerViewController {
+            let audioViewController = segue.destination as! AudioPlayerViewController
+            audioViewController.videoID = self.videoID
+        }
+        
+        if segue.destination is ChannelViewController {
+            let channelViewController = segue.destination as! ChannelViewController
+            channelViewController.videoID = self.videoID
+        }
+        
+        if segue.destination is DescriptionViewController {
+            let descriptionViewController = segue.destination as! DescriptionViewController
+            descriptionViewController.videoID = self.videoID
+        }
     }
-    */
+    
 
 }
