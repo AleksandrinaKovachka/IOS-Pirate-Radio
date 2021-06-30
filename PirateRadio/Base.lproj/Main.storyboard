@@ -61,7 +61,7 @@
             </objects>
             <point key="canvasLocation" x="1456.521739130435" y="-501.5625"/>
         </scene>
-        <!--Music Table View Controller-->
+        <!--Personal Pirate YouTube Radio-->
         <scene sceneID="cDu-Yu-pKA">
             <objects>
                 <tableViewController id="lmc-kD-MZF" customClass="MusicTableViewController" customModule="PirateRadio" customModuleProvider="target" sceneMemberID="viewController">
@@ -79,6 +79,9 @@
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name of song and name of author" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hSI-84-q3K">
                                             <rect key="frame" x="5" y="206" width="404" height="24"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="24" id="40F-7N-D3Q"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -108,7 +111,7 @@
                             <outlet property="delegate" destination="lmc-kD-MZF" id="XbI-vZ-cKr"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="lQu-rf-DVB">
+                    <navigationItem key="navigationItem" title="Personal Pirate YouTube Radio" id="lQu-rf-DVB">
                         <barButtonItem key="backBarButtonItem" title="Back" id="l7g-Mh-czP"/>
                     </navigationItem>
                 </tableViewController>
@@ -194,21 +197,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wtd-Mp-Ujd">
-                                <rect key="frame" x="5" y="283" width="364" height="32.5"/>
+                                <rect key="frame" x="5" y="283" width="364" height="32"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="32.5" id="0PD-59-H12"/>
+                                    <constraint firstAttribute="height" constant="32" id="0PD-59-H12"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Views" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kLV-CJ-AoI">
-                                <rect key="frame" x="5" y="325.5" width="45.5" height="20.5"/>
+                                <rect key="frame" x="5" y="325" width="45.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3It-8H-h4Q">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3It-8H-h4Q" customClass="WKYTPlayerView">
                                 <rect key="frame" x="5" y="5" width="364" height="273"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
@@ -216,7 +219,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="date of publication" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lqq-yF-tWo">
-                                <rect key="frame" x="227" y="325.5" width="142" height="21"/>
+                                <rect key="frame" x="227" y="325" width="142" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="Sbr-ie-cpO"/>
                                 </constraints>
@@ -242,8 +245,8 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="PlayerView" destination="3It-8H-h4Q" id="QfA-bR-QZq"/>
                         <outlet property="dateOfPublication" destination="lqq-yF-tWo" id="B6u-5u-JQl"/>
+                        <outlet property="playerView" destination="3It-8H-h4Q" id="qJ1-Ux-P8D"/>
                         <outlet property="titleLabel" destination="Wtd-Mp-Ujd" id="ToP-am-9un"/>
                         <outlet property="viewsLabel" destination="kLV-CJ-AoI" id="aS3-o0-fxF"/>
                     </connections>

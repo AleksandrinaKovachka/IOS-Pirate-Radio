@@ -72,6 +72,8 @@ class MusicTableViewController: UITableViewController {
         if let videoController = self.storyboard?.instantiateViewController(identifier: "VideoViewController") as? VideoViewController {
             
             videoController.videoID = self.videoResourses[indexPath.row].id.videoId
+            videoController.songTitle = self.videoResourses[indexPath.row].snippet.title
+            videoController.publishedDate = self.videoResourses[indexPath.row].snippet.publishedAt
             
             self.navigationController?.pushViewController(videoController, animated: true)
         }
@@ -80,7 +82,7 @@ class MusicTableViewController: UITableViewController {
 
 
     func searchVideos(searchText: String) {
-        let urlString = "https://www.googleapis.com/youtube/v3/search?part=snippet&q=\(searchText)&type=video&key=\(Constants.API_KEY)"
+        let urlString = "https://www.googleapis.com/youtube/v3/search?part=snippet&q=\(searchText)&type=video&key=\(Constants.API_KEY)&maxResults=20"
         guard let url = URL(string: urlString) else {return}
 
         let session = URLSession.init(configuration:.default)
@@ -127,6 +129,7 @@ class MusicTableViewController: UITableViewController {
 
 extension MusicTableViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        searchVideos(searchText: searchBar.text!)
+        let text = searchBar.text?.split(separator: " ").joined(separator: "%20")
+        searchVideos(searchText: text!)
     }
 }

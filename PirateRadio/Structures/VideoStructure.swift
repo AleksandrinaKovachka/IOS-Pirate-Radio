@@ -35,6 +35,19 @@ struct VideoThumbnailsHighStruct : Codable {
     let url : String
 }
 
+struct VideoResourcesViews : Codable {
+    let items : [VideoViewsStruct]
+}
+
+struct VideoViewsStruct : Codable {
+    let statistics : VideoViewStatisticsStruct
+    
+}
+
+struct VideoViewStatisticsStruct : Codable {
+    let viewCount: String
+}
+
 
 
 

@@ -10,6 +10,8 @@ import UIKit
 class VideoViewController: UIViewController {
     
     var videoID: String!
+    var songTitle: String!
+    var publishedDate: String!
     
     
     override func viewDidLoad() {
@@ -35,6 +37,8 @@ class VideoViewController: UIViewController {
         if segue.destination is AudioPlayerViewController {
             let audioViewController = segue.destination as! AudioPlayerViewController
             audioViewController.videoID = self.videoID
+            audioViewController.songTitle = self.songTitle
+            audioViewController.publishedDate = self.publishedDate
         }
         
         if segue.destination is ChannelViewController {
