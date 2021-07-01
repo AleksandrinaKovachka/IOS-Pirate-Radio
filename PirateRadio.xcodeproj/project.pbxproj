@@ -22,6 +22,8 @@
 		8E4992EC267B373300E5BDBF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E4992EA267B373300E5BDBF /* Main.storyboard */; };
 		8E4992EE267B373400E5BDBF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E4992ED267B373400E5BDBF /* Assets.xcassets */; };
 		8E4992F1267B373400E5BDBF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E4992EF267B373400E5BDBF /* LaunchScreen.storyboard */; };
+		8E6DD866268E0F8300A419C2 /* PersonalMusicTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6DD865268E0F8300A419C2 /* PersonalMusicTableViewController.swift */; };
+		8E6DD869268E0F9B00A419C2 /* PersonalMusicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6DD868268E0F9B00A419C2 /* PersonalMusicTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +44,8 @@
 		8E4992ED267B373400E5BDBF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8E4992F0267B373400E5BDBF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8E4992F2267B373400E5BDBF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8E6DD865268E0F8300A419C2 /* PersonalMusicTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalMusicTableViewController.swift; sourceTree = "<group>"; };
+		8E6DD868268E0F9B00A419C2 /* PersonalMusicTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalMusicTableViewCell.swift; sourceTree = "<group>"; };
 		BFF5042E2A3CFD2556D374D9 /* Pods_PirateRadio.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PirateRadio.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9D56F56356F2E67F597EA46 /* Pods-PirateRadio.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PirateRadio.debug.xcconfig"; path = "Target Support Files/Pods-PirateRadio/Pods-PirateRadio.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -76,6 +80,8 @@
 				8E0A7C9F268C621C009EA65C /* AudioPlayerViewController.swift */,
 				8E0A7CA2268C623C009EA65C /* ChannelViewController.swift */,
 				8E0A7CA5268C6261009EA65C /* DescriptionViewController.swift */,
+				8E6DD865268E0F8300A419C2 /* PersonalMusicTableViewController.swift */,
+				8E6DD868268E0F9B00A419C2 /* PersonalMusicTableViewCell.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -246,6 +252,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8E0A7C832689BE91009EA65C /* MusicTableViewCell.swift in Sources */,
+				8E6DD869268E0F9B00A419C2 /* PersonalMusicTableViewCell.swift in Sources */,
 				8E4992E9267B373300E5BDBF /* ViewController.swift in Sources */,
 				8E0A7C9D268B64FF009EA65C /* VideoViewController.swift in Sources */,
 				8E0A7C7F2689BE6E009EA65C /* MusicTableViewController.swift in Sources */,
@@ -254,6 +261,7 @@
 				8E4992E5267B373300E5BDBF /* AppDelegate.swift in Sources */,
 				8E4992E7267B373300E5BDBF /* SceneDelegate.swift in Sources */,
 				8E0A7CA6268C6261009EA65C /* DescriptionViewController.swift in Sources */,
+				8E6DD866268E0F8300A419C2 /* PersonalMusicTableViewController.swift in Sources */,
 				8E0A7C8E2689FDA1009EA65C /* Constants.swift in Sources */,
 				8E0A7CA0268C621C009EA65C /* AudioPlayerViewController.swift in Sources */,
 			);

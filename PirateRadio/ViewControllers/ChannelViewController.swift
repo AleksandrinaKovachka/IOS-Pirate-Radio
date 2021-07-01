@@ -60,7 +60,12 @@ class ChannelViewController: UIViewController {
                     if let url = URL(string: imageURL) {
                         if let data = try? Data.init(contentsOf: url) {
                             if let image = UIImage.init(data: data) {
+                                
                                 self.channelImageView.image = image
+                                self.channelImageView.layer.masksToBounds = false
+                                self.channelImageView.layer.cornerRadius = self.channelImageView.frame.height / 2
+                                self.channelImageView.clipsToBounds = true
+                                
                             }
                         }
                     }

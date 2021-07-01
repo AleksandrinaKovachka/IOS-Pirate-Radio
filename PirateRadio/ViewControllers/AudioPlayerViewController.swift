@@ -27,7 +27,8 @@ class AudioPlayerViewController: UIViewController {
         convertPublishedData()
         searchVideos()
         
-        self.playerView.load(withVideoId: self.videoID)
+        let playerVars: [AnyHashable: Any] = ["playsinline" : 1, "origin": "https://www.youtube.com"]
+        self.playerView.load(withVideoId: self.videoID, playerVars: playerVars)
         
 
     }

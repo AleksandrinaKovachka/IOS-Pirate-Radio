@@ -12,10 +12,20 @@ struct VideoResources : Codable {
     let items : [VideoStruct]
 }
 
-struct VideoStruct : Codable{
+struct VideoStruct : Codable {
     let id : VideoIDStruct
     let snippet : VideoSnippetStruct
 }
+
+//struct VideoStructOrdinary : VideoStruct {
+//    let id : VideoIDStruct
+//    let snippet : VideoSnippetStruct
+//}
+//
+//struct VideoStructPopular : VideoStruct  {
+//    let id : String
+//    let snippet : VideoSnippetStruct
+//}
 
 struct VideoIDStruct : Codable {
     let videoId : String
@@ -70,5 +80,13 @@ struct ChannelStatisticsStruct : Codable {
     let subscriberCount: String
 }
 
+//most popular videos struct
+struct PopularVideoResources : Codable {
+    let items : [PopularVideoStruct]
+}
 
+struct PopularVideoStruct : Codable{
+    let id : String
+    let snippet : VideoSnippetStruct
+}
 

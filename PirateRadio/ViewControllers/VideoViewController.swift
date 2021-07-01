@@ -11,7 +11,7 @@ class VideoViewController: UIViewController {
     
     @IBOutlet weak var descriptionOfSongTextView: UITextView!
     
-    var videoID: String!
+    var videoId: String!
     var songTitle: String!
     var publishedDate: String!
     var channelId: String!
@@ -25,6 +25,7 @@ class VideoViewController: UIViewController {
     }
     
     @IBAction func downloadOnAction(_ sender: Any) {
+        
     }
     
     
@@ -40,14 +41,14 @@ class VideoViewController: UIViewController {
         
         if segue.destination is AudioPlayerViewController {
             let audioViewController = segue.destination as! AudioPlayerViewController
-            audioViewController.videoID = self.videoID
+            audioViewController.videoID = self.videoId
             audioViewController.songTitle = self.songTitle
             audioViewController.publishedDate = self.publishedDate
         }
         
         if segue.destination is ChannelViewController {
             let channelViewController = segue.destination as! ChannelViewController
-            channelViewController.videoID = self.videoID
+            channelViewController.videoID = self.videoId
             channelViewController.channelId = self.channelId
         }
         
