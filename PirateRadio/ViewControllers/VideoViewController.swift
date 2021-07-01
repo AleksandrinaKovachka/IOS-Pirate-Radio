@@ -9,16 +9,19 @@ import UIKit
 
 class VideoViewController: UIViewController {
     
+    @IBOutlet weak var descriptionOfSongTextView: UITextView!
+    
     var videoID: String!
     var songTitle: String!
     var publishedDate: String!
     var channelId: String!
+    var descriptionOfSong: String!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print(self.videoID!)
+        self.descriptionOfSongTextView.text = self.descriptionOfSong
     }
     
     @IBAction func downloadOnAction(_ sender: Any) {
@@ -48,10 +51,10 @@ class VideoViewController: UIViewController {
             channelViewController.channelId = self.channelId
         }
         
-        if segue.destination is DescriptionViewController {
-            let descriptionViewController = segue.destination as! DescriptionViewController
-            descriptionViewController.videoID = self.videoID
-        }
+//        if segue.destination is DescriptionViewController {
+//            let descriptionViewController = segue.destination as! DescriptionViewController
+//            descriptionViewController.videoID = self.videoID
+//        }
     }
     
 

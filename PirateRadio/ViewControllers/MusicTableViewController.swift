@@ -75,6 +75,7 @@ class MusicTableViewController: UITableViewController {
             videoController.songTitle = self.videoResourses[indexPath.row].snippet.title
             videoController.publishedDate = self.videoResourses[indexPath.row].snippet.publishedAt
             videoController.channelId = self.videoResourses[indexPath.row].snippet.channelId
+            videoController.descriptionOfSong = self.videoResourses[indexPath.row].snippet.description
             
             print(videoController.channelId!)
             
