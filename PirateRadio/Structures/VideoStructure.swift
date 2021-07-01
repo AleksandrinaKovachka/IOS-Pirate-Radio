@@ -7,6 +7,7 @@
 
 import Foundation
 
+//video structures
 struct VideoResources : Codable {
     let items : [VideoStruct]
 }
@@ -22,19 +23,21 @@ struct VideoIDStruct : Codable {
 
 struct VideoSnippetStruct : Codable {
     let publishedAt: String
+    let channelId: String
     let title : String
     let description : String
-    let thumbnails : VideoThumbnailsStruct
+    let thumbnails : ThumbnailsStruct
 }
 
-struct VideoThumbnailsStruct : Codable {
-    let high : VideoThumbnailsHighStruct
+struct ThumbnailsStruct : Codable {
+    let high : ThumbnailsHighStruct
 }
 
-struct VideoThumbnailsHighStruct : Codable {
+struct ThumbnailsHighStruct : Codable {
     let url : String
 }
 
+//video resources for views structure
 struct VideoResourcesViews : Codable {
     let items : [VideoViewsStruct]
 }
@@ -48,6 +51,24 @@ struct VideoViewStatisticsStruct : Codable {
     let viewCount: String
 }
 
+//channel structures
+struct ChannelStruct : Codable {
+    let items : [ChannelItemsStruct]
+}
+
+struct ChannelItemsStruct : Codable {
+    let snippet : ChannelSnippetStruct
+    let statistics : ChannelStatisticsStruct
+}
+
+struct ChannelSnippetStruct : Codable {
+    let title : String
+    let thumbnails : ThumbnailsStruct
+}
+
+struct ChannelStatisticsStruct : Codable {
+    let subscriberCount: String
+}
 
 
 

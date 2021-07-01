@@ -23,14 +23,11 @@ class AudioPlayerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        print(self.videoID!)
         self.titleLabel.text = self.songTitle
         convertPublishedData()
         searchVideos()
         
         self.playerView.load(withVideoId: self.videoID)
-        
-        //request for views
         
 
     }
@@ -47,7 +44,7 @@ class AudioPlayerViewController: UIViewController {
     
     func searchVideos() {
         let urlString =
-        "https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id=\(self.videoID!)=\(Constants.API_KEY)"
+        "https://youtube.googleapis.com/youtube/v3/videos?part=snippet,contentDetails,statistics&id=\(self.videoID!)&key=\(Constants.API_KEY)"
         
         guard let url = URL(string: urlString) else {return}
 
@@ -55,8 +52,6 @@ class AudioPlayerViewController: UIViewController {
         
         let dataTask = session.dataTask(with: url) {
             (data, response, error) in
-            
-            print("test")
             
             if error != nil {
 
@@ -70,12 +65,13 @@ class AudioPlayerViewController: UIViewController {
                 return
             }
 
-            print(data!)
             do {
                 let jsonData = try JSONDecoder().decode(VideoResourcesViews.self, from: data!)
                 let views = jsonData.items[0].statistics.viewCount
                 
-                self.viewsLabel.text = "Views: " + views
+                DispatchQueue.main.async {
+                    self.viewsLabel.text = "Views: " + views
+                }
                 
             }
             catch {

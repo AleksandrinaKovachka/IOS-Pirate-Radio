@@ -15,7 +15,7 @@ class MusicTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.tableView.tableFooterView = UIView()
+//        self.tableView.tableFooterView = UIView()
         
         self.searchController = UISearchController.init(searchResultsController: nil)
         
@@ -40,10 +40,10 @@ class MusicTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return videoResourses.count
     }
-    
-    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return CGFloat.leastNormalMagnitude
-    }
+//
+//    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+//        return CGFloat.leastNormalMagnitude
+//    }
 
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -57,7 +57,7 @@ class MusicTableViewController: UITableViewController {
         if let url = URL(string: imageURL) {
             if let data = try? Data.init(contentsOf: url) {
                 if let image = UIImage.init(data: data) {
-                    cell.imageView?.image = image
+                    cell.videoImageView.image = image
                 }
             }
         }
@@ -74,6 +74,9 @@ class MusicTableViewController: UITableViewController {
             videoController.videoID = self.videoResourses[indexPath.row].id.videoId
             videoController.songTitle = self.videoResourses[indexPath.row].snippet.title
             videoController.publishedDate = self.videoResourses[indexPath.row].snippet.publishedAt
+            videoController.channelId = self.videoResourses[indexPath.row].snippet.channelId
+            
+            print(videoController.channelId!)
             
             self.navigationController?.pushViewController(videoController, animated: true)
         }

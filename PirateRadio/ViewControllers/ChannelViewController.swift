@@ -14,13 +14,67 @@ class ChannelViewController: UIViewController {
     @IBOutlet weak var subscribersLabel: UILabel!
     
     var videoID: String!
+    var channelId: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        print(self.videoID!)
-        self.channelNameLabel.text = self.videoID
+        searchChannelNameAndSubscribers()
+    }
+    
+    func searchChannelNameAndSubscribers() {
+        let urlString =
+        "https://youtube.googleapis.com/youtube/v3/channels?part=snippet,contentDetails,statistics&id=\(self.channelId!)&key=\(Constants.API_KEY)"
+        
+        guard let url = URL(string: urlString) else {return}
+        
+        print(urlString)
 
+        let session = URLSession.init(configuration:.default)
+        
+        let dataTask = session.dataTask(with: url) {
+            (data, response, error) in
+            
+            if error != nil {
+
+                print(error!.localizedDescription)
+                return
+            }
+            
+            guard let httpResponse = response as? HTTPURLResponse, (200...299).contains(httpResponse.statusCode) else {
+
+                print("client error")
+                return
+            }
+
+            do {
+                let jsonData = try JSONDecoder().decode(ChannelStruct.self, from: data!)
+                let channelInfo = jsonData.items[0]
+                
+                DispatchQueue.main.async {
+                    self.channelNameLabel.text = channelInfo.snippet.title
+                    self.subscribersLabel.text = channelInfo.statistics.subscriberCount + " subscribers"
+                    
+                    let imageURL = channelInfo.snippet.thumbnails.high.url
+                    
+                    if let url = URL(string: imageURL) {
+                        if let data = try? Data.init(contentsOf: url) {
+                            if let image = UIImage.init(data: data) {
+                                self.channelImageView.image = image
+                            }
+                        }
+                    }
+                    
+                }
+                
+            }
+            catch {
+                print(error.localizedDescription)
+            }
+
+        }
+
+        dataTask.resume()
     }
     
 
