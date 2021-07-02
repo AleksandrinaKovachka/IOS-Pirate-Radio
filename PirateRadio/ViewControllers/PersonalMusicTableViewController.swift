@@ -7,16 +7,23 @@
 
 import UIKit
 
-class PersonalMusicTableViewController: UITableViewController {
+class PersonalMusicTableViewController: UITableViewController, UISearchBarDelegate {
+    
+    var searchController : UISearchController!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        self.searchController = UISearchController.init(searchResultsController: nil)
+        
+        self.navigationItem.searchController = searchController
+        
+        searchController.searchBar.delegate = self
+        
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.definesPresentationContext = true
+        
+        
     }
 
     // MARK: - Table view data source

@@ -16,6 +16,9 @@ class VideoViewController: UIViewController {
     var publishedDate: String!
     var channelId: String!
     var descriptionOfSong: String!
+    var imageUrl: String!
+    
+    
     
     
     override func viewDidLoad() {
@@ -48,7 +51,6 @@ class VideoViewController: UIViewController {
         
         if segue.destination is ChannelViewController {
             let channelViewController = segue.destination as! ChannelViewController
-            channelViewController.videoID = self.videoId
             channelViewController.channelId = self.channelId
         }
         

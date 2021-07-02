@@ -13,7 +13,6 @@ class ChannelViewController: UIViewController {
     @IBOutlet weak var channelNameLabel: UILabel!
     @IBOutlet weak var subscribersLabel: UILabel!
     
-    var videoID: String!
     var channelId: String!
     
     override func viewDidLoad() {

@@ -92,12 +92,14 @@ class MusicTableViewController: UITableViewController {
                 videoController.publishedDate = self.videoResources[indexPath.row].snippet.publishedAt
                 videoController.channelId = self.videoResources[indexPath.row].snippet.channelId
                 videoController.descriptionOfSong = self.videoResources[indexPath.row].snippet.description
+                videoController.imageUrl = self.videoResources[indexPath.row].snippet.thumbnails.high.url
             } else {
                 videoController.videoId = self.popularVideoResources[indexPath.row].id
                 videoController.songTitle = self.popularVideoResources[indexPath.row].snippet.title
                 videoController.publishedDate = self.popularVideoResources[indexPath.row].snippet.publishedAt
                 videoController.channelId = self.popularVideoResources[indexPath.row].snippet.channelId
                 videoController.descriptionOfSong = self.popularVideoResources[indexPath.row].snippet.description
+                videoController.imageUrl = self.popularVideoResources[indexPath.row].snippet.thumbnails.high.url
             }
             
             self.navigationController?.pushViewController(videoController, animated: true)
@@ -207,4 +209,74 @@ extension MusicTableViewController: UISearchBarDelegate {
         let text = searchBar.text?.split(separator: " ").joined(separator: "%20")
         searchVideos(searchText: text!)
     }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        self.videoResources.removeAll()
+        
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
 }
+
+/*
+ func searchVideos(searchText: String) {
+     let urlString = "https://www.googleapis.com/youtube/v3/search?part=snippet&q=\(searchText)&type=video&key=\(Constants.API_KEY)&maxResults=20"
+     
+     print(urlString)
+     
+     searchVideosWithURL(urlString: urlString)
+ }
+
+ func mostPopularSongs() {
+     let countryCode = (Locale.current as NSLocale).object(forKey: .countryCode) as! String
+     
+     let urlString =
+     "https://youtube.googleapis.com/youtube/v3/search?part=snippet&chart=mostPopular&maxResults=20&regionCode=\(countryCode)&key=\(Constants.API_KEY)"
+     
+     print(urlString)
+     
+     searchVideosWithURL(urlString: urlString)
+ }
+ 
+ func searchVideosWithURL(urlString: String) {
+     guard let url = URL(string: urlString) else {return}
+
+     let session = URLSession.init(configuration:.default)
+     
+     let dataTask = session.dataTask(with: url) {
+         (data, response, error) in
+         
+         print("here")
+         
+         if error != nil {
+
+             print(error!.localizedDescription)
+             return
+         }
+         
+         guard let httpResponse = response as? HTTPURLResponse, (200...299).contains(httpResponse.statusCode) else {
+
+             print("client error")
+             return
+         }
+
+         print(data!)
+         do {
+//                let jsonData = try JSONDecoder().decode(VideoResources.self, from: data!)
+             let jsonData = try JSONDecoder().decode(VideoSearchStruct.self, from: data!)
+             self.videoResources = jsonData.items
+             
+             DispatchQueue.main.async {
+                 self.tableView.reloadData()
+             }
+         }
+         catch {
+             print(error.localizedDescription)
+         }
+
+     }
+
+     dataTask.resume()
+ }
+ */

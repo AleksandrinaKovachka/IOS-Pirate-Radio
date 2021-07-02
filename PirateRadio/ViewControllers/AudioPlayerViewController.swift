@@ -45,7 +45,7 @@ class AudioPlayerViewController: UIViewController {
     
     func searchVideos() {
         let urlString =
-        "https://youtube.googleapis.com/youtube/v3/videos?part=snippet,contentDetails,statistics&id=\(self.videoID!)&key=\(Constants.API_KEY)"
+        "https://youtube.googleapis.com/youtube/v3/videos?part=statistics&id=\(self.videoID!)&key=\(Constants.API_KEY)"
         
         guard let url = URL(string: urlString) else {return}
 

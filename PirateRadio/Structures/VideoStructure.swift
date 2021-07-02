@@ -7,6 +7,22 @@
 
 import Foundation
 
+//search structures
+//struct VideoSearchStruct: Codable {
+//    let items: [VideoSearchResourcesStruct]
+//}
+//
+//struct VideoSearchResourcesStruct : Codable {
+//    let id: VideoIdStruct
+//}
+//
+//struct VideoIdStruct : Codable {
+//    let videoId: String
+//}
+
+
+
+
 //video structures
 struct VideoResources : Codable {
     let items : [VideoStruct]
@@ -16,16 +32,6 @@ struct VideoStruct : Codable {
     let id : VideoIDStruct
     let snippet : VideoSnippetStruct
 }
-
-//struct VideoStructOrdinary : VideoStruct {
-//    let id : VideoIDStruct
-//    let snippet : VideoSnippetStruct
-//}
-//
-//struct VideoStructPopular : VideoStruct  {
-//    let id : String
-//    let snippet : VideoSnippetStruct
-//}
 
 struct VideoIDStruct : Codable {
     let videoId : String
