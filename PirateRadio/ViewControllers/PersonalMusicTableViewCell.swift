@@ -9,6 +9,9 @@ import UIKit
 
 class PersonalMusicTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var videoImage: UIImageView!
+    @IBOutlet weak var titleLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

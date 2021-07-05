@@ -1,3 +1,4 @@
 ${PODS_ROOT}/Target Support Files/Pods-PirateRadio/Pods-PirateRadio-frameworks.sh
+${BUILT_PRODUCTS_DIR}/HTMLKit/HTMLKit.framework
 ${BUILT_PRODUCTS_DIR}/Toast-Swift/Toast_Swift.framework
 ${BUILT_PRODUCTS_DIR}/YoutubePlayer-in-WKWebView/YoutubePlayer_in_WKWebView.framework

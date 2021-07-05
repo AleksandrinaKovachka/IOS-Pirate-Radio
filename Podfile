@@ -8,5 +8,6 @@ target 'PirateRadio' do
   # Pods for PirateRadio
   pod 'Toast-Swift', '~> 5.0.1'
   pod ‘YoutubePlayer-in-WKWebView’
+  pod 'HTMLKit' 
 
 end

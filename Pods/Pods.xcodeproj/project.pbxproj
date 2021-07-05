@@ -3,94 +3,358 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2024EE5E265681137A9FEBC630E6E0F1 /* Toast-Swift-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 299361CC9D06915F822E9FD8EEF72FF7 /* Toast-Swift-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4499762DD3FD7A5BC845074BB8069116 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31FE7C6ECA71C614A5A667C679B23874 /* Foundation.framework */; };
-		4753716AE7A1AB22FB6BA61AA74D942F /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6620E2D73C73A27E06384BB6A5D75F26 /* Toast.swift */; };
-		4BBBDD52873061AC9A8355C11FCA5B44 /* YoutubePlayer-in-WKWebView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6302F57A08872E0FF32F8D574A4AE294 /* YoutubePlayer-in-WKWebView-dummy.m */; };
-		6B326644BB08AEDF697A82A0F1A66D68 /* Toast-Swift-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 083A5BECDA9C9F4BAC541ACF57C42CE0 /* Toast-Swift-dummy.m */; };
+		038848D5D62ED189A285C324C2CC7D3A /* NSCharacterSet+HTMLKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 332883A3A475E126CAABC9F000DE4490 /* NSCharacterSet+HTMLKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		05C3E06855DC8179081C39D789A8B1F0 /* CSSStructuralPseudoSelectors.h in Headers */ = {isa = PBXBuildFile; fileRef = 6936035F04C842F71FE9901707943FA9 /* CSSStructuralPseudoSelectors.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		068F555130A1713846DCD274395A5371 /* HTMLTokenizerStates.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D398354ED59CF66EE69CB73EA6CAD9C /* HTMLTokenizerStates.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		07543B35DE65261F2B3EB2114609806D /* CSSPseudoClassSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = DF79E11C0CCF04093C29F35E82A42FBF /* CSSPseudoClassSelector.m */; };
+		089591E0DBAEAAD118517074F91B9C7E /* HTMLTokenizer.m in Sources */ = {isa = PBXBuildFile; fileRef = D80E12BB9266A97D3FCD849E422BCD1D /* HTMLTokenizer.m */; };
+		09C3DD867776CE90FC70EE185A11525F /* HTMLTokenizerEntities.m in Sources */ = {isa = PBXBuildFile; fileRef = DC5FA36E27D1040F7C2E65D0A0053ABD /* HTMLTokenizerEntities.m */; };
+		0C0971BC747C823F6E1D80EA806F7BCC /* HTMLOrderedDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = 32BCA768077E8D6C71BE782B6F3A9200 /* HTMLOrderedDictionary.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0E7966C68D66DFC8F5034B1337D3DA8D /* HTMLNodeIterator.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F9156E02A86A623FEE5DD39A590E91F /* HTMLNodeIterator.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0E868C32881D2AFC3F83720449AE3DBE /* HTMLQuirksMode.h in Headers */ = {isa = PBXBuildFile; fileRef = 644063341EA002E0EAE8F6CC7EA8E810 /* HTMLQuirksMode.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1133D82E4A202C44D93CA728CCF8B1A9 /* HTMLNodeTraversal.m in Sources */ = {isa = PBXBuildFile; fileRef = 426FDF036EA10292170AA3BD81ED3892 /* HTMLNodeTraversal.m */; };
+		1254DE0E9C537E071D9F10D9862E2AA3 /* HTMLDocumentType.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA07DF50A2C1AA42FA2AFDCC7B2965E /* HTMLDocumentType.m */; };
+		15F2A99F78A3DAC5CC20E2C2DA4A2FC2 /* HTMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = D0D32A145C871E7433C614720954CB04 /* HTMLNode.m */; };
+		15F6D319E31616757F1ACD5765A90CE0 /* HTMLDOCTYPEToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ACD7EA4F74A6430932FF69C59F0A143 /* HTMLDOCTYPEToken.m */; };
+		1793C3BE1ED8253BC4134EA1A253DFE2 /* HTMLDOMUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = A7F8DCCBB835408D909EDA3B43F1BE3F /* HTMLDOMUtils.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		1A3E6368CD99234A2FB4C67F40D90282 /* HTMLTreeVisitor.m in Sources */ = {isa = PBXBuildFile; fileRef = AEC8237B42AD335BC0B123C7ED74F091 /* HTMLTreeVisitor.m */; };
+		1ACBB4793541AEBF22F6A89EA0C447F7 /* HTMLStackOfOpenElements.h in Headers */ = {isa = PBXBuildFile; fileRef = 38308400EF6505AF84F3AC2890302A55 /* HTMLStackOfOpenElements.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		1B2958A9A764A7ED6119B58E2DAF50FD /* HTMLElement.h in Headers */ = {isa = PBXBuildFile; fileRef = 606B574A07E56D9CCAA58A94841C498E /* HTMLElement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1C3ADC96E5FEB81BBD414A11930EA00E /* HTMLText.h in Headers */ = {isa = PBXBuildFile; fileRef = 9099AF6B289F5B08D6D48640237EAC65 /* HTMLText.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1CB71DEAE348197CB16E8FFDB2D5A92A /* CSSCombinatorSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 0744FF496D2CB9A679267BDDB4A219D2 /* CSSCombinatorSelector.m */; };
+		1F4931628E1D4A5089916468D8569F98 /* CSSTypeSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = ABA376EB889B10C2FAB0ED105036864C /* CSSTypeSelector.m */; };
+		1FC973CF679B92965414C269EACAE033 /* HTMLNodeIterator+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 99A4B2BCFC860D54923927B17A8598FC /* HTMLNodeIterator+Private.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		2024EE5E265681137A9FEBC630E6E0F1 /* Toast-Swift-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 57FA56C244BC2B9505A53D070A487EE8 /* Toast-Swift-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		205B43284C1BE8422E683D0ECA2F76BA /* Pods-PirateRadio-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 63291DDEE67276B99704D59D4AA07B9E /* Pods-PirateRadio-dummy.m */; };
+		22AA0D6E0A8B8154D4950A7AF01E0866 /* HTMLMarker.h in Headers */ = {isa = PBXBuildFile; fileRef = 05B408532767FC7885E67F5D9E00EF68 /* HTMLMarker.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		247670222CBF2220BC39A64B22F4CBCE /* HTMLSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = EDE2B5874B25E5F031CD0F4C718086AE /* HTMLSerializer.m */; };
+		2926F8630F9DA391F7636E5B5A0F7557 /* HTMLKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC4145491A707C7B31149C8BFAD46AE /* HTMLKit-dummy.m */; };
+		2AA86826B1EED2516EF1F635D76C9608 /* HTMLRange+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A75FEB7D16DB6414CEEC07EE9EE4C7E /* HTMLRange+Private.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		2BC7C2898F080D547D1034ADB8BD6D29 /* HTMLCommentToken.h in Headers */ = {isa = PBXBuildFile; fileRef = 08691D47C5BAA270A63CFA1A05898D30 /* HTMLCommentToken.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		2D071552241CC029A419968648207918 /* HTMLElementAdjustment.h in Headers */ = {isa = PBXBuildFile; fileRef = B21176F3CA546BA2FE74228420943A18 /* HTMLElementAdjustment.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		2DB1857958030319B83BAE0DDDB2D6FA /* HTMLTagToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 224D1F9D5C45F3971890518EB35A6544 /* HTMLTagToken.m */; };
+		2DF99D4BCDF69CB88FA93EEC98525C99 /* HTMLTagToken.h in Headers */ = {isa = PBXBuildFile; fileRef = 096A0C47079C2ADF7FBC4C2749648915 /* HTMLTagToken.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		2E8AEFE15398667EDAC9160FFB4FC1AA /* HTMLRange.m in Sources */ = {isa = PBXBuildFile; fileRef = 667F7C6EE7A7187F195731F98890B339 /* HTMLRange.m */; };
+		2F69DB88ADA7407710426F2CFA0DF1D8 /* CSSSelector.h in Headers */ = {isa = PBXBuildFile; fileRef = 74D236FA500A2D2B3D5DD27A68E29B28 /* CSSSelector.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2FC31BE5B685BFD1E8D09ABC5143D96C /* HTMLOrderedDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = A9EE70A7CE24D9D02939B1E0D305D091 /* HTMLOrderedDictionary.m */; };
+		30AD3AA41298DB92EEA5C855876918FD /* HTMLDocumentFragment.h in Headers */ = {isa = PBXBuildFile; fileRef = 288FDB092DC15040D5B4B094A91B4FB5 /* HTMLDocumentFragment.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		30FA2054A1D1A1909C6A576D375F3D34 /* NSCharacterSet+HTMLKit.m in Sources */ = {isa = PBXBuildFile; fileRef = ADA59FB5E09164974E6F8840D394BAB2 /* NSCharacterSet+HTMLKit.m */; };
+		337E3639C45768BA3D91494DE4CE13A6 /* NSString+HTMLKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 7728333904F9A0583DD05204529C5CD6 /* NSString+HTMLKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		35D6347C9D2E2944E1B05BB9182B04EA /* HTMLCharacterToken.h in Headers */ = {isa = PBXBuildFile; fileRef = 07D2F0B1E5D029716E1E5E9F6C98E0E5 /* HTMLCharacterToken.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		37802E9225ABF2AD97AAF455DF51E1D3 /* HTMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 625D70756A732484E569224A4B74E649 /* HTMLParser.m */; };
+		3B4D77D7B33C2D27CA80D0FA66AD572A /* HTMLMarker.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AD32564D44E9B3747DFD796B148F14B /* HTMLMarker.m */; };
+		3B9C07BCDCEB7B2C0266A1D7370D3326 /* HTMLDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 34C355231F682C35866495587562E086 /* HTMLDocument.m */; };
+		3FF5337706648B3C2368437B4A0BB20C /* CSSNthExpressionParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA4F522CE77ABBABEB5E0D2D1A73527 /* CSSNthExpressionParser.m */; };
+		41A122C3E9214179A4886653409B09FC /* HTMLElementTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F298E37B2606B6968D6DA5B39A45E01 /* HTMLElementTypes.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		41E10EE4932151CC321A465538DCDE75 /* HTMLKitErrorDomain.h in Headers */ = {isa = PBXBuildFile; fileRef = EE5CBD83B43CEBF8EED2A1A70C281A11 /* HTMLKitErrorDomain.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		43014E1B8687ECB3DF0C545F9A01BC25 /* CSSInputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C6C4373B57D3D9ECB2E023006168EAB /* CSSInputStream.m */; };
+		46EC1FF90ECC6E61E7831D7BF7D6B91D /* CSSPseudoClassSelector.h in Headers */ = {isa = PBXBuildFile; fileRef = 59FFDBAA34B402E93E1C3E9DF1C50B2C /* CSSPseudoClassSelector.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4753716AE7A1AB22FB6BA61AA74D942F /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = D721BEE22FF9703166B240B9EEF87B1B /* Toast.swift */; };
+		4960347B078294511ADB0AE4CA9250CF /* HTMLCharacterToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 0861F97FB7364B7AFC66EB561FD7647B /* HTMLCharacterToken.m */; };
+		496FC59E7A590CA43EC7201963BC39AE /* HTMLCommentToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E11361ED6624E71636F3362A8F6DA05 /* HTMLCommentToken.m */; };
+		4BBBDD52873061AC9A8355C11FCA5B44 /* YoutubePlayer-in-WKWebView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 20E10275C000EFFC7FACA18D3EC8AF7D /* YoutubePlayer-in-WKWebView-dummy.m */; };
+		4C46BE52C7D412DFD77AA119A54841FC /* CSSAttributeSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = E82886AF9AB68D7825FE7C3D951A7AF0 /* CSSAttributeSelector.m */; };
+		4CB6977EEA02A7B5E14036340759CCBA /* CSSSelectors.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F2342B48E40A27874A80F352EA83351 /* CSSSelectors.m */; };
+		4CF2F636C443C3D4C6501524C45209C5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31FE7C6ECA71C614A5A667C679B23874 /* Foundation.framework */; };
+		4EE25F10E0A85004708299D5FD35C4E9 /* HTMLNamespaces.h in Headers */ = {isa = PBXBuildFile; fileRef = 96AA622A96435880B4566AC531023DA6 /* HTMLNamespaces.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5471749C4CF0B455B9C127888491B35B /* HTMLListOfActiveFormattingElements.h in Headers */ = {isa = PBXBuildFile; fileRef = 15CC0F385576DEE4F2BDCAA8086FCFEE /* HTMLListOfActiveFormattingElements.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		54991BAAC0F537E05F53D447B76F044E /* HTMLKitDOMExceptions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AC443718A0CAE6AF6BD163E156DE48E /* HTMLKitDOMExceptions.m */; };
+		54E0E7DBAB6DF7ADA07A06B99BB1BCC8 /* HTMLNodeIterator.m in Sources */ = {isa = PBXBuildFile; fileRef = A0664E4BD732668E7B6C44984931A05E /* HTMLNodeIterator.m */; };
+		5AE34DD4CC46A7BF18EDB1C4797EAFAD /* HTMLTemplate.h in Headers */ = {isa = PBXBuildFile; fileRef = 2DB0C6FE831E67FE52D4A4A2D6C6C724 /* HTMLTemplate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5C41DAD11C8D5C27707A9D641C9D592A /* CSSNthExpressionSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 535690767B1671F06E0F459B008FD8F3 /* CSSNthExpressionSelector.m */; };
+		5C4BA615876D251FFD639754914F67A0 /* NSString+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 74591ACA5A7327574F0CF6665D6D6AE3 /* NSString+Private.m */; };
+		5E2F1F0A2212AEFC8C1C994ECF8B7F99 /* CSSInputStream.h in Headers */ = {isa = PBXBuildFile; fileRef = 66DCEA5B4B69667A440020F67ED6D280 /* CSSInputStream.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		60DD1CFD9FF49FA25ACA24721184B370 /* HTMLTreeVisitor.h in Headers */ = {isa = PBXBuildFile; fileRef = 05CDD3AEE93B552CD7D024B1C14E384D /* HTMLTreeVisitor.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6154CC4F2512A94A83D76747D0194B47 /* CSSSelectorBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6544F1BB6994143522887E9CB81B22 /* CSSSelectorBlock.m */; };
+		621DA754D7EACD4816DAD8615E657825 /* CSSSelectorBlock.h in Headers */ = {isa = PBXBuildFile; fileRef = B7070F78FC76988366A9359F1D4C4A0E /* CSSSelectorBlock.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		62731AC919CCC34640B842C8B0DA8FDF /* HTMLSerializer.h in Headers */ = {isa = PBXBuildFile; fileRef = 21E0E4C6FFD06B6D4873B25B6CAE3115 /* HTMLSerializer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		64918E10093DBD6E73B4453D775AEB70 /* HTMLDOMTokenList.m in Sources */ = {isa = PBXBuildFile; fileRef = A0F7E15E3C71FB4BB75210671452C988 /* HTMLDOMTokenList.m */; };
+		65A96B98762327564F0EA8F34F8D5C4F /* NSString+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = F3F2B54256716DF69D0C573D18C75DF1 /* NSString+Private.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		65FEF07281CED148E1F3035338104914 /* HTMLNodeVisitor.h in Headers */ = {isa = PBXBuildFile; fileRef = F1C18C490D80ABC74D82D7251D808231 /* HTMLNodeVisitor.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		68684645C192C0BE835F3D0312FEDD30 /* HTMLCharacterData.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D47022E63191827BDB4EB581F629B37 /* HTMLCharacterData.m */; };
+		687A7E9DF47AEE17702C922162052D3D /* CSSCombinatorSelector.h in Headers */ = {isa = PBXBuildFile; fileRef = 13EFD49E16ECA970F3C14EBF0683E87C /* CSSCombinatorSelector.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6A14F8B58F5986D4D670A75E8167DD2F /* HTMLTokenizerEntities.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A51D86B87716F1B7032F5F31C053C57 /* HTMLTokenizerEntities.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		6AB9412A65610C8A56D3E10D7A92CB31 /* HTMLDOCTYPEToken.h in Headers */ = {isa = PBXBuildFile; fileRef = FA0AC87C5350A48C1FBAAAA284DD9BC8 /* HTMLDOCTYPEToken.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		6B326644BB08AEDF697A82A0F1A66D68 /* Toast-Swift-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 41EEC83A82FC39E7A2BFDC174D46BEAC /* Toast-Swift-dummy.m */; };
+		726D377BE3CAFAACD56309A234DC9523 /* CSSStructuralPseudoSelectors.m in Sources */ = {isa = PBXBuildFile; fileRef = D678D2B4DB18E2D515BAC2AB88A85CDC /* CSSStructuralPseudoSelectors.m */; };
+		72D42970127D6D2E356D5C7DD6A9CAC1 /* HTMLKitDOMExceptions.h in Headers */ = {isa = PBXBuildFile; fileRef = ABC6CFCC8AE832D6B69058988AA6FFAA /* HTMLKitDOMExceptions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		753C8C42CEFBED94E1F1E752955F0254 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31FE7C6ECA71C614A5A667C679B23874 /* Foundation.framework */; };
-		803A943F40E9733AC61489FB25186CF9 /* YoutubePlayer-in-WKWebView-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A14234E2632C06373AC36A1A2A460D6 /* YoutubePlayer-in-WKWebView-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9AD84D555FE3F3C4519344CBBAB1D565 /* WKYTPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = B7FAD40630BAA9C244DF4CDCAA425FEB /* WKYTPlayerView.m */; };
+		78A8858F46C4FF4394A8850E5FAFA028 /* CSSPseudoFunctionSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E521744979D1DCBF37BC91F9B18D4C1 /* CSSPseudoFunctionSelector.m */; };
+		7995F79B359D09CBB56175A2949D5F4B /* HTMLDocumentFragment.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD8B208B6B071B0223D9A5C1D2B2EEB /* HTMLDocumentFragment.m */; };
+		7BF737FC09F0648E3A5C138742D198CA /* HTMLDOM.h in Headers */ = {isa = PBXBuildFile; fileRef = 8F7C550ABCB8803D23C76532EA8033A7 /* HTMLDOM.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7DFF921C758696A54C472B391ACBD4BE /* CSSCompoundSelector.h in Headers */ = {isa = PBXBuildFile; fileRef = E4773C4A3A382BE38C6CCBCE217B8D0F /* CSSCompoundSelector.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		803A943F40E9733AC61489FB25186CF9 /* YoutubePlayer-in-WKWebView-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 649CAC890F967A51EF2B2E85D1243B06 /* YoutubePlayer-in-WKWebView-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		80BE5A55A778D0BFECA3109A5F17E7C9 /* HTMLDocumentType.h in Headers */ = {isa = PBXBuildFile; fileRef = 0B11A4BECC6B9825B652C7F753055C46 /* HTMLDocumentType.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		816A5CD6DFEB9E20A18E0C4C63A2E642 /* HTMLToken.m in Sources */ = {isa = PBXBuildFile; fileRef = CF58A3564BC949337A6582765B5F15DF /* HTMLToken.m */; };
+		83228904A0B47AE72965A66DED9A3441 /* HTMLInputStreamReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 13AFB6BBB53BF13C6DED9C4A0E61F92D /* HTMLInputStreamReader.m */; };
+		8360E68489B24A21850CF9ED9C9B186A /* HTMLEOFToken.m in Sources */ = {isa = PBXBuildFile; fileRef = D3242F2B4E4CD9CF63E2C954EE722F48 /* HTMLEOFToken.m */; };
+		845BE6EA182C074B3490F520A923C4FA /* HTMLListOfActiveFormattingElements.m in Sources */ = {isa = PBXBuildFile; fileRef = ADFDC72F7D825EB59669C9BD2940FB2E /* HTMLListOfActiveFormattingElements.m */; };
+		872D6E498DD573853FE025FA09E443A9 /* HTMLComment.h in Headers */ = {isa = PBXBuildFile; fileRef = 3105FAE53F3D4A32D1201CDD3DF7FCE6 /* HTMLComment.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8779454889E83F938364A97B4C5D8951 /* HTMLNodeTraversal.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CE4FFFA943E49440E2EE916F17EEE00 /* HTMLNodeTraversal.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		8B751DCF057CC48A38C3E62342C00F0D /* HTMLCharacterData.h in Headers */ = {isa = PBXBuildFile; fileRef = DC4E0F1B3BCDE2D5C63005D4435B72CE /* HTMLCharacterData.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8E100E2CB8690E811B6CFB23112A4C4B /* HTMLDOMUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = ECDD229C1A32E4AA4F7A683AA2A9A8F0 /* HTMLDOMUtils.m */; };
+		8EBB8E44881F8CCBFDFBF4114BABE1E5 /* HTMLParseErrorToken.h in Headers */ = {isa = PBXBuildFile; fileRef = 1556A4068551D618997EB9E4E6642DF2 /* HTMLParseErrorToken.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		9328BFAA00AC8B9B8581908E1FD467CC /* HTMLKit.h in Headers */ = {isa = PBXBuildFile; fileRef = F6720909FE60D08025149DA36F42A930 /* HTMLKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		95AA463EB563ADBD7653687EAFE07863 /* HTMLTokenizer.h in Headers */ = {isa = PBXBuildFile; fileRef = 5385ABFF7FFE8AC978C96F90F5F50BCE /* HTMLTokenizer.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		9641CD9C68A3E47FC33E2B845432AAA7 /* HTMLTreeWalker.m in Sources */ = {isa = PBXBuildFile; fileRef = 27CAA3FF30B6C6DCE3B09E727222C3A9 /* HTMLTreeWalker.m */; };
+		96768A16E4D4D0540F2586C2BDEEAC4D /* HTMLEOFToken.h in Headers */ = {isa = PBXBuildFile; fileRef = BC574A8965091C984DB68C77583FE722 /* HTMLEOFToken.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		9770C78888036EFCF5D9F263C344052F /* HTMLInputStreamReader.h in Headers */ = {isa = PBXBuildFile; fileRef = 7B2C086D1061D6A35269554770FD8C31 /* HTMLInputStreamReader.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		9AD84D555FE3F3C4519344CBBAB1D565 /* WKYTPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D8F3D398B4BD7D7AFD43B85FCDE04B4 /* WKYTPlayerView.m */; };
+		A064553DE1BCF58DB3F2F063C2C33853 /* HTMLTreeWalker.h in Headers */ = {isa = PBXBuildFile; fileRef = D3862B8F9B3B96AA65B807456D22C93B /* HTMLTreeWalker.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A216A99B8C878BB3CF4903B08768E86D /* HTMLParser+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = C4DBBBE06BEA2B2719FA3EFA7DE94BE4 /* HTMLParser+Private.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		A2295AAD6FA68B3A93BB41DD906E5CFE /* CSSNthExpressionParser.h in Headers */ = {isa = PBXBuildFile; fileRef = EEC61089EBC6426142819C1C07405E83 /* CSSNthExpressionParser.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A4D7E68B9A78C0842058BEF25DA96367 /* HTMLDocument+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = D95C3DA1E35350746478403D80B0901E /* HTMLDocument+Private.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		ABA60F368DB1DBC561A901199CE2D5EB /* HTMLNode+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 47BA4C58FA3A0068048B289EC2352FB8 /* HTMLNode+Private.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		AF815058852915CDE640D979D1F3D19B /* CSSCodePoints.h in Headers */ = {isa = PBXBuildFile; fileRef = C31C354DA64976D98D74A55645A43C7C /* CSSCodePoints.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		AF93BEDE4A742D0670902AAA2B8F1825 /* HTMLElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 11FFA5F55C48869E88A4C39A22A79D06 /* HTMLElement.m */; };
+		B3BCF330195B8B8ED06E297FA0043256 /* CSSSelectors.h in Headers */ = {isa = PBXBuildFile; fileRef = 351DEBD749E4BAE223E07F196DFF1E10 /* CSSSelectors.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B45F3F30B18E91E4EC6B3B5BCE72AC21 /* HTMLText.m in Sources */ = {isa = PBXBuildFile; fileRef = 38790F9DBD5587A64F58B0EB9266012A /* HTMLText.m */; };
+		BA5BEBF07D3CC61C99E603873FB620E0 /* HTMLKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = DD6F93B444B850F99513ED8E8BB0D7B5 /* HTMLKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BB0F4F6B3CAA9004436C328BF9EA4609 /* CSSAttributeSelector.h in Headers */ = {isa = PBXBuildFile; fileRef = 4C31758A9DE0B1A7D63336C17C38F3B0 /* CSSAttributeSelector.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BB5B92A1A7ED9E8261A38C46837C2EFA /* Pods-PirateRadio-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = EDA56C2CAA9A706FC123738AA398C792 /* Pods-PirateRadio-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BC7C7E3AD57B45FA4B4C7581512C0802 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31FE7C6ECA71C614A5A667C679B23874 /* Foundation.framework */; };
-		C3FA963C39DB15F93F0A9F1954B6A12D /* Pods-PirateRadio-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = EDA56C2CAA9A706FC123738AA398C792 /* Pods-PirateRadio-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CCF11406FC25C84082E70B3DE2871690 /* WKYTPlayerView.h in Headers */ = {isa = PBXBuildFile; fileRef = B72D5F4F337EE664D42F2C9CA018E19E /* WKYTPlayerView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D334D5A0AA88F6DEE11C8667AAE43596 /* WKYTPlayerView.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 835CBB53D5BFACAB1AB74FA9E53860DA /* WKYTPlayerView.bundle */; };
+		BEB7A6BF719ED9CF0C2A4D96680F7B4D /* HTMLTokens.h in Headers */ = {isa = PBXBuildFile; fileRef = 8F09222CC5B8B32154706138BCD77EC5 /* HTMLTokens.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		C2F883F18F118A64D26C58D41431D9F8 /* HTMLDOMTokenList.h in Headers */ = {isa = PBXBuildFile; fileRef = 393C4A56563C8FDB9D0F0C025869AB51 /* HTMLDOMTokenList.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CA87AA8DC54DEC0F8071E142E0D6D236 /* CSSPseudoFunctionSelector.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C6780EDD27DAB9389350DA7BF767AED /* CSSPseudoFunctionSelector.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CC29562ABC3780EBF69E620997446FBD /* CSSSelectorParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 62120CECDC2640D2AB2A4802A9440AD2 /* CSSSelectorParser.m */; };
+		CCE49048EF7AC17ED1174B99384FBD1C /* HTMLParserInsertionModes.h in Headers */ = {isa = PBXBuildFile; fileRef = 38312FBF0E663454D13BA99AD6FB0B26 /* HTMLParserInsertionModes.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CCE50C8D53F71EB375EC097E4550164B /* CSSSelectorParser.h in Headers */ = {isa = PBXBuildFile; fileRef = D056C3FD5131D7D57F681C4C1B96EB03 /* CSSSelectorParser.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CCF11406FC25C84082E70B3DE2871690 /* WKYTPlayerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 74A47D7C9DB444B4FA0C8A40DC156891 /* WKYTPlayerView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CD38F5B7528811236C409F0AA8BCDD64 /* HTMLTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = 70385C811D5320B5E4EC3910C0299D72 /* HTMLTemplate.m */; };
+		CD8976D166B5DAE4F9E0647BE1768AB0 /* HTMLTokenizerCharacters.h in Headers */ = {isa = PBXBuildFile; fileRef = C727C30ED47E73A50A3BF7C95AA26D81 /* HTMLTokenizerCharacters.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		D334D5A0AA88F6DEE11C8667AAE43596 /* WKYTPlayerView.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 02B4FF2388D46FBC5EB47A98BF8F1851 /* WKYTPlayerView.bundle */; };
+		D3AA0B1D9FC83D0BC9B8B9F3155058DB /* CSSSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = E915215B4C9247037752D21A5809E6D7 /* CSSSelector.m */; };
+		D45BE59EB63CF87111EFA9548D5CE471 /* HTMLParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 64AC9537A27787B5CA06892675FD6EB3 /* HTMLParser.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D5EC9515D7FFABC2B82C09517D8B1A95 /* HTMLCharacterData+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 7FA11A650375C34ADC58AC8468BF953D /* HTMLCharacterData+Private.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		D6CD14D3DF8596B30912485EDCA02C94 /* CSSNthExpressionSelector.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A477AAEC556C0947C97D8E9510C2F25 /* CSSNthExpressionSelector.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DC48A0293F395439BF37E37B23F00BEC /* HTMLNodeFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = DF35A0852064DD30B454E6C672D6C795 /* HTMLNodeFilter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E0EDA95C7999E96A3F6D233648C16543 /* HTMLToken.h in Headers */ = {isa = PBXBuildFile; fileRef = F8C94B0E5129D89726BC12B1EC4F84E5 /* HTMLToken.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		E20A182FCC3B1A9BCF21C37E641866EC /* HTMLNode.h in Headers */ = {isa = PBXBuildFile; fileRef = A0FE7BBE8CA2DA96C47654F734F1809D /* HTMLNode.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E30AFF09BE355906C38B27B0CD35F806 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FEFE490E4A06D19E868B2B9014BB8BF /* QuartzCore.framework */; };
-		E733D149407B524262B5DB1487933115 /* Pods-PirateRadio-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 63291DDEE67276B99704D59D4AA07B9E /* Pods-PirateRadio-dummy.m */; };
+		E3CE7376177A06132033C9437262F026 /* HTMLNodeVisitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BB3E47A125B9DDF91BACF100A90A207 /* HTMLNodeVisitor.m */; };
+		E3FA7CAEC3E2D7F83C30016227B0E68A /* HTMLComment.m in Sources */ = {isa = PBXBuildFile; fileRef = 156CA75306421A2996802D0376856329 /* HTMLComment.m */; };
+		E5ED1C7866406B2ED7C4C35951C550A1 /* CSSTypeSelector.h in Headers */ = {isa = PBXBuildFile; fileRef = ADCA397F8DED293DBBABC07B4BC1FA7A /* CSSTypeSelector.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E7CAF39076F37BCD25A77EABA8841CB5 /* HTMLQuircksMode.m in Sources */ = {isa = PBXBuildFile; fileRef = 74A00B8187D223FB2796C55BE6C1FCA1 /* HTMLQuircksMode.m */; };
+		EE8621324F42E1281FF84779255A6085 /* HTMLNodeFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = C1F7B58874C4074D91B34AD88C43D0F1 /* HTMLNodeFilter.m */; };
+		EFD38194F6E9114340A3A92F91CA1CDA /* HTMLDocument.h in Headers */ = {isa = PBXBuildFile; fileRef = 57CB8FE42BFF75F641CCAFDDF017ED91 /* HTMLDocument.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F100AFA512326A66E7FC6128C3A2CB3F /* HTMLParseErrorToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 78D4069FD98C0676B82A725A998658DD /* HTMLParseErrorToken.m */; };
+		F4A81C3C9D7F786D0023A843E4DA3DAD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31FE7C6ECA71C614A5A667C679B23874 /* Foundation.framework */; };
+		F55E6DF3787A79DA0CFB800485F46CC1 /* HTMLStackOfOpenElements.m in Sources */ = {isa = PBXBuildFile; fileRef = A4185059F799C4BBBAEE1701438C2B53 /* HTMLStackOfOpenElements.m */; };
+		F78000A16144247C9CD4643004E3E65E /* HTMLRange.h in Headers */ = {isa = PBXBuildFile; fileRef = 2D397DA5D2D5B159CFA7FEA1277405EB /* HTMLRange.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F8567FFAE1F25F53270793D20B81C0DF /* NSString+HTMLKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 115C75E3F8CDA26F4D737BA181E21E79 /* NSString+HTMLKit.m */; };
+		F8D753DEE0D2238D62DA45A500245843 /* CSSCompoundSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B9B62F75E6C1C9CDBCAF7CFA3F51D0D /* CSSCompoundSelector.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		E8EA830D537C1D196CD6D99B7335437B /* PBXContainerItemProxy */ = {
+		4A495FEFD81C2D3570972A6E2AC72459 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = DABE3AD6EBA3822D4F04FBC550E7158D;
-			remoteInfo = "YoutubePlayer-in-WKWebView";
+			remoteGlobalIDString = D6807B82082F2598A4BABD0A6B657D10;
+			remoteInfo = HTMLKit;
 		};
-		FD279C1BA6659262E46970C520016872 /* PBXContainerItemProxy */ = {
+		97601BDCE3B12AF587A6EDA52AD76732 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = B990BD87169C76A3ED3FE8A9258D91A3;
 			remoteInfo = "Toast-Swift";
 		};
+		F79CFEB1EDD04874CF6304EF5F6CE05E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DABE3AD6EBA3822D4F04FBC550E7158D;
+			remoteInfo = "YoutubePlayer-in-WKWebView";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		012663BE037B1E0D5D24BB33A4F77841 /* YoutubePlayer-in-WKWebView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "YoutubePlayer-in-WKWebView.debug.xcconfig"; sourceTree = "<group>"; };
-		083A5BECDA9C9F4BAC541ACF57C42CE0 /* Toast-Swift-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Toast-Swift-dummy.m"; sourceTree = "<group>"; };
-		137BA66BBA7A9D81DEABD745E4E5833A /* YoutubePlayer-in-WKWebView-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "YoutubePlayer-in-WKWebView-Info.plist"; sourceTree = "<group>"; };
+		02B4FF2388D46FBC5EB47A98BF8F1851 /* WKYTPlayerView.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = WKYTPlayerView.bundle; path = WKYTPlayerView/WKYTPlayerView.bundle; sourceTree = "<group>"; };
+		05B408532767FC7885E67F5D9E00EF68 /* HTMLMarker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HTMLMarker.h; path = Sources/include/HTMLMarker.h; sourceTree = "<group>"; };
+		05CDD3AEE93B552CD7D024B1C14E384D /* HTMLTreeVisitor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HTMLTreeVisitor.h; path = Sources/include/HTMLTreeVisitor.h; sourceTree = "<group>"; };
+		0744FF496D2CB9A679267BDDB4A219D2 /* CSSCombinatorSelector.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CSSCombinatorSelector.m; path = Sources/CSSCombinatorSelector.m; sourceTree = "<group>"; };
+		07D2F0B1E5D029716E1E5E9F6C98E0E5 /* HTMLCharacterToken.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HTMLCharacterToken.h; path = Sources/include/HTMLCharacterToken.h; sourceTree = "<group>"; };
+		0861F97FB7364B7AFC66EB561FD7647B /* HTMLCharacterToken.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HTMLCharacterToken.m; path = Sources/HTMLCharacterToken.m; sourceTree = "<group>"; };
+		08691D47C5BAA270A63CFA1A05898D30 /* HTMLCommentToken.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HTMLCommentToken.h; path = Sources/include/HTMLCommentToken.h; sourceTree = "<group>"; };
+		096A0C47079C2ADF7FBC4C2749648915 /* HTMLTagToken.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HTMLTagToken.h; path = Sources/include/HTMLTagToken.h; sourceTree = "<group>"; };
+		0B11A4BECC6B9825B652C7F753055C46 /* HTMLDocumentType.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HTMLDocumentType.h; path = Sources/include/HTMLDocumentType.h; sourceTree = "<group>"; };
+		0D8F3D398B4BD7D7AFD43B85FCDE04B4 /* WKYTPlayerView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = WKYTPlayerView.m; path = WKYTPlayerView/WKYTPlayerView.m; sourceTree = "<group>"; };
+		115C75E3F8CDA26F4D737BA181E21E79 /* NSString+HTMLKit.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSString+HTMLKit.m"; path = "Sources/NSString+HTMLKit.m"; sourceTree = "<group>"; };
+		11FFA5F55C48869E88A4C39A22A79D06 /* HTMLElement.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HTMLElement.m; path = Sources/HTMLElement.m; sourceTree = "<group>"; };
+		13AFB6BBB53BF13C6DED9C4A0E61F92D /* HTMLInputStreamReader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HTMLInputStreamReader.m; path = Sources/HTMLInputStreamReader.m; sourceTree = "<group>"; };
+		13EFD49E16ECA970F3C14EBF0683E87C /* CSSCombinatorSelector.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CSSCombinatorSelector.h; path = Sources/include/CSSCombinatorSelector.h; sourceTree = "<group>"; };
+		1556A4068551D618997EB9E4E6642DF2 /* HTMLParseErrorToken.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HTMLParseErrorToken.h; path = Sources/include/HTMLParseErrorToken.h; sourceTree = "<group>"; };
+		156CA75306421A2996802D0376856329 /* HTMLComment.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HTMLComment.m; path = Sources/HTMLComment.m; sourceTree = "<group>"; };
+		15CC0F385576DEE4F2BDCAA8086FCFEE /* HTMLListOfActiveFormattingElements.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HTMLListOfActiveFormattingElements.h; path = Sources/include/HTMLListOfActiveFormattingElements.h; sourceTree = "<group>"; };
+		1A75FEB7D16DB6414CEEC07EE9EE4C7E /* HTMLRange+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "HTMLRange+Private.h"; path = "Sources/include/HTMLRange+Private.h"; sourceTree = "<group>"; };
+		1D6544F1BB6994143522887E9CB81B22 /* CSSSelectorBlock.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CSSSelectorBlock.m; path = Sources/CSSSelectorBlock.m; sourceTree = "<group>"; };
+		20090293D4AE249A79E878C2E7F52482 /* HTMLKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = HTMLKit.framework; path = HTMLKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		20E10275C000EFFC7FACA18D3EC8AF7D /* YoutubePlayer-in-WKWebView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "YoutubePlayer-in-WKWebView-dummy.m"; sourceTree = "<group>"; };
+		21E0E4C6FFD06B6D4873B25B6CAE3115 /* HTMLSerializer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HTMLSerializer.h; path = Sources/include/HTMLSerializer.h; sourceTree = "<group>"; };
+		224D1F9D5C45F3971890518EB35A6544 /* HTMLTagToken.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HTMLTagToken.m; path = Sources/HTMLTagToken.m; sourceTree = "<group>"; };
+		27CAA3FF30B6C6DCE3B09E727222C3A9 /* HTMLTreeWalker.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HTMLTreeWalker.m; path = Sources/HTMLTreeWalker.m; sourceTree = "<group>"; };
 		2829A51BC11E275C8492D2FF62B4E713 /* Pods-PirateRadio-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-PirateRadio-Info.plist"; sourceTree = "<group>"; };
-		299361CC9D06915F822E9FD8EEF72FF7 /* Toast-Swift-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Toast-Swift-umbrella.h"; sourceTree = "<group>"; };
+		288FDB092DC15040D5B4B094A91B4FB5 /* HTMLDocumentFragment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HTMLDocumentFragment.h; path = Sources/include/HTMLDocumentFragment.h; sourceTree = "<group>"; };
+		2A42618B2349E3D81DA6EE652BA5A568 /* HTMLKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = HTMLKit.release.xcconfig; sourceTree = "<group>"; };
+		2C6C4373B57D3D9ECB2E023006168EAB /* CSSInputStream.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CSSInputStream.m; path = Sources/CSSInputStream.m; sourceTree = "<group>"; };
+		2D397DA5D2D5B159CFA7FEA1277405EB /* HTMLRange.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HTMLRange.h; path = Sources/include/HTMLRange.h; sourceTree = "<group>"; };
+		2D47022E63191827BDB4EB581F629B37 /* HTMLCharacterData.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HTMLCharacterData.m; path = Sources/HTMLCharacterData.m; sourceTree = "<group>"; };
+		2DB0C6FE831E67FE52D4A4A2D6C6C724 /* HTMLTemplate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HTMLTemplate.h; path = Sources/include/HTMLTemplate.h; sourceTree = "<group>"; };
+		2E521744979D1DCBF37BC91F9B18D4C1 /* CSSPseudoFunctionSelector.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CSSPseudoFunctionSelector.m; path = Sources/CSSPseudoFunctionSelector.m; sourceTree = "<group>"; };
+		2F2342B48E40A27874A80F352EA83351 /* CSSSelectors.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CSSSelectors.m; path = Sources/CSSSelectors.m; sourceTree = "<group>"; };
 		2FEFE490E4A06D19E868B2B9014BB8BF /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
+		3105FAE53F3D4A32D1201CDD3DF7FCE6 /* HTMLComment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HTMLComment.h; path = Sources/include/HTMLComment.h; sourceTree = "<group>"; };
 		31FE7C6ECA71C614A5A667C679B23874 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		3A14234E2632C06373AC36A1A2A460D6 /* YoutubePlayer-in-WKWebView-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "YoutubePlayer-in-WKWebView-umbrella.h"; sourceTree = "<group>"; };
-		4DCF7BED3B0C1A70AC81A9B39D1A704C /* YoutubePlayer-in-WKWebView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "YoutubePlayer-in-WKWebView.modulemap"; sourceTree = "<group>"; };
-		4DD50045DF19902709B4AE7B2F2C3151 /* Pods_PirateRadio.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PirateRadio.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		32BCA768077E8D6C71BE782B6F3A9200 /* HTMLOrderedDictionary.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HTMLOrderedDictionary.h; path = Sources/include/HTMLOrderedDictionary.h; sourceTree = "<group>"; };
+		332883A3A475E126CAABC9F000DE4490 /* NSCharacterSet+HTMLKit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSCharacterSet+HTMLKit.h"; path = "Sources/include/NSCharacterSet+HTMLKit.h"; sourceTree = "<group>"; };
+		34C355231F682C35866495587562E086 /* HTMLDocument.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HTMLDocument.m; path = Sources/HTMLDocument.m; sourceTree = "<group>"; };
+		351DEBD749E4BAE223E07F196DFF1E10 /* CSSSelectors.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CSSSelectors.h; path = Sources/include/CSSSelectors.h; sourceTree = "<group>"; };
+		362AFE8DCAA61774C08516027C86BF45 /* HTMLKit-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "HTMLKit-Info.plist"; sourceTree = "<group>"; };
+		38308400EF6505AF84F3AC2890302A55 /* HTMLStackOfOpenElements.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HTMLStackOfOpenElements.h; path = Sources/include/HTMLStackOfOpenElements.h; sourceTree = "<group>"; };
+		38312FBF0E663454D13BA99AD6FB0B26 /* HTMLParserInsertionModes.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HTMLParserInsertionModes.h; path = Sources/include/HTMLParserInsertionModes.h; sourceTree = "<group>"; };
+		38790F9DBD5587A64F58B0EB9266012A /* HTMLText.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HTMLText.m; path = Sources/HTMLText.m; sourceTree = "<group>"; };
+		393C4A56563C8FDB9D0F0C025869AB51 /* HTMLDOMTokenList.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HTMLDOMTokenList.h; path = Sources/include/HTMLDOMTokenList.h; sourceTree = "<group>"; };
+		3CE4FFFA943E49440E2EE916F17EEE00 /* HTMLNodeTraversal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HTMLNodeTraversal.h; path = Sources/include/HTMLNodeTraversal.h; sourceTree = "<group>"; };
+		3F298E37B2606B6968D6DA5B39A45E01 /* HTMLElementTypes.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HTMLElementTypes.h; path = Sources/include/HTMLElementTypes.h; sourceTree = "<group>"; };
+		3F9156E02A86A623FEE5DD39A590E91F /* HTMLNodeIterator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HTMLNodeIterator.h; path = Sources/include/HTMLNodeIterator.h; sourceTree = "<group>"; };
+		41EEC83A82FC39E7A2BFDC174D46BEAC /* Toast-Swift-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Toast-Swift-dummy.m"; sourceTree = "<group>"; };
+		426FDF036EA10292170AA3BD81ED3892 /* HTMLNodeTraversal.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HTMLNodeTraversal.m; path = Sources/HTMLNodeTraversal.m; sourceTree = "<group>"; };
+		47BA4C58FA3A0068048B289EC2352FB8 /* HTMLNode+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "HTMLNode+Private.h"; path = "Sources/include/HTMLNode+Private.h"; sourceTree = "<group>"; };
+		4C31758A9DE0B1A7D63336C17C38F3B0 /* CSSAttributeSelector.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CSSAttributeSelector.h; path = Sources/include/CSSAttributeSelector.h; sourceTree = "<group>"; };
+		4DD50045DF19902709B4AE7B2F2C3151 /* Pods_PirateRadio.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_PirateRadio.framework; path = "Pods-PirateRadio.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		535690767B1671F06E0F459B008FD8F3 /* CSSNthExpressionSelector.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CSSNthExpressionSelector.m; path = Sources/CSSNthExpressionSelector.m; sourceTree = "<group>"; };
+		5385ABFF7FFE8AC978C96F90F5F50BCE /* HTMLTokenizer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HTMLTokenizer.h; path = Sources/include/HTMLTokenizer.h; sourceTree = "<group>"; };
 		54551EF96105EDF044D1C88BC8AE7A2E /* Pods-PirateRadio.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PirateRadio.release.xcconfig"; sourceTree = "<group>"; };
-		6302F57A08872E0FF32F8D574A4AE294 /* YoutubePlayer-in-WKWebView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "YoutubePlayer-in-WKWebView-dummy.m"; sourceTree = "<group>"; };
+		567F48DB0102EA92EB6ABE2D64DBD90E /* YoutubePlayer-in-WKWebView-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "YoutubePlayer-in-WKWebView-Info.plist"; sourceTree = "<group>"; };
+		57CB8FE42BFF75F641CCAFDDF017ED91 /* HTMLDocument.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HTMLDocument.h; path = Sources/include/HTMLDocument.h; sourceTree = "<group>"; };
+		57FA56C244BC2B9505A53D070A487EE8 /* Toast-Swift-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Toast-Swift-umbrella.h"; sourceTree = "<group>"; };
+		59FFDBAA34B402E93E1C3E9DF1C50B2C /* CSSPseudoClassSelector.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CSSPseudoClassSelector.h; path = Sources/include/CSSPseudoClassSelector.h; sourceTree = "<group>"; };
+		5A477AAEC556C0947C97D8E9510C2F25 /* CSSNthExpressionSelector.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CSSNthExpressionSelector.h; path = Sources/include/CSSNthExpressionSelector.h; sourceTree = "<group>"; };
+		5A51D86B87716F1B7032F5F31C053C57 /* HTMLTokenizerEntities.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HTMLTokenizerEntities.h; path = Sources/include/HTMLTokenizerEntities.h; sourceTree = "<group>"; };
+		5DA07DF50A2C1AA42FA2AFDCC7B2965E /* HTMLDocumentType.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HTMLDocumentType.m; path = Sources/HTMLDocumentType.m; sourceTree = "<group>"; };
+		5E11361ED6624E71636F3362A8F6DA05 /* HTMLCommentToken.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HTMLCommentToken.m; path = Sources/HTMLCommentToken.m; sourceTree = "<group>"; };
+		5E1BFFC761F06C6A3E6881B868AC4E5C /* Toast-Swift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Toast-Swift.modulemap"; sourceTree = "<group>"; };
+		606B574A07E56D9CCAA58A94841C498E /* HTMLElement.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HTMLElement.h; path = Sources/include/HTMLElement.h; sourceTree = "<group>"; };
+		62120CECDC2640D2AB2A4802A9440AD2 /* CSSSelectorParser.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CSSSelectorParser.m; path = Sources/CSSSelectorParser.m; sourceTree = "<group>"; };
+		625D70756A732484E569224A4B74E649 /* HTMLParser.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HTMLParser.m; path = Sources/HTMLParser.m; sourceTree = "<group>"; };
 		63291DDEE67276B99704D59D4AA07B9E /* Pods-PirateRadio-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-PirateRadio-dummy.m"; sourceTree = "<group>"; };
-		6620E2D73C73A27E06384BB6A5D75F26 /* Toast.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Toast.swift; path = Toast/Toast.swift; sourceTree = "<group>"; };
+		644063341EA002E0EAE8F6CC7EA8E810 /* HTMLQuirksMode.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HTMLQuirksMode.h; path = Sources/include/HTMLQuirksMode.h; sourceTree = "<group>"; };
+		649CAC890F967A51EF2B2E85D1243B06 /* YoutubePlayer-in-WKWebView-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "YoutubePlayer-in-WKWebView-umbrella.h"; sourceTree = "<group>"; };
+		64AC9537A27787B5CA06892675FD6EB3 /* HTMLParser.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HTMLParser.h; path = Sources/include/HTMLParser.h; sourceTree = "<group>"; };
 		66709731AD6C9F9127582832AD07A612 /* Pods-PirateRadio-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-PirateRadio-acknowledgements.plist"; sourceTree = "<group>"; };
+		667F7C6EE7A7187F195731F98890B339 /* HTMLRange.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HTMLRange.m; path = Sources/HTMLRange.m; sourceTree = "<group>"; };
+		66DCEA5B4B69667A440020F67ED6D280 /* CSSInputStream.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CSSInputStream.h; path = Sources/include/CSSInputStream.h; sourceTree = "<group>"; };
+		6936035F04C842F71FE9901707943FA9 /* CSSStructuralPseudoSelectors.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CSSStructuralPseudoSelectors.h; path = Sources/include/CSSStructuralPseudoSelectors.h; sourceTree = "<group>"; };
+		69A5AA247D41A32F68EBDE0953D763C4 /* HTMLKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "HTMLKit-prefix.pch"; sourceTree = "<group>"; };
+		69BF1E63CBD8A2D439AB3F7890C35AF8 /* Toast-Swift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Toast-Swift.debug.xcconfig"; sourceTree = "<group>"; };
+		6AC443718A0CAE6AF6BD163E156DE48E /* HTMLKitDOMExceptions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HTMLKitDOMExceptions.m; path = Sources/HTMLKitDOMExceptions.m; sourceTree = "<group>"; };
+		6B9B62F75E6C1C9CDBCAF7CFA3F51D0D /* CSSCompoundSelector.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CSSCompoundSelector.m; path = Sources/CSSCompoundSelector.m; sourceTree = "<group>"; };
+		6D398354ED59CF66EE69CB73EA6CAD9C /* HTMLTokenizerStates.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HTMLTokenizerStates.h; path = Sources/include/HTMLTokenizerStates.h; sourceTree = "<group>"; };
+		70385C811D5320B5E4EC3910C0299D72 /* HTMLTemplate.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HTMLTemplate.m; path = Sources/HTMLTemplate.m; sourceTree = "<group>"; };
 		7412BB6840639E2F14579805C2BC67B2 /* Pods-PirateRadio.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PirateRadio.debug.xcconfig"; sourceTree = "<group>"; };
+		74591ACA5A7327574F0CF6665D6D6AE3 /* NSString+Private.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSString+Private.m"; path = "Sources/NSString+Private.m"; sourceTree = "<group>"; };
+		74A00B8187D223FB2796C55BE6C1FCA1 /* HTMLQuircksMode.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HTMLQuircksMode.m; path = Sources/HTMLQuircksMode.m; sourceTree = "<group>"; };
+		74A47D7C9DB444B4FA0C8A40DC156891 /* WKYTPlayerView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WKYTPlayerView.h; path = WKYTPlayerView/WKYTPlayerView.h; sourceTree = "<group>"; };
+		74D236FA500A2D2B3D5DD27A68E29B28 /* CSSSelector.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CSSSelector.h; path = Sources/include/CSSSelector.h; sourceTree = "<group>"; };
+		7728333904F9A0583DD05204529C5CD6 /* NSString+HTMLKit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSString+HTMLKit.h"; path = "Sources/include/NSString+HTMLKit.h"; sourceTree = "<group>"; };
+		78D4069FD98C0676B82A725A998658DD /* HTMLParseErrorToken.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HTMLParseErrorToken.m; path = Sources/HTMLParseErrorToken.m; sourceTree = "<group>"; };
+		7AC4145491A707C7B31149C8BFAD46AE /* HTMLKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "HTMLKit-dummy.m"; sourceTree = "<group>"; };
+		7B2C086D1061D6A35269554770FD8C31 /* HTMLInputStreamReader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HTMLInputStreamReader.h; path = Sources/include/HTMLInputStreamReader.h; sourceTree = "<group>"; };
 		7C6CD08962C8AE9BF99969718C7479B5 /* Pods-PirateRadio-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-PirateRadio-acknowledgements.markdown"; sourceTree = "<group>"; };
+		7FA11A650375C34ADC58AC8468BF953D /* HTMLCharacterData+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "HTMLCharacterData+Private.h"; path = "Sources/include/HTMLCharacterData+Private.h"; sourceTree = "<group>"; };
 		8342305F66626F78AC1D53B9FF8567C9 /* Pods-PirateRadio-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-PirateRadio-frameworks.sh"; sourceTree = "<group>"; };
-		835CBB53D5BFACAB1AB74FA9E53860DA /* WKYTPlayerView.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = WKYTPlayerView.bundle; path = WKYTPlayerView/WKYTPlayerView.bundle; sourceTree = "<group>"; };
-		8C1F5F7B4E7AE117E9C1B89202A6CA47 /* Toast-Swift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Toast-Swift.release.xcconfig"; sourceTree = "<group>"; };
-		8C5AF3C41DC4DDFB1C0BD77E55E7196B /* Toast-Swift-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Toast-Swift-prefix.pch"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		A1BECB60F52629D3007A98CBD202A870 /* Toast-Swift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Toast-Swift.debug.xcconfig"; sourceTree = "<group>"; };
-		B72D5F4F337EE664D42F2C9CA018E19E /* WKYTPlayerView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WKYTPlayerView.h; path = WKYTPlayerView/WKYTPlayerView.h; sourceTree = "<group>"; };
-		B7FAD40630BAA9C244DF4CDCAA425FEB /* WKYTPlayerView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = WKYTPlayerView.m; path = WKYTPlayerView/WKYTPlayerView.m; sourceTree = "<group>"; };
-		B905B16EB39306F8C02160C7752E01F2 /* YoutubePlayer-in-WKWebView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "YoutubePlayer-in-WKWebView.release.xcconfig"; sourceTree = "<group>"; };
-		C0EF7BF21302D002649717EE0B8B9C37 /* Toast-Swift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Toast-Swift.modulemap"; sourceTree = "<group>"; };
+		8BA4F522CE77ABBABEB5E0D2D1A73527 /* CSSNthExpressionParser.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CSSNthExpressionParser.m; path = Sources/CSSNthExpressionParser.m; sourceTree = "<group>"; };
+		8E0DB03B345B6624A92A8F9F70F55561 /* HTMLKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = HTMLKit.modulemap; sourceTree = "<group>"; };
+		8F09222CC5B8B32154706138BCD77EC5 /* HTMLTokens.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HTMLTokens.h; path = Sources/include/HTMLTokens.h; sourceTree = "<group>"; };
+		8F7C550ABCB8803D23C76532EA8033A7 /* HTMLDOM.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HTMLDOM.h; path = Sources/include/HTMLDOM.h; sourceTree = "<group>"; };
+		9099AF6B289F5B08D6D48640237EAC65 /* HTMLText.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HTMLText.h; path = Sources/include/HTMLText.h; sourceTree = "<group>"; };
+		90E44D74A6E3042D47BA55F8A19C81EC /* YoutubePlayer-in-WKWebView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "YoutubePlayer-in-WKWebView.debug.xcconfig"; sourceTree = "<group>"; };
+		96AA622A96435880B4566AC531023DA6 /* HTMLNamespaces.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HTMLNamespaces.h; path = Sources/include/HTMLNamespaces.h; sourceTree = "<group>"; };
+		99A4B2BCFC860D54923927B17A8598FC /* HTMLNodeIterator+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "HTMLNodeIterator+Private.h"; path = "Sources/include/HTMLNodeIterator+Private.h"; sourceTree = "<group>"; };
+		9ACD7EA4F74A6430932FF69C59F0A143 /* HTMLDOCTYPEToken.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HTMLDOCTYPEToken.m; path = Sources/HTMLDOCTYPEToken.m; sourceTree = "<group>"; };
+		9AD32564D44E9B3747DFD796B148F14B /* HTMLMarker.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HTMLMarker.m; path = Sources/HTMLMarker.m; sourceTree = "<group>"; };
+		9BB3E47A125B9DDF91BACF100A90A207 /* HTMLNodeVisitor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HTMLNodeVisitor.m; path = Sources/HTMLNodeVisitor.m; sourceTree = "<group>"; };
+		9C6780EDD27DAB9389350DA7BF767AED /* CSSPseudoFunctionSelector.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CSSPseudoFunctionSelector.h; path = Sources/include/CSSPseudoFunctionSelector.h; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A0664E4BD732668E7B6C44984931A05E /* HTMLNodeIterator.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HTMLNodeIterator.m; path = Sources/HTMLNodeIterator.m; sourceTree = "<group>"; };
+		A0F7E15E3C71FB4BB75210671452C988 /* HTMLDOMTokenList.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HTMLDOMTokenList.m; path = Sources/HTMLDOMTokenList.m; sourceTree = "<group>"; };
+		A0FE7BBE8CA2DA96C47654F734F1809D /* HTMLNode.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HTMLNode.h; path = Sources/include/HTMLNode.h; sourceTree = "<group>"; };
+		A4185059F799C4BBBAEE1701438C2B53 /* HTMLStackOfOpenElements.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HTMLStackOfOpenElements.m; path = Sources/HTMLStackOfOpenElements.m; sourceTree = "<group>"; };
+		A7F8DCCBB835408D909EDA3B43F1BE3F /* HTMLDOMUtils.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HTMLDOMUtils.h; path = Sources/include/HTMLDOMUtils.h; sourceTree = "<group>"; };
+		A9EE70A7CE24D9D02939B1E0D305D091 /* HTMLOrderedDictionary.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HTMLOrderedDictionary.m; path = Sources/HTMLOrderedDictionary.m; sourceTree = "<group>"; };
+		AB566B0F3F2A4B6730517730AACD471E /* YoutubePlayer-in-WKWebView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "YoutubePlayer-in-WKWebView-prefix.pch"; sourceTree = "<group>"; };
+		ABA376EB889B10C2FAB0ED105036864C /* CSSTypeSelector.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CSSTypeSelector.m; path = Sources/CSSTypeSelector.m; sourceTree = "<group>"; };
+		ABC6CFCC8AE832D6B69058988AA6FFAA /* HTMLKitDOMExceptions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HTMLKitDOMExceptions.h; path = Sources/include/HTMLKitDOMExceptions.h; sourceTree = "<group>"; };
+		ADA59FB5E09164974E6F8840D394BAB2 /* NSCharacterSet+HTMLKit.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSCharacterSet+HTMLKit.m"; path = "Sources/NSCharacterSet+HTMLKit.m"; sourceTree = "<group>"; };
+		ADCA397F8DED293DBBABC07B4BC1FA7A /* CSSTypeSelector.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CSSTypeSelector.h; path = Sources/include/CSSTypeSelector.h; sourceTree = "<group>"; };
+		ADFDC72F7D825EB59669C9BD2940FB2E /* HTMLListOfActiveFormattingElements.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HTMLListOfActiveFormattingElements.m; path = Sources/HTMLListOfActiveFormattingElements.m; sourceTree = "<group>"; };
+		AEC8237B42AD335BC0B123C7ED74F091 /* HTMLTreeVisitor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HTMLTreeVisitor.m; path = Sources/HTMLTreeVisitor.m; sourceTree = "<group>"; };
+		B21176F3CA546BA2FE74228420943A18 /* HTMLElementAdjustment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HTMLElementAdjustment.h; path = Sources/include/HTMLElementAdjustment.h; sourceTree = "<group>"; };
+		B6650BDFAF6862391937918647257B8C /* Toast-Swift-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Toast-Swift-prefix.pch"; sourceTree = "<group>"; };
+		B7070F78FC76988366A9359F1D4C4A0E /* CSSSelectorBlock.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CSSSelectorBlock.h; path = Sources/include/CSSSelectorBlock.h; sourceTree = "<group>"; };
+		BC574A8965091C984DB68C77583FE722 /* HTMLEOFToken.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HTMLEOFToken.h; path = Sources/include/HTMLEOFToken.h; sourceTree = "<group>"; };
+		BEC8C967E8D5FD934C64A40EA7360431 /* HTMLKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = HTMLKit.debug.xcconfig; sourceTree = "<group>"; };
+		BFD8B208B6B071B0223D9A5C1D2B2EEB /* HTMLDocumentFragment.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HTMLDocumentFragment.m; path = Sources/HTMLDocumentFragment.m; sourceTree = "<group>"; };
+		C1F7B58874C4074D91B34AD88C43D0F1 /* HTMLNodeFilter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HTMLNodeFilter.m; path = Sources/HTMLNodeFilter.m; sourceTree = "<group>"; };
+		C31C354DA64976D98D74A55645A43C7C /* CSSCodePoints.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CSSCodePoints.h; path = Sources/include/CSSCodePoints.h; sourceTree = "<group>"; };
+		C4DBBBE06BEA2B2719FA3EFA7DE94BE4 /* HTMLParser+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "HTMLParser+Private.h"; path = "Sources/include/HTMLParser+Private.h"; sourceTree = "<group>"; };
+		C727C30ED47E73A50A3BF7C95AA26D81 /* HTMLTokenizerCharacters.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HTMLTokenizerCharacters.h; path = Sources/include/HTMLTokenizerCharacters.h; sourceTree = "<group>"; };
 		C731C8F7638B6D69817488981511CA32 /* Pods-PirateRadio.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-PirateRadio.modulemap"; sourceTree = "<group>"; };
-		C830BCBD7B61DBA5829584DC57F28ACF /* YoutubePlayer-in-WKWebView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "YoutubePlayer-in-WKWebView-prefix.pch"; sourceTree = "<group>"; };
-		D6043471C96F93DC41F7DD1E0D7D8B35 /* Toast_Swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Toast_Swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		DE0FAB1DA724AB86C0E299518F5E580A /* YoutubePlayer_in_WKWebView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = YoutubePlayer_in_WKWebView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E6B787D1B7ABFE2390265B58F6B8C5C2 /* Toast-Swift-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Toast-Swift-Info.plist"; sourceTree = "<group>"; };
+		CF58A3564BC949337A6582765B5F15DF /* HTMLToken.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HTMLToken.m; path = Sources/HTMLToken.m; sourceTree = "<group>"; };
+		D056C3FD5131D7D57F681C4C1B96EB03 /* CSSSelectorParser.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CSSSelectorParser.h; path = Sources/include/CSSSelectorParser.h; sourceTree = "<group>"; };
+		D0D32A145C871E7433C614720954CB04 /* HTMLNode.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HTMLNode.m; path = Sources/HTMLNode.m; sourceTree = "<group>"; };
+		D3242F2B4E4CD9CF63E2C954EE722F48 /* HTMLEOFToken.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HTMLEOFToken.m; path = Sources/HTMLEOFToken.m; sourceTree = "<group>"; };
+		D3862B8F9B3B96AA65B807456D22C93B /* HTMLTreeWalker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HTMLTreeWalker.h; path = Sources/include/HTMLTreeWalker.h; sourceTree = "<group>"; };
+		D6043471C96F93DC41F7DD1E0D7D8B35 /* Toast_Swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Toast_Swift.framework; path = "Toast-Swift.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D673E3E84550A0D02B9BE702BC608C12 /* Toast-Swift-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Toast-Swift-Info.plist"; sourceTree = "<group>"; };
+		D678D2B4DB18E2D515BAC2AB88A85CDC /* CSSStructuralPseudoSelectors.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CSSStructuralPseudoSelectors.m; path = Sources/CSSStructuralPseudoSelectors.m; sourceTree = "<group>"; };
+		D721BEE22FF9703166B240B9EEF87B1B /* Toast.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Toast.swift; path = Toast/Toast.swift; sourceTree = "<group>"; };
+		D80E12BB9266A97D3FCD849E422BCD1D /* HTMLTokenizer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HTMLTokenizer.m; path = Sources/HTMLTokenizer.m; sourceTree = "<group>"; };
+		D95C3DA1E35350746478403D80B0901E /* HTMLDocument+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "HTMLDocument+Private.h"; path = "Sources/include/HTMLDocument+Private.h"; sourceTree = "<group>"; };
+		DC4E0F1B3BCDE2D5C63005D4435B72CE /* HTMLCharacterData.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HTMLCharacterData.h; path = Sources/include/HTMLCharacterData.h; sourceTree = "<group>"; };
+		DC5FA36E27D1040F7C2E65D0A0053ABD /* HTMLTokenizerEntities.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HTMLTokenizerEntities.m; path = Sources/HTMLTokenizerEntities.m; sourceTree = "<group>"; };
+		DD6F93B444B850F99513ED8E8BB0D7B5 /* HTMLKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "HTMLKit-umbrella.h"; sourceTree = "<group>"; };
+		DE0FAB1DA724AB86C0E299518F5E580A /* YoutubePlayer_in_WKWebView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = YoutubePlayer_in_WKWebView.framework; path = "YoutubePlayer-in-WKWebView.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DF35A0852064DD30B454E6C672D6C795 /* HTMLNodeFilter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HTMLNodeFilter.h; path = Sources/include/HTMLNodeFilter.h; sourceTree = "<group>"; };
+		DF79E11C0CCF04093C29F35E82A42FBF /* CSSPseudoClassSelector.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CSSPseudoClassSelector.m; path = Sources/CSSPseudoClassSelector.m; sourceTree = "<group>"; };
+		E1947A19B44BE53623DFEC92719EB945 /* YoutubePlayer-in-WKWebView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "YoutubePlayer-in-WKWebView.release.xcconfig"; sourceTree = "<group>"; };
+		E4773C4A3A382BE38C6CCBCE217B8D0F /* CSSCompoundSelector.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CSSCompoundSelector.h; path = Sources/include/CSSCompoundSelector.h; sourceTree = "<group>"; };
+		E82886AF9AB68D7825FE7C3D951A7AF0 /* CSSAttributeSelector.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CSSAttributeSelector.m; path = Sources/CSSAttributeSelector.m; sourceTree = "<group>"; };
+		E915215B4C9247037752D21A5809E6D7 /* CSSSelector.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CSSSelector.m; path = Sources/CSSSelector.m; sourceTree = "<group>"; };
+		ECDD229C1A32E4AA4F7A683AA2A9A8F0 /* HTMLDOMUtils.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HTMLDOMUtils.m; path = Sources/HTMLDOMUtils.m; sourceTree = "<group>"; };
 		EDA56C2CAA9A706FC123738AA398C792 /* Pods-PirateRadio-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-PirateRadio-umbrella.h"; sourceTree = "<group>"; };
+		EDE2B5874B25E5F031CD0F4C718086AE /* HTMLSerializer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HTMLSerializer.m; path = Sources/HTMLSerializer.m; sourceTree = "<group>"; };
+		EE5CBD83B43CEBF8EED2A1A70C281A11 /* HTMLKitErrorDomain.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HTMLKitErrorDomain.h; path = Sources/include/HTMLKitErrorDomain.h; sourceTree = "<group>"; };
+		EEC61089EBC6426142819C1C07405E83 /* CSSNthExpressionParser.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CSSNthExpressionParser.h; path = Sources/include/CSSNthExpressionParser.h; sourceTree = "<group>"; };
+		F0904CFE72840B5347394C2E93E86645 /* Toast-Swift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Toast-Swift.release.xcconfig"; sourceTree = "<group>"; };
+		F1C18C490D80ABC74D82D7251D808231 /* HTMLNodeVisitor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HTMLNodeVisitor.h; path = Sources/include/HTMLNodeVisitor.h; sourceTree = "<group>"; };
+		F3F2B54256716DF69D0C573D18C75DF1 /* NSString+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSString+Private.h"; path = "Sources/include/NSString+Private.h"; sourceTree = "<group>"; };
+		F6720909FE60D08025149DA36F42A930 /* HTMLKit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HTMLKit.h; path = Sources/include/HTMLKit.h; sourceTree = "<group>"; };
+		F8C94B0E5129D89726BC12B1EC4F84E5 /* HTMLToken.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HTMLToken.h; path = Sources/include/HTMLToken.h; sourceTree = "<group>"; };
+		FA012D13CA1CFC6DA748D1B96C762104 /* YoutubePlayer-in-WKWebView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "YoutubePlayer-in-WKWebView.modulemap"; sourceTree = "<group>"; };
+		FA0AC87C5350A48C1FBAAAA284DD9BC8 /* HTMLDOCTYPEToken.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HTMLDOCTYPEToken.h; path = Sources/include/HTMLDOCTYPEToken.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		5851C4FFC22F472A11B881F695418096 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				4499762DD3FD7A5BC845074BB8069116 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		6102CF7EA55F5A7D669F88BF0D1A701F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				753C8C42CEFBED94E1F1E752955F0254 /* Foundation.framework in Frameworks */,
 				E30AFF09BE355906C38B27B0CD35F806 /* QuartzCore.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		79D36270CF8DD526B476C3754C38B993 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F4A81C3C9D7F786D0023A843E4DA3DAD /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,25 +366,155 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		EC01CDBCC8503A0ED5FA13034E044C95 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4CF2F636C443C3D4C6501524C45209C5 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		08E33E5E588E7581C571723C87347944 /* HTMLKit */ = {
+			isa = PBXGroup;
+			children = (
+				4C31758A9DE0B1A7D63336C17C38F3B0 /* CSSAttributeSelector.h */,
+				E82886AF9AB68D7825FE7C3D951A7AF0 /* CSSAttributeSelector.m */,
+				C31C354DA64976D98D74A55645A43C7C /* CSSCodePoints.h */,
+				13EFD49E16ECA970F3C14EBF0683E87C /* CSSCombinatorSelector.h */,
+				0744FF496D2CB9A679267BDDB4A219D2 /* CSSCombinatorSelector.m */,
+				E4773C4A3A382BE38C6CCBCE217B8D0F /* CSSCompoundSelector.h */,
+				6B9B62F75E6C1C9CDBCAF7CFA3F51D0D /* CSSCompoundSelector.m */,
+				66DCEA5B4B69667A440020F67ED6D280 /* CSSInputStream.h */,
+				2C6C4373B57D3D9ECB2E023006168EAB /* CSSInputStream.m */,
+				EEC61089EBC6426142819C1C07405E83 /* CSSNthExpressionParser.h */,
+				8BA4F522CE77ABBABEB5E0D2D1A73527 /* CSSNthExpressionParser.m */,
+				5A477AAEC556C0947C97D8E9510C2F25 /* CSSNthExpressionSelector.h */,
+				535690767B1671F06E0F459B008FD8F3 /* CSSNthExpressionSelector.m */,
+				59FFDBAA34B402E93E1C3E9DF1C50B2C /* CSSPseudoClassSelector.h */,
+				DF79E11C0CCF04093C29F35E82A42FBF /* CSSPseudoClassSelector.m */,
+				9C6780EDD27DAB9389350DA7BF767AED /* CSSPseudoFunctionSelector.h */,
+				2E521744979D1DCBF37BC91F9B18D4C1 /* CSSPseudoFunctionSelector.m */,
+				74D236FA500A2D2B3D5DD27A68E29B28 /* CSSSelector.h */,
+				E915215B4C9247037752D21A5809E6D7 /* CSSSelector.m */,
+				B7070F78FC76988366A9359F1D4C4A0E /* CSSSelectorBlock.h */,
+				1D6544F1BB6994143522887E9CB81B22 /* CSSSelectorBlock.m */,
+				D056C3FD5131D7D57F681C4C1B96EB03 /* CSSSelectorParser.h */,
+				62120CECDC2640D2AB2A4802A9440AD2 /* CSSSelectorParser.m */,
+				351DEBD749E4BAE223E07F196DFF1E10 /* CSSSelectors.h */,
+				2F2342B48E40A27874A80F352EA83351 /* CSSSelectors.m */,
+				6936035F04C842F71FE9901707943FA9 /* CSSStructuralPseudoSelectors.h */,
+				D678D2B4DB18E2D515BAC2AB88A85CDC /* CSSStructuralPseudoSelectors.m */,
+				ADCA397F8DED293DBBABC07B4BC1FA7A /* CSSTypeSelector.h */,
+				ABA376EB889B10C2FAB0ED105036864C /* CSSTypeSelector.m */,
+				DC4E0F1B3BCDE2D5C63005D4435B72CE /* HTMLCharacterData.h */,
+				2D47022E63191827BDB4EB581F629B37 /* HTMLCharacterData.m */,
+				7FA11A650375C34ADC58AC8468BF953D /* HTMLCharacterData+Private.h */,
+				07D2F0B1E5D029716E1E5E9F6C98E0E5 /* HTMLCharacterToken.h */,
+				0861F97FB7364B7AFC66EB561FD7647B /* HTMLCharacterToken.m */,
+				3105FAE53F3D4A32D1201CDD3DF7FCE6 /* HTMLComment.h */,
+				156CA75306421A2996802D0376856329 /* HTMLComment.m */,
+				08691D47C5BAA270A63CFA1A05898D30 /* HTMLCommentToken.h */,
+				5E11361ED6624E71636F3362A8F6DA05 /* HTMLCommentToken.m */,
+				FA0AC87C5350A48C1FBAAAA284DD9BC8 /* HTMLDOCTYPEToken.h */,
+				9ACD7EA4F74A6430932FF69C59F0A143 /* HTMLDOCTYPEToken.m */,
+				57CB8FE42BFF75F641CCAFDDF017ED91 /* HTMLDocument.h */,
+				34C355231F682C35866495587562E086 /* HTMLDocument.m */,
+				D95C3DA1E35350746478403D80B0901E /* HTMLDocument+Private.h */,
+				288FDB092DC15040D5B4B094A91B4FB5 /* HTMLDocumentFragment.h */,
+				BFD8B208B6B071B0223D9A5C1D2B2EEB /* HTMLDocumentFragment.m */,
+				0B11A4BECC6B9825B652C7F753055C46 /* HTMLDocumentType.h */,
+				5DA07DF50A2C1AA42FA2AFDCC7B2965E /* HTMLDocumentType.m */,
+				8F7C550ABCB8803D23C76532EA8033A7 /* HTMLDOM.h */,
+				393C4A56563C8FDB9D0F0C025869AB51 /* HTMLDOMTokenList.h */,
+				A0F7E15E3C71FB4BB75210671452C988 /* HTMLDOMTokenList.m */,
+				A7F8DCCBB835408D909EDA3B43F1BE3F /* HTMLDOMUtils.h */,
+				ECDD229C1A32E4AA4F7A683AA2A9A8F0 /* HTMLDOMUtils.m */,
+				606B574A07E56D9CCAA58A94841C498E /* HTMLElement.h */,
+				11FFA5F55C48869E88A4C39A22A79D06 /* HTMLElement.m */,
+				B21176F3CA546BA2FE74228420943A18 /* HTMLElementAdjustment.h */,
+				3F298E37B2606B6968D6DA5B39A45E01 /* HTMLElementTypes.h */,
+				BC574A8965091C984DB68C77583FE722 /* HTMLEOFToken.h */,
+				D3242F2B4E4CD9CF63E2C954EE722F48 /* HTMLEOFToken.m */,
+				7B2C086D1061D6A35269554770FD8C31 /* HTMLInputStreamReader.h */,
+				13AFB6BBB53BF13C6DED9C4A0E61F92D /* HTMLInputStreamReader.m */,
+				F6720909FE60D08025149DA36F42A930 /* HTMLKit.h */,
+				ABC6CFCC8AE832D6B69058988AA6FFAA /* HTMLKitDOMExceptions.h */,
+				6AC443718A0CAE6AF6BD163E156DE48E /* HTMLKitDOMExceptions.m */,
+				EE5CBD83B43CEBF8EED2A1A70C281A11 /* HTMLKitErrorDomain.h */,
+				15CC0F385576DEE4F2BDCAA8086FCFEE /* HTMLListOfActiveFormattingElements.h */,
+				ADFDC72F7D825EB59669C9BD2940FB2E /* HTMLListOfActiveFormattingElements.m */,
+				05B408532767FC7885E67F5D9E00EF68 /* HTMLMarker.h */,
+				9AD32564D44E9B3747DFD796B148F14B /* HTMLMarker.m */,
+				96AA622A96435880B4566AC531023DA6 /* HTMLNamespaces.h */,
+				A0FE7BBE8CA2DA96C47654F734F1809D /* HTMLNode.h */,
+				D0D32A145C871E7433C614720954CB04 /* HTMLNode.m */,
+				47BA4C58FA3A0068048B289EC2352FB8 /* HTMLNode+Private.h */,
+				DF35A0852064DD30B454E6C672D6C795 /* HTMLNodeFilter.h */,
+				C1F7B58874C4074D91B34AD88C43D0F1 /* HTMLNodeFilter.m */,
+				3F9156E02A86A623FEE5DD39A590E91F /* HTMLNodeIterator.h */,
+				A0664E4BD732668E7B6C44984931A05E /* HTMLNodeIterator.m */,
+				99A4B2BCFC860D54923927B17A8598FC /* HTMLNodeIterator+Private.h */,
+				3CE4FFFA943E49440E2EE916F17EEE00 /* HTMLNodeTraversal.h */,
+				426FDF036EA10292170AA3BD81ED3892 /* HTMLNodeTraversal.m */,
+				F1C18C490D80ABC74D82D7251D808231 /* HTMLNodeVisitor.h */,
+				9BB3E47A125B9DDF91BACF100A90A207 /* HTMLNodeVisitor.m */,
+				32BCA768077E8D6C71BE782B6F3A9200 /* HTMLOrderedDictionary.h */,
+				A9EE70A7CE24D9D02939B1E0D305D091 /* HTMLOrderedDictionary.m */,
+				1556A4068551D618997EB9E4E6642DF2 /* HTMLParseErrorToken.h */,
+				78D4069FD98C0676B82A725A998658DD /* HTMLParseErrorToken.m */,
+				64AC9537A27787B5CA06892675FD6EB3 /* HTMLParser.h */,
+				625D70756A732484E569224A4B74E649 /* HTMLParser.m */,
+				C4DBBBE06BEA2B2719FA3EFA7DE94BE4 /* HTMLParser+Private.h */,
+				38312FBF0E663454D13BA99AD6FB0B26 /* HTMLParserInsertionModes.h */,
+				74A00B8187D223FB2796C55BE6C1FCA1 /* HTMLQuircksMode.m */,
+				644063341EA002E0EAE8F6CC7EA8E810 /* HTMLQuirksMode.h */,
+				2D397DA5D2D5B159CFA7FEA1277405EB /* HTMLRange.h */,
+				667F7C6EE7A7187F195731F98890B339 /* HTMLRange.m */,
+				1A75FEB7D16DB6414CEEC07EE9EE4C7E /* HTMLRange+Private.h */,
+				21E0E4C6FFD06B6D4873B25B6CAE3115 /* HTMLSerializer.h */,
+				EDE2B5874B25E5F031CD0F4C718086AE /* HTMLSerializer.m */,
+				38308400EF6505AF84F3AC2890302A55 /* HTMLStackOfOpenElements.h */,
+				A4185059F799C4BBBAEE1701438C2B53 /* HTMLStackOfOpenElements.m */,
+				096A0C47079C2ADF7FBC4C2749648915 /* HTMLTagToken.h */,
+				224D1F9D5C45F3971890518EB35A6544 /* HTMLTagToken.m */,
+				2DB0C6FE831E67FE52D4A4A2D6C6C724 /* HTMLTemplate.h */,
+				70385C811D5320B5E4EC3910C0299D72 /* HTMLTemplate.m */,
+				9099AF6B289F5B08D6D48640237EAC65 /* HTMLText.h */,
+				38790F9DBD5587A64F58B0EB9266012A /* HTMLText.m */,
+				F8C94B0E5129D89726BC12B1EC4F84E5 /* HTMLToken.h */,
+				CF58A3564BC949337A6582765B5F15DF /* HTMLToken.m */,
+				5385ABFF7FFE8AC978C96F90F5F50BCE /* HTMLTokenizer.h */,
+				D80E12BB9266A97D3FCD849E422BCD1D /* HTMLTokenizer.m */,
+				C727C30ED47E73A50A3BF7C95AA26D81 /* HTMLTokenizerCharacters.h */,
+				5A51D86B87716F1B7032F5F31C053C57 /* HTMLTokenizerEntities.h */,
+				DC5FA36E27D1040F7C2E65D0A0053ABD /* HTMLTokenizerEntities.m */,
+				6D398354ED59CF66EE69CB73EA6CAD9C /* HTMLTokenizerStates.h */,
+				8F09222CC5B8B32154706138BCD77EC5 /* HTMLTokens.h */,
+				05CDD3AEE93B552CD7D024B1C14E384D /* HTMLTreeVisitor.h */,
+				AEC8237B42AD335BC0B123C7ED74F091 /* HTMLTreeVisitor.m */,
+				D3862B8F9B3B96AA65B807456D22C93B /* HTMLTreeWalker.h */,
+				27CAA3FF30B6C6DCE3B09E727222C3A9 /* HTMLTreeWalker.m */,
+				332883A3A475E126CAABC9F000DE4490 /* NSCharacterSet+HTMLKit.h */,
+				ADA59FB5E09164974E6F8840D394BAB2 /* NSCharacterSet+HTMLKit.m */,
+				7728333904F9A0583DD05204529C5CD6 /* NSString+HTMLKit.h */,
+				115C75E3F8CDA26F4D737BA181E21E79 /* NSString+HTMLKit.m */,
+				F3F2B54256716DF69D0C573D18C75DF1 /* NSString+Private.h */,
+				74591ACA5A7327574F0CF6665D6D6AE3 /* NSString+Private.m */,
+				4D850A5A7BA832E620AC36EA049C09E0 /* Support Files */,
+			);
+			name = HTMLKit;
+			path = HTMLKit;
+			sourceTree = "<group>";
+		};
 		0980BBB6F1E3A32AD620B3A0D596E028 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
 				AC7AB9BEDB6AED7FC6CAA7D2F3E2B736 /* Pods-PirateRadio */,
 			);
 			name = "Targets Support Files";
-			sourceTree = "<group>";
-		};
-		13364E771493DA733BC4F13C3E7D8971 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				4DD50045DF19902709B4AE7B2F2C3151 /* Pods_PirateRadio.framework */,
-				D6043471C96F93DC41F7DD1E0D7D8B35 /* Toast_Swift.framework */,
-				DE0FAB1DA724AB86C0E299518F5E580A /* YoutubePlayer_in_WKWebView.framework */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		1628BF05B4CAFDCC3549A101F5A10A17 /* Frameworks */ = {
@@ -131,62 +525,59 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		1677080A6C63A2A95EF299055C7D6D88 /* Support Files */ = {
+		23324EB2CC03C003E26FFEB88E4A6CEB /* Toast-Swift */ = {
 			isa = PBXGroup;
 			children = (
-				C0EF7BF21302D002649717EE0B8B9C37 /* Toast-Swift.modulemap */,
-				083A5BECDA9C9F4BAC541ACF57C42CE0 /* Toast-Swift-dummy.m */,
-				E6B787D1B7ABFE2390265B58F6B8C5C2 /* Toast-Swift-Info.plist */,
-				8C5AF3C41DC4DDFB1C0BD77E55E7196B /* Toast-Swift-prefix.pch */,
-				299361CC9D06915F822E9FD8EEF72FF7 /* Toast-Swift-umbrella.h */,
-				A1BECB60F52629D3007A98CBD202A870 /* Toast-Swift.debug.xcconfig */,
-				8C1F5F7B4E7AE117E9C1B89202A6CA47 /* Toast-Swift.release.xcconfig */,
+				D721BEE22FF9703166B240B9EEF87B1B /* Toast.swift */,
+				AE194055FEEA43D92E0A5F722BE78CD4 /* Support Files */,
 			);
-			name = "Support Files";
-			path = "../Target Support Files/Toast-Swift";
+			name = "Toast-Swift";
+			path = "Toast-Swift";
 			sourceTree = "<group>";
 		};
-		1CC13CC5D9CA26921B33D81DE6DD0469 /* Pods */ = {
+		4D850A5A7BA832E620AC36EA049C09E0 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				EF90BF4465E1A919F2C7AA7310801D35 /* Toast-Swift */,
-				35C64489BFA0D1B05433D36B143932DF /* YoutubePlayer-in-WKWebView */,
+				8E0DB03B345B6624A92A8F9F70F55561 /* HTMLKit.modulemap */,
+				7AC4145491A707C7B31149C8BFAD46AE /* HTMLKit-dummy.m */,
+				362AFE8DCAA61774C08516027C86BF45 /* HTMLKit-Info.plist */,
+				69A5AA247D41A32F68EBDE0953D763C4 /* HTMLKit-prefix.pch */,
+				DD6F93B444B850F99513ED8E8BB0D7B5 /* HTMLKit-umbrella.h */,
+				BEC8C967E8D5FD934C64A40EA7360431 /* HTMLKit.debug.xcconfig */,
+				2A42618B2349E3D81DA6EE652BA5A568 /* HTMLKit.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/HTMLKit";
+			sourceTree = "<group>";
+		};
+		4FEFBE5F7B47D6770F0738F00A3FD537 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				08E33E5E588E7581C571723C87347944 /* HTMLKit */,
+				23324EB2CC03C003E26FFEB88E4A6CEB /* Toast-Swift */,
+				58B667ECA650C014E83BEA45838B071D /* YoutubePlayer-in-WKWebView */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		35C64489BFA0D1B05433D36B143932DF /* YoutubePlayer-in-WKWebView */ = {
+		58B667ECA650C014E83BEA45838B071D /* YoutubePlayer-in-WKWebView */ = {
 			isa = PBXGroup;
 			children = (
-				B72D5F4F337EE664D42F2C9CA018E19E /* WKYTPlayerView.h */,
-				B7FAD40630BAA9C244DF4CDCAA425FEB /* WKYTPlayerView.m */,
-				797911367D8A54D35DB0CC36804180CC /* Resources */,
-				91CEB30DE2E4419C124BFEF76B73BF19 /* Support Files */,
+				74A47D7C9DB444B4FA0C8A40DC156891 /* WKYTPlayerView.h */,
+				0D8F3D398B4BD7D7AFD43B85FCDE04B4 /* WKYTPlayerView.m */,
+				7718A196AF9BFFD811B5BE1D54D1E76E /* Resources */,
+				D10B06DB9FCF8C22D904248849169EFC /* Support Files */,
 			);
+			name = "YoutubePlayer-in-WKWebView";
 			path = "YoutubePlayer-in-WKWebView";
 			sourceTree = "<group>";
 		};
-		797911367D8A54D35DB0CC36804180CC /* Resources */ = {
+		7718A196AF9BFFD811B5BE1D54D1E76E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				835CBB53D5BFACAB1AB74FA9E53860DA /* WKYTPlayerView.bundle */,
+				02B4FF2388D46FBC5EB47A98BF8F1851 /* WKYTPlayerView.bundle */,
 			);
 			name = Resources;
-			sourceTree = "<group>";
-		};
-		91CEB30DE2E4419C124BFEF76B73BF19 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				4DCF7BED3B0C1A70AC81A9B39D1A704C /* YoutubePlayer-in-WKWebView.modulemap */,
-				6302F57A08872E0FF32F8D574A4AE294 /* YoutubePlayer-in-WKWebView-dummy.m */,
-				137BA66BBA7A9D81DEABD745E4E5833A /* YoutubePlayer-in-WKWebView-Info.plist */,
-				C830BCBD7B61DBA5829584DC57F28ACF /* YoutubePlayer-in-WKWebView-prefix.pch */,
-				3A14234E2632C06373AC36A1A2A460D6 /* YoutubePlayer-in-WKWebView-umbrella.h */,
-				012663BE037B1E0D5D24BB33A4F77841 /* YoutubePlayer-in-WKWebView.debug.xcconfig */,
-				B905B16EB39306F8C02160C7752E01F2 /* YoutubePlayer-in-WKWebView.release.xcconfig */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/YoutubePlayer-in-WKWebView";
 			sourceTree = "<group>";
 		};
 		AC7AB9BEDB6AED7FC6CAA7D2F3E2B736 /* Pods-PirateRadio */ = {
@@ -206,15 +597,56 @@
 			path = "Target Support Files/Pods-PirateRadio";
 			sourceTree = "<group>";
 		};
+		AE194055FEEA43D92E0A5F722BE78CD4 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				5E1BFFC761F06C6A3E6881B868AC4E5C /* Toast-Swift.modulemap */,
+				41EEC83A82FC39E7A2BFDC174D46BEAC /* Toast-Swift-dummy.m */,
+				D673E3E84550A0D02B9BE702BC608C12 /* Toast-Swift-Info.plist */,
+				B6650BDFAF6862391937918647257B8C /* Toast-Swift-prefix.pch */,
+				57FA56C244BC2B9505A53D070A487EE8 /* Toast-Swift-umbrella.h */,
+				69BF1E63CBD8A2D439AB3F7890C35AF8 /* Toast-Swift.debug.xcconfig */,
+				F0904CFE72840B5347394C2E93E86645 /* Toast-Swift.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Toast-Swift";
+			sourceTree = "<group>";
+		};
+		B1683D7AB6DCCEFB0C24E2E64E34F44E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				20090293D4AE249A79E878C2E7F52482 /* HTMLKit.framework */,
+				4DD50045DF19902709B4AE7B2F2C3151 /* Pods_PirateRadio.framework */,
+				D6043471C96F93DC41F7DD1E0D7D8B35 /* Toast_Swift.framework */,
+				DE0FAB1DA724AB86C0E299518F5E580A /* YoutubePlayer_in_WKWebView.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		CF1408CF629C7361332E53B88F7BD30C = {
 			isa = PBXGroup;
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
 				1628BF05B4CAFDCC3549A101F5A10A17 /* Frameworks */,
-				1CC13CC5D9CA26921B33D81DE6DD0469 /* Pods */,
-				13364E771493DA733BC4F13C3E7D8971 /* Products */,
+				4FEFBE5F7B47D6770F0738F00A3FD537 /* Pods */,
+				B1683D7AB6DCCEFB0C24E2E64E34F44E /* Products */,
 				0980BBB6F1E3A32AD620B3A0D596E028 /* Targets Support Files */,
 			);
+			sourceTree = "<group>";
+		};
+		D10B06DB9FCF8C22D904248849169EFC /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				FA012D13CA1CFC6DA748D1B96C762104 /* YoutubePlayer-in-WKWebView.modulemap */,
+				20E10275C000EFFC7FACA18D3EC8AF7D /* YoutubePlayer-in-WKWebView-dummy.m */,
+				567F48DB0102EA92EB6ABE2D64DBD90E /* YoutubePlayer-in-WKWebView-Info.plist */,
+				AB566B0F3F2A4B6730517730AACD471E /* YoutubePlayer-in-WKWebView-prefix.pch */,
+				649CAC890F967A51EF2B2E85D1243B06 /* YoutubePlayer-in-WKWebView-umbrella.h */,
+				90E44D74A6E3042D47BA55F8A19C81EC /* YoutubePlayer-in-WKWebView.debug.xcconfig */,
+				E1947A19B44BE53623DFEC92719EB945 /* YoutubePlayer-in-WKWebView.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/YoutubePlayer-in-WKWebView";
 			sourceTree = "<group>";
 		};
 		D325A42620E7427FB70FB046C7B7B240 /* iOS */ = {
@@ -224,15 +656,6 @@
 				2FEFE490E4A06D19E868B2B9014BB8BF /* QuartzCore.framework */,
 			);
 			name = iOS;
-			sourceTree = "<group>";
-		};
-		EF90BF4465E1A919F2C7AA7310801D35 /* Toast-Swift */ = {
-			isa = PBXGroup;
-			children = (
-				6620E2D73C73A27E06384BB6A5D75F26 /* Toast.swift */,
-				1677080A6C63A2A95EF299055C7D6D88 /* Support Files */,
-			);
-			path = "Toast-Swift";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -255,11 +678,89 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BE8D80B703A3B80202E86A5B994A7AD6 /* Headers */ = {
+		61B5E893AD73E2AD3D8BDE1CB8363346 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C3FA963C39DB15F93F0A9F1954B6A12D /* Pods-PirateRadio-umbrella.h in Headers */,
+				BB5B92A1A7ED9E8261A38C46837C2EFA /* Pods-PirateRadio-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D8469E0E52F5E8B94644A69BF101645A /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BB0F4F6B3CAA9004436C328BF9EA4609 /* CSSAttributeSelector.h in Headers */,
+				AF815058852915CDE640D979D1F3D19B /* CSSCodePoints.h in Headers */,
+				687A7E9DF47AEE17702C922162052D3D /* CSSCombinatorSelector.h in Headers */,
+				7DFF921C758696A54C472B391ACBD4BE /* CSSCompoundSelector.h in Headers */,
+				5E2F1F0A2212AEFC8C1C994ECF8B7F99 /* CSSInputStream.h in Headers */,
+				A2295AAD6FA68B3A93BB41DD906E5CFE /* CSSNthExpressionParser.h in Headers */,
+				D6CD14D3DF8596B30912485EDCA02C94 /* CSSNthExpressionSelector.h in Headers */,
+				46EC1FF90ECC6E61E7831D7BF7D6B91D /* CSSPseudoClassSelector.h in Headers */,
+				CA87AA8DC54DEC0F8071E142E0D6D236 /* CSSPseudoFunctionSelector.h in Headers */,
+				2F69DB88ADA7407710426F2CFA0DF1D8 /* CSSSelector.h in Headers */,
+				621DA754D7EACD4816DAD8615E657825 /* CSSSelectorBlock.h in Headers */,
+				CCE50C8D53F71EB375EC097E4550164B /* CSSSelectorParser.h in Headers */,
+				B3BCF330195B8B8ED06E297FA0043256 /* CSSSelectors.h in Headers */,
+				05C3E06855DC8179081C39D789A8B1F0 /* CSSStructuralPseudoSelectors.h in Headers */,
+				E5ED1C7866406B2ED7C4C35951C550A1 /* CSSTypeSelector.h in Headers */,
+				D5EC9515D7FFABC2B82C09517D8B1A95 /* HTMLCharacterData+Private.h in Headers */,
+				8B751DCF057CC48A38C3E62342C00F0D /* HTMLCharacterData.h in Headers */,
+				35D6347C9D2E2944E1B05BB9182B04EA /* HTMLCharacterToken.h in Headers */,
+				872D6E498DD573853FE025FA09E443A9 /* HTMLComment.h in Headers */,
+				2BC7C2898F080D547D1034ADB8BD6D29 /* HTMLCommentToken.h in Headers */,
+				6AB9412A65610C8A56D3E10D7A92CB31 /* HTMLDOCTYPEToken.h in Headers */,
+				A4D7E68B9A78C0842058BEF25DA96367 /* HTMLDocument+Private.h in Headers */,
+				EFD38194F6E9114340A3A92F91CA1CDA /* HTMLDocument.h in Headers */,
+				30AD3AA41298DB92EEA5C855876918FD /* HTMLDocumentFragment.h in Headers */,
+				80BE5A55A778D0BFECA3109A5F17E7C9 /* HTMLDocumentType.h in Headers */,
+				7BF737FC09F0648E3A5C138742D198CA /* HTMLDOM.h in Headers */,
+				C2F883F18F118A64D26C58D41431D9F8 /* HTMLDOMTokenList.h in Headers */,
+				1793C3BE1ED8253BC4134EA1A253DFE2 /* HTMLDOMUtils.h in Headers */,
+				1B2958A9A764A7ED6119B58E2DAF50FD /* HTMLElement.h in Headers */,
+				2D071552241CC029A419968648207918 /* HTMLElementAdjustment.h in Headers */,
+				41A122C3E9214179A4886653409B09FC /* HTMLElementTypes.h in Headers */,
+				96768A16E4D4D0540F2586C2BDEEAC4D /* HTMLEOFToken.h in Headers */,
+				9770C78888036EFCF5D9F263C344052F /* HTMLInputStreamReader.h in Headers */,
+				BA5BEBF07D3CC61C99E603873FB620E0 /* HTMLKit-umbrella.h in Headers */,
+				9328BFAA00AC8B9B8581908E1FD467CC /* HTMLKit.h in Headers */,
+				72D42970127D6D2E356D5C7DD6A9CAC1 /* HTMLKitDOMExceptions.h in Headers */,
+				41E10EE4932151CC321A465538DCDE75 /* HTMLKitErrorDomain.h in Headers */,
+				5471749C4CF0B455B9C127888491B35B /* HTMLListOfActiveFormattingElements.h in Headers */,
+				22AA0D6E0A8B8154D4950A7AF01E0866 /* HTMLMarker.h in Headers */,
+				4EE25F10E0A85004708299D5FD35C4E9 /* HTMLNamespaces.h in Headers */,
+				ABA60F368DB1DBC561A901199CE2D5EB /* HTMLNode+Private.h in Headers */,
+				E20A182FCC3B1A9BCF21C37E641866EC /* HTMLNode.h in Headers */,
+				DC48A0293F395439BF37E37B23F00BEC /* HTMLNodeFilter.h in Headers */,
+				1FC973CF679B92965414C269EACAE033 /* HTMLNodeIterator+Private.h in Headers */,
+				0E7966C68D66DFC8F5034B1337D3DA8D /* HTMLNodeIterator.h in Headers */,
+				8779454889E83F938364A97B4C5D8951 /* HTMLNodeTraversal.h in Headers */,
+				65FEF07281CED148E1F3035338104914 /* HTMLNodeVisitor.h in Headers */,
+				0C0971BC747C823F6E1D80EA806F7BCC /* HTMLOrderedDictionary.h in Headers */,
+				8EBB8E44881F8CCBFDFBF4114BABE1E5 /* HTMLParseErrorToken.h in Headers */,
+				A216A99B8C878BB3CF4903B08768E86D /* HTMLParser+Private.h in Headers */,
+				D45BE59EB63CF87111EFA9548D5CE471 /* HTMLParser.h in Headers */,
+				CCE49048EF7AC17ED1174B99384FBD1C /* HTMLParserInsertionModes.h in Headers */,
+				0E868C32881D2AFC3F83720449AE3DBE /* HTMLQuirksMode.h in Headers */,
+				2AA86826B1EED2516EF1F635D76C9608 /* HTMLRange+Private.h in Headers */,
+				F78000A16144247C9CD4643004E3E65E /* HTMLRange.h in Headers */,
+				62731AC919CCC34640B842C8B0DA8FDF /* HTMLSerializer.h in Headers */,
+				1ACBB4793541AEBF22F6A89EA0C447F7 /* HTMLStackOfOpenElements.h in Headers */,
+				2DF99D4BCDF69CB88FA93EEC98525C99 /* HTMLTagToken.h in Headers */,
+				5AE34DD4CC46A7BF18EDB1C4797EAFAD /* HTMLTemplate.h in Headers */,
+				1C3ADC96E5FEB81BBD414A11930EA00E /* HTMLText.h in Headers */,
+				E0EDA95C7999E96A3F6D233648C16543 /* HTMLToken.h in Headers */,
+				95AA463EB563ADBD7653687EAFE07863 /* HTMLTokenizer.h in Headers */,
+				CD8976D166B5DAE4F9E0647BE1768AB0 /* HTMLTokenizerCharacters.h in Headers */,
+				6A14F8B58F5986D4D670A75E8167DD2F /* HTMLTokenizerEntities.h in Headers */,
+				068F555130A1713846DCD274395A5371 /* HTMLTokenizerStates.h in Headers */,
+				BEB7A6BF719ED9CF0C2A4D96680F7B4D /* HTMLTokens.h in Headers */,
+				60DD1CFD9FF49FA25ACA24721184B370 /* HTMLTreeVisitor.h in Headers */,
+				A064553DE1BCF58DB3F2F063C2C33853 /* HTMLTreeWalker.h in Headers */,
+				038848D5D62ED189A285C324C2CC7D3A /* NSCharacterSet+HTMLKit.h in Headers */,
+				337E3639C45768BA3D91494DE4CE13A6 /* NSString+HTMLKit.h in Headers */,
+				65A96B98762327564F0EA8F34F8D5C4F /* NSString+Private.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,18 +769,19 @@
 /* Begin PBXNativeTarget section */
 		7588E63C97092047C01DAD16B7A8D1AE /* Pods-PirateRadio */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AD0ADC96A8A96880EB23FF4C946599AE /* Build configuration list for PBXNativeTarget "Pods-PirateRadio" */;
+			buildConfigurationList = 3EEDB8B7D63D777EEC0DD95FAC9FE703 /* Build configuration list for PBXNativeTarget "Pods-PirateRadio" */;
 			buildPhases = (
-				BE8D80B703A3B80202E86A5B994A7AD6 /* Headers */,
-				DDCCFEBCC5E49E1CC7DDCE23F754DF0E /* Sources */,
-				5851C4FFC22F472A11B881F695418096 /* Frameworks */,
-				0D1EAC811475AC89BDC845E157FDEC0E /* Resources */,
+				61B5E893AD73E2AD3D8BDE1CB8363346 /* Headers */,
+				983064DFB14617C91B0E6B0F3296C9D1 /* Sources */,
+				EC01CDBCC8503A0ED5FA13034E044C95 /* Frameworks */,
+				B4009AA6148E4E27B75DCCAD7BC25463 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				465199FC20F1F1E7B1C88A95469B5A47 /* PBXTargetDependency */,
-				ADCB4FC767C5B1E0E05D3E0AEB8B04AD /* PBXTargetDependency */,
+				0E0C795557B8C29D3F49BDCDE71741D6 /* PBXTargetDependency */,
+				A36225B3C58B1215FC255E3B8E5D5DEA /* PBXTargetDependency */,
+				F96F22C64B10A0EDD79F099C8A275F17 /* PBXTargetDependency */,
 			);
 			name = "Pods-PirateRadio";
 			productName = "Pods-PirateRadio";
@@ -302,6 +804,24 @@
 			name = "Toast-Swift";
 			productName = "Toast-Swift";
 			productReference = D6043471C96F93DC41F7DD1E0D7D8B35 /* Toast_Swift.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		D6807B82082F2598A4BABD0A6B657D10 /* HTMLKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BD9E762BE0A1112C66F4D44A25971D68 /* Build configuration list for PBXNativeTarget "HTMLKit" */;
+			buildPhases = (
+				D8469E0E52F5E8B94644A69BF101645A /* Headers */,
+				781E3D72C0AAD4DF0BD97B15F3C72BF0 /* Sources */,
+				79D36270CF8DD526B476C3754C38B993 /* Frameworks */,
+				5DBCC9F2AFC6A3073CF07EAE60985446 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HTMLKit;
+			productName = HTMLKit;
+			productReference = 20090293D4AE249A79E878C2E7F52482 /* HTMLKit.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		DABE3AD6EBA3822D4F04FBC550E7158D /* YoutubePlayer-in-WKWebView */ = {
@@ -329,10 +849,10 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1100;
-				LastUpgradeCheck = 1240;
+				LastUpgradeCheck = 1100;
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 10.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -340,10 +860,11 @@
 				Base,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
-			productRefGroup = 13364E771493DA733BC4F13C3E7D8971 /* Products */;
+			productRefGroup = B1683D7AB6DCCEFB0C24E2E64E34F44E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
+				D6807B82082F2598A4BABD0A6B657D10 /* HTMLKit */,
 				7588E63C97092047C01DAD16B7A8D1AE /* Pods-PirateRadio */,
 				B990BD87169C76A3ED3FE8A9258D91A3 /* Toast-Swift */,
 				DABE3AD6EBA3822D4F04FBC550E7158D /* YoutubePlayer-in-WKWebView */,
@@ -352,7 +873,7 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		0D1EAC811475AC89BDC845E157FDEC0E /* Resources */ = {
+		5DBCC9F2AFC6A3073CF07EAE60985446 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -374,6 +895,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B4009AA6148E4E27B75DCCAD7BC25463 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -386,6 +914,75 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		781E3D72C0AAD4DF0BD97B15F3C72BF0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4C46BE52C7D412DFD77AA119A54841FC /* CSSAttributeSelector.m in Sources */,
+				1CB71DEAE348197CB16E8FFDB2D5A92A /* CSSCombinatorSelector.m in Sources */,
+				F8D753DEE0D2238D62DA45A500245843 /* CSSCompoundSelector.m in Sources */,
+				43014E1B8687ECB3DF0C545F9A01BC25 /* CSSInputStream.m in Sources */,
+				3FF5337706648B3C2368437B4A0BB20C /* CSSNthExpressionParser.m in Sources */,
+				5C41DAD11C8D5C27707A9D641C9D592A /* CSSNthExpressionSelector.m in Sources */,
+				07543B35DE65261F2B3EB2114609806D /* CSSPseudoClassSelector.m in Sources */,
+				78A8858F46C4FF4394A8850E5FAFA028 /* CSSPseudoFunctionSelector.m in Sources */,
+				D3AA0B1D9FC83D0BC9B8B9F3155058DB /* CSSSelector.m in Sources */,
+				6154CC4F2512A94A83D76747D0194B47 /* CSSSelectorBlock.m in Sources */,
+				CC29562ABC3780EBF69E620997446FBD /* CSSSelectorParser.m in Sources */,
+				4CB6977EEA02A7B5E14036340759CCBA /* CSSSelectors.m in Sources */,
+				726D377BE3CAFAACD56309A234DC9523 /* CSSStructuralPseudoSelectors.m in Sources */,
+				1F4931628E1D4A5089916468D8569F98 /* CSSTypeSelector.m in Sources */,
+				68684645C192C0BE835F3D0312FEDD30 /* HTMLCharacterData.m in Sources */,
+				4960347B078294511ADB0AE4CA9250CF /* HTMLCharacterToken.m in Sources */,
+				E3FA7CAEC3E2D7F83C30016227B0E68A /* HTMLComment.m in Sources */,
+				496FC59E7A590CA43EC7201963BC39AE /* HTMLCommentToken.m in Sources */,
+				15F6D319E31616757F1ACD5765A90CE0 /* HTMLDOCTYPEToken.m in Sources */,
+				3B9C07BCDCEB7B2C0266A1D7370D3326 /* HTMLDocument.m in Sources */,
+				7995F79B359D09CBB56175A2949D5F4B /* HTMLDocumentFragment.m in Sources */,
+				1254DE0E9C537E071D9F10D9862E2AA3 /* HTMLDocumentType.m in Sources */,
+				64918E10093DBD6E73B4453D775AEB70 /* HTMLDOMTokenList.m in Sources */,
+				8E100E2CB8690E811B6CFB23112A4C4B /* HTMLDOMUtils.m in Sources */,
+				AF93BEDE4A742D0670902AAA2B8F1825 /* HTMLElement.m in Sources */,
+				8360E68489B24A21850CF9ED9C9B186A /* HTMLEOFToken.m in Sources */,
+				83228904A0B47AE72965A66DED9A3441 /* HTMLInputStreamReader.m in Sources */,
+				2926F8630F9DA391F7636E5B5A0F7557 /* HTMLKit-dummy.m in Sources */,
+				54991BAAC0F537E05F53D447B76F044E /* HTMLKitDOMExceptions.m in Sources */,
+				845BE6EA182C074B3490F520A923C4FA /* HTMLListOfActiveFormattingElements.m in Sources */,
+				3B4D77D7B33C2D27CA80D0FA66AD572A /* HTMLMarker.m in Sources */,
+				15F2A99F78A3DAC5CC20E2C2DA4A2FC2 /* HTMLNode.m in Sources */,
+				EE8621324F42E1281FF84779255A6085 /* HTMLNodeFilter.m in Sources */,
+				54E0E7DBAB6DF7ADA07A06B99BB1BCC8 /* HTMLNodeIterator.m in Sources */,
+				1133D82E4A202C44D93CA728CCF8B1A9 /* HTMLNodeTraversal.m in Sources */,
+				E3CE7376177A06132033C9437262F026 /* HTMLNodeVisitor.m in Sources */,
+				2FC31BE5B685BFD1E8D09ABC5143D96C /* HTMLOrderedDictionary.m in Sources */,
+				F100AFA512326A66E7FC6128C3A2CB3F /* HTMLParseErrorToken.m in Sources */,
+				37802E9225ABF2AD97AAF455DF51E1D3 /* HTMLParser.m in Sources */,
+				E7CAF39076F37BCD25A77EABA8841CB5 /* HTMLQuircksMode.m in Sources */,
+				2E8AEFE15398667EDAC9160FFB4FC1AA /* HTMLRange.m in Sources */,
+				247670222CBF2220BC39A64B22F4CBCE /* HTMLSerializer.m in Sources */,
+				F55E6DF3787A79DA0CFB800485F46CC1 /* HTMLStackOfOpenElements.m in Sources */,
+				2DB1857958030319B83BAE0DDDB2D6FA /* HTMLTagToken.m in Sources */,
+				CD38F5B7528811236C409F0AA8BCDD64 /* HTMLTemplate.m in Sources */,
+				B45F3F30B18E91E4EC6B3B5BCE72AC21 /* HTMLText.m in Sources */,
+				816A5CD6DFEB9E20A18E0C4C63A2E642 /* HTMLToken.m in Sources */,
+				089591E0DBAEAAD118517074F91B9C7E /* HTMLTokenizer.m in Sources */,
+				09C3DD867776CE90FC70EE185A11525F /* HTMLTokenizerEntities.m in Sources */,
+				1A3E6368CD99234A2FB4C67F40D90282 /* HTMLTreeVisitor.m in Sources */,
+				9641CD9C68A3E47FC33E2B845432AAA7 /* HTMLTreeWalker.m in Sources */,
+				30FA2054A1D1A1909C6A576D375F3D34 /* NSCharacterSet+HTMLKit.m in Sources */,
+				F8567FFAE1F25F53270793D20B81C0DF /* NSString+HTMLKit.m in Sources */,
+				5C4BA615876D251FFD639754914F67A0 /* NSString+Private.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		983064DFB14617C91B0E6B0F3296C9D1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				205B43284C1BE8422E683D0ECA2F76BA /* Pods-PirateRadio-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DC2087E01AAFD2B9411B8C3022709F9A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -395,35 +992,33 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DDCCFEBCC5E49E1CC7DDCE23F754DF0E /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E733D149407B524262B5DB1487933115 /* Pods-PirateRadio-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		465199FC20F1F1E7B1C88A95469B5A47 /* PBXTargetDependency */ = {
+		0E0C795557B8C29D3F49BDCDE71741D6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = HTMLKit;
+			target = D6807B82082F2598A4BABD0A6B657D10 /* HTMLKit */;
+			targetProxy = 4A495FEFD81C2D3570972A6E2AC72459 /* PBXContainerItemProxy */;
+		};
+		A36225B3C58B1215FC255E3B8E5D5DEA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Toast-Swift";
 			target = B990BD87169C76A3ED3FE8A9258D91A3 /* Toast-Swift */;
-			targetProxy = FD279C1BA6659262E46970C520016872 /* PBXContainerItemProxy */;
+			targetProxy = 97601BDCE3B12AF587A6EDA52AD76732 /* PBXContainerItemProxy */;
 		};
-		ADCB4FC767C5B1E0E05D3E0AEB8B04AD /* PBXTargetDependency */ = {
+		F96F22C64B10A0EDD79F099C8A275F17 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "YoutubePlayer-in-WKWebView";
 			target = DABE3AD6EBA3822D4F04FBC550E7158D /* YoutubePlayer-in-WKWebView */;
-			targetProxy = E8EA830D537C1D196CD6D99B7335437B /* PBXContainerItemProxy */;
+			targetProxy = F79CFEB1EDD04874CF6304EF5F6CE05E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		03E76E2FE0A9366114F81640AA5875EA /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8C1F5F7B4E7AE117E9C1B89202A6CA47 /* Toast-Swift.release.xcconfig */;
+			baseConfigurationReference = F0904CFE72840B5347394C2E93E86645 /* Toast-Swift.release.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -436,7 +1031,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/Toast-Swift/Toast-Swift-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/Toast-Swift/Toast-Swift-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -458,7 +1053,7 @@
 		};
 		14783B38021DA11C75C6CA3B9F4C713C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 012663BE037B1E0D5D24BB33A4F77841 /* YoutubePlayer-in-WKWebView.debug.xcconfig */;
+			baseConfigurationReference = 90E44D74A6E3042D47BA55F8A19C81EC /* YoutubePlayer-in-WKWebView.debug.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -471,7 +1066,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/YoutubePlayer-in-WKWebView/YoutubePlayer-in-WKWebView-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/YoutubePlayer-in-WKWebView/YoutubePlayer-in-WKWebView-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -489,6 +1084,41 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
+		};
+		1EF1257FF189D5657407536E01A7129C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2A42618B2349E3D81DA6EE652BA5A568 /* HTMLKit.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/HTMLKit/HTMLKit-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/HTMLKit/HTMLKit-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/HTMLKit/HTMLKit.modulemap";
+				PRODUCT_MODULE_NAME = HTMLKit;
+				PRODUCT_NAME = HTMLKit;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
 		};
 		71243899B61152433AAE34EE86456EE7 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -618,9 +1248,46 @@
 			};
 			name = Debug;
 		};
+		7C179E04E946DC7663AFBF586040B51C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7412BB6840639E2F14579805C2BC67B2 /* Pods-PirateRadio.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-PirateRadio/Pods-PirateRadio-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-PirateRadio/Pods-PirateRadio.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 		A7865D33714EAE03BC9DC5AEFF13E54B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B905B16EB39306F8C02160C7752E01F2 /* YoutubePlayer-in-WKWebView.release.xcconfig */;
+			baseConfigurationReference = E1947A19B44BE53623DFEC92719EB945 /* YoutubePlayer-in-WKWebView.release.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -633,7 +1300,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/YoutubePlayer-in-WKWebView/YoutubePlayer-in-WKWebView-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/YoutubePlayer-in-WKWebView/YoutubePlayer-in-WKWebView-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -653,7 +1320,75 @@
 			};
 			name = Release;
 		};
-		AF092C86A82A800BA2631ECB3386EFBB /* Release */ = {
+		C646B80E4D8A9B6FB6B471288AD9746F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 69BF1E63CBD8A2D439AB3F7890C35AF8 /* Toast-Swift.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Toast-Swift/Toast-Swift-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Toast-Swift/Toast-Swift-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/Toast-Swift/Toast-Swift.modulemap";
+				PRODUCT_MODULE_NAME = Toast_Swift;
+				PRODUCT_NAME = Toast_Swift;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		E7D0458FD2357CDE755138E39A281B7F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BEC8C967E8D5FD934C64A40EA7360431 /* HTMLKit.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/HTMLKit/HTMLKit-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/HTMLKit/HTMLKit-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/HTMLKit/HTMLKit.modulemap";
+				PRODUCT_MODULE_NAME = HTMLKit;
+				PRODUCT_NAME = HTMLKit;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		EB57066326208C9CBE465B7BCCD60773 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 54551EF96105EDF044D1C88BC8AE7A2E /* Pods-PirateRadio.release.xcconfig */;
 			buildSettings = {
@@ -691,77 +1426,6 @@
 			};
 			name = Release;
 		};
-		C646B80E4D8A9B6FB6B471288AD9746F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = A1BECB60F52629D3007A98CBD202A870 /* Toast-Swift.debug.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/Toast-Swift/Toast-Swift-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Toast-Swift/Toast-Swift-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/Toast-Swift/Toast-Swift.modulemap";
-				PRODUCT_MODULE_NAME = Toast_Swift;
-				PRODUCT_NAME = Toast_Swift;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		EBE01988AD14A09174A26F5C31EA9E29 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7412BB6840639E2F14579805C2BC67B2 /* Pods-PirateRadio.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-PirateRadio/Pods-PirateRadio-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-PirateRadio/Pods-PirateRadio.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -770,6 +1434,15 @@
 			buildConfigurations = (
 				14783B38021DA11C75C6CA3B9F4C713C /* Debug */,
 				A7865D33714EAE03BC9DC5AEFF13E54B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3EEDB8B7D63D777EEC0DD95FAC9FE703 /* Build configuration list for PBXNativeTarget "Pods-PirateRadio" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7C179E04E946DC7663AFBF586040B51C /* Debug */,
+				EB57066326208C9CBE465B7BCCD60773 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -783,20 +1456,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AD0ADC96A8A96880EB23FF4C946599AE /* Build configuration list for PBXNativeTarget "Pods-PirateRadio" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				EBE01988AD14A09174A26F5C31EA9E29 /* Debug */,
-				AF092C86A82A800BA2631ECB3386EFBB /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		B8C401847A53B4C2810311A8CBD715AD /* Build configuration list for PBXNativeTarget "Toast-Swift" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C646B80E4D8A9B6FB6B471288AD9746F /* Debug */,
 				03E76E2FE0A9366114F81640AA5875EA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BD9E762BE0A1112C66F4D44A25971D68 /* Build configuration list for PBXNativeTarget "HTMLKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E7D0458FD2357CDE755138E39A281B7F /* Debug */,
+				1EF1257FF189D5657407536E01A7129C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -16,8 +16,6 @@ class MusicTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        self.tableView.tableFooterView = UIView()
-        
         self.searchController = UISearchController.init(searchResultsController: nil)
         
         self.navigationItem.searchController = searchController
@@ -114,6 +112,8 @@ class MusicTableViewController: UITableViewController {
 
         let session = URLSession.init(configuration:.default)
         
+        //error states
+        
         let dataTask = session.dataTask(with: url) {
             (data, response, error) in
             
@@ -141,6 +141,7 @@ class MusicTableViewController: UITableViewController {
                 
                 for video in jsonData.items {
                     print(video.snippet.title)
+                    print("Video id: " + video.id.videoId)
                 }
             }
             catch {

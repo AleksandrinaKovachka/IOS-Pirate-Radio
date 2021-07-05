@@ -130,13 +130,13 @@
                                     <segue destination="1Ny-a8-6bl" kind="embed" id="dCc-Ku-SHt"/>
                                 </connections>
                             </containerView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SoL-jZ-Ayh">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SoL-jZ-Ayh">
                                 <rect key="frame" x="20" y="662.5" width="374" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="bPB-dJ-2Yn"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                <state key="normal" title="Download song"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" image="arrow.down.circle.fill" catalog="system"/>
                                 <connections>
                                     <action selector="downloadOnAction:" destination="Of6-pT-tru" eventType="touchUpInside" id="p3U-sV-jyC"/>
                                 </connections>
@@ -234,6 +234,10 @@
                                         <constraint firstItem="eFX-en-1eJ" firstAttribute="trailing" secondItem="wB0-gw-f4r" secondAttribute="trailingMargin" id="pMH-9a-c9C"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="titleLabel" destination="eFX-en-1eJ" id="qpy-L3-esw"/>
+                                    <outlet property="videoImage" destination="8xa-Xv-sks" id="OsU-31-DUI"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -413,6 +417,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrow.down.circle.fill" catalog="system" width="128" height="121"/>
         <image name="music.house.fill" catalog="system" width="128" height="106"/>
         <image name="music.note.list" catalog="system" width="128" height="115"/>
         <systemColor name="labelColor">

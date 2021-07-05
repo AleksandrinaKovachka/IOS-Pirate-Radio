@@ -10,6 +10,8 @@ import UIKit
 class PersonalMusicTableViewController: UITableViewController, UISearchBarDelegate {
     
     var searchController : UISearchController!
+    
+    var personalMusicData: [String: Data] = [:]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,30 +25,42 @@ class PersonalMusicTableViewController: UITableViewController, UISearchBarDelega
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.definesPresentationContext = true
         
+        //get music data from user default
+        if let musicData = UserDefaults.standard.object(forKey: "personalMusicData") as? [String: Data] {
+            self.personalMusicData = musicData
+        }
         
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return self.personalMusicData.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PersonalMusicCell", for: indexPath) as! PersonalMusicTableViewCell
 
-        // Configure the cell...
+        var nameOfVideos = [String] (self.personalMusicData.keys)
+        nameOfVideos.sort()
+        
+        let title = nameOfVideos[indexPath.row]
+        let imageData = self.personalMusicData[title]!
+        
+        cell.titleLabel.text = title
+        
+        if let image = UIImage.init(data: imageData) {
+            cell.videoImage.image = image
+        }
 
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
