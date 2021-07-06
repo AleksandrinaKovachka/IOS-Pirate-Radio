@@ -131,12 +131,14 @@
                                 </connections>
                             </containerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SoL-jZ-Ayh">
-                                <rect key="frame" x="20" y="662.5" width="374" height="40"/>
+                                <rect key="frame" x="20" y="659.5" width="374" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="bPB-dJ-2Yn"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" image="arrow.down.circle.fill" catalog="system"/>
+                                <state key="normal" image="arrow.down.circle.fill" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="40"/>
+                                </state>
                                 <connections>
                                     <action selector="downloadOnAction:" destination="Of6-pT-tru" eventType="touchUpInside" id="p3U-sV-jyC"/>
                                 </connections>
@@ -154,21 +156,27 @@
                                 <rect key="frame" x="20" y="577.5" width="374" height="80"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="80" id="YZq-2K-dHU"/>
+                                    <constraint firstAttribute="height" constant="80" id="YZq-2K-dHU" userLabel="height = 60"/>
                                 </constraints>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <progressView hidden="YES" opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ano-g4-Bsb">
+                                <rect key="frame" x="20" y="702.5" width="374" height="4"/>
+                            </progressView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="QWx-lU-kLw"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="bE1-sT-371" firstAttribute="centerX" secondItem="fZs-s7-Zsd" secondAttribute="centerX" id="17Y-v3-rF6"/>
+                            <constraint firstItem="ano-g4-Bsb" firstAttribute="leading" secondItem="QWx-lU-kLw" secondAttribute="leading" constant="20" id="1Jd-vC-J53"/>
                             <constraint firstItem="bE1-sT-371" firstAttribute="leading" secondItem="QWx-lU-kLw" secondAttribute="leading" constant="20" id="1Rh-UB-5Sc"/>
+                            <constraint firstItem="QWx-lU-kLw" firstAttribute="trailing" secondItem="ano-g4-Bsb" secondAttribute="trailing" constant="20" id="3a2-h0-JKz"/>
+                            <constraint firstItem="ano-g4-Bsb" firstAttribute="top" secondItem="SoL-jZ-Ayh" secondAttribute="bottom" constant="3" id="7xD-Ig-KlD"/>
                             <constraint firstItem="exI-Bg-In3" firstAttribute="top" secondItem="2r5-gF-qCt" secondAttribute="bottom" constant="5" id="AHA-pt-SE5"/>
-                            <constraint firstItem="SoL-jZ-Ayh" firstAttribute="top" secondItem="ypB-5G-EPi" secondAttribute="bottom" constant="5" id="Edb-zj-vD1"/>
+                            <constraint firstItem="SoL-jZ-Ayh" firstAttribute="top" secondItem="ypB-5G-EPi" secondAttribute="bottom" constant="2" id="Edb-zj-vD1"/>
                             <constraint firstItem="SoL-jZ-Ayh" firstAttribute="leading" secondItem="QWx-lU-kLw" secondAttribute="leading" constant="20" id="Ihf-vA-S1f"/>
                             <constraint firstItem="2r5-gF-qCt" firstAttribute="centerX" secondItem="fZs-s7-Zsd" secondAttribute="centerX" id="KYe-oq-z5A"/>
                             <constraint firstItem="QWx-lU-kLw" firstAttribute="trailing" secondItem="bE1-sT-371" secondAttribute="trailing" constant="20" id="U9Y-n0-k4m"/>
@@ -189,6 +197,7 @@
                     </view>
                     <connections>
                         <outlet property="descriptionOfSongTextView" destination="ypB-5G-EPi" id="1dk-Jz-6Bi"/>
+                        <outlet property="downloadProgressView" destination="ano-g4-Bsb" id="52w-D7-gwf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5D7-Yx-mfW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

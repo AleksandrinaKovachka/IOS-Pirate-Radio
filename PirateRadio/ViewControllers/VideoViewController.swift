@@ -12,9 +12,10 @@ import WebKit
 class VideoViewController: UIViewController {
     
     @IBOutlet weak var descriptionOfSongTextView: UITextView!
+    @IBOutlet weak var downloadProgressView: UIProgressView!
     
     //TODO: template for optional property
-    var videoId: String = "ii6mAgRxCeg"
+    var videoId: String!
     var songTitle: String!
     var publishedDate: String!
     var channelId: String!
@@ -23,20 +24,19 @@ class VideoViewController: UIViewController {
     
     
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.descriptionOfSongTextView.text = self.descriptionOfSong
+        
+        self.downloadProgressView.progress = 0
     }
     
     @IBAction func downloadOnAction(_ sender: Any) {
         //modified personalMusicData in PersonalMusicTableViewController
         
-        print("Test download")
-        
-        let urlString = "https://www.yt-download.org/api/button/mp3/\(self.videoId)"
-        print(urlString)
+        let urlString = "https://www.yt-download.org/api/button/mp3/\(self.videoId ?? "noVideo")"
+
         guard let url = URL(string: urlString) else {
             print("Wrong URL")
             return
@@ -61,8 +61,6 @@ class VideoViewController: UIViewController {
                 print("client error")
                 return
             }
-
-            print(data!)
             
             let contents = String(data: data!, encoding: .utf8)
             let types: NSTextCheckingResult.CheckingType = .link
@@ -92,23 +90,70 @@ class VideoViewController: UIViewController {
         dataTask.resume()
         
         
+        
+        
     }
     
     func downloadVideo(url: URL) {
-        let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
-        let videoName = (documentDirectory?.appendingPathComponent(self.songTitle + ".mp3"))!
-        URLSession.shared.downloadTask(with: url) {
+        
+        DispatchQueue.main.async {
+            self.downloadProgressView.isHidden = false
+        }
+        
+        let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        let videoURLName = (documentDirectory.appendingPathComponent(self.videoId + ".mp3"))
+        
+        if FileManager.default.fileExists(atPath: videoURLName.path) {
+            print("The file already exists")
+            return
+        }
+        
+//        let session = URLSession(configuration: .default, delegate: self, delegateQueue: .main)
+//        let task = session.dataTask(with: url) {
+//            (data, response, error) in
+//
+//            if error != nil {
+//
+//                print(error!.localizedDescription)
+//                return
+//            }
+//
+//            guard let httpResponse = response as? HTTPURLResponse, (200...299).contains(httpResponse.statusCode) else {
+//
+//                print("client error")
+//                return
+//            }
+//
+//            if let _ = try? data?.write(to: videoURLName) {
+//                print("save video")
+//            }
+//        }
+//        task.resume()
+        
+        
+        let session = URLSession(configuration: .default, delegate: self, delegateQueue: .main)
+
+        let dataTask = session.downloadTask(with: url) {
             (data, response, error) in
-            
-            if let videoUrl = data {
-                do {
-                    let videoData = try Data(contentsOf: videoUrl)
-                    try videoData.write(to: videoName)
-                } catch {
-                    print("error")
+
+            if let localUrl = data, error == nil {
+
+                if let statusCode = (response as? HTTPURLResponse)?.statusCode {
+                    print("Successfully downloaded. Status code: \(statusCode)")
                 }
+
+                do {
+                    try FileManager.default.copyItem(at: localUrl, to: videoURLName)
+                } catch (let writeError) {
+                    print("Error creating a file \(videoURLName) : \(writeError)")
+                }
+
+            } else {
+                print("Error took place while downloading a file. Error description: %@", error?.localizedDescription ?? "not specified");
             }
         }
+
+        dataTask.resume()
     }
     
     
@@ -141,4 +186,17 @@ class VideoViewController: UIViewController {
     }
     
 
+}
+
+extension VideoViewController: URLSessionDownloadDelegate {
+    func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
+        print("download")
+    }
+    
+    func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didWriteData bytesWritten: Int64, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64) {
+        if totalBytesExpectedToWrite > 0 {
+            let progress = Float(totalBytesWritten) / Float(totalBytesExpectedToWrite)
+            downloadProgressView.progress = progress
+        }
+    }
 }
