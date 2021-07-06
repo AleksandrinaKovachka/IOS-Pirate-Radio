@@ -207,7 +207,7 @@
         <!--My Music Collection-->
         <scene sceneID="0Cj-rd-WQw">
             <objects>
-                <tableViewController id="Rkl-DJ-A3b" customClass="PersonalMusicTableViewController" customModule="PirateRadio" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="PersonalMusicTableView" id="Rkl-DJ-A3b" customClass="PersonalMusicTableViewController" customModule="PirateRadio" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="PIP-pl-YFQ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

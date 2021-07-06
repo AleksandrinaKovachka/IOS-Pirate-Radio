@@ -7,11 +7,15 @@
 
 import UIKit
 
+protocol VideoDataProtocol: AnyObject {
+    func addVideoIdAndTitle(videoId: String, title: String)
+}
+
 class PersonalMusicTableViewController: UITableViewController, UISearchBarDelegate {
     
     var searchController : UISearchController!
     
-    var personalMusicData: [String: Data] = [:]
+    var personalMusicData: [String: String] = [:]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +30,7 @@ class PersonalMusicTableViewController: UITableViewController, UISearchBarDelega
         searchController.definesPresentationContext = true
         
         //get music data from user default
-        if let musicData = UserDefaults.standard.object(forKey: "personalMusicData") as? [String: Data] {
+        if let musicData = UserDefaults.standard.object(forKey: "personalMusicData") as? [String: String] {
             self.personalMusicData = musicData
         }
         
@@ -46,17 +50,16 @@ class PersonalMusicTableViewController: UITableViewController, UISearchBarDelega
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PersonalMusicCell", for: indexPath) as! PersonalMusicTableViewCell
 
-        var nameOfVideos = [String] (self.personalMusicData.keys)
-        nameOfVideos.sort()
+        let videosId = [String] (self.personalMusicData.keys)
         
-        let title = nameOfVideos[indexPath.row]
-        let imageData = self.personalMusicData[title]!
+        let title = self.personalMusicData[videosId[indexPath.row]]
+        //let imageData = self.personalMusicData[title]!
         
         cell.titleLabel.text = title
         
-        if let image = UIImage.init(data: imageData) {
-            cell.videoImage.image = image
-        }
+//        if let image = UIImage.init(data: imageData) {
+//            cell.videoImage.image = image
+//        }
 
         return cell
     }
@@ -97,14 +100,27 @@ class PersonalMusicTableViewController: UITableViewController, UISearchBarDelega
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if let controller = self.storyboard?.instantiateViewController(identifier: "VideoViewController") as? VideoViewController {
+            controller.videoDataDelegate = self
+        }
     }
-    */
+    
 
+}
+
+extension PersonalMusicTableViewController: VideoDataProtocol {
+    
+    func addVideoIdAndTitle(videoId: String, title: String) {
+        personalMusicData[videoId] = title
+        
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
+    
 }

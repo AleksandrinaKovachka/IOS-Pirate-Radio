@@ -14,6 +14,8 @@ class VideoViewController: UIViewController {
     @IBOutlet weak var descriptionOfSongTextView: UITextView!
     @IBOutlet weak var downloadProgressView: UIProgressView!
     
+    weak var videoDataDelegate: VideoDataProtocol?
+    
     //TODO: template for optional property
     var videoId: String!
     var songTitle: String!
@@ -30,10 +32,14 @@ class VideoViewController: UIViewController {
         self.descriptionOfSongTextView.text = self.descriptionOfSong
         
         self.downloadProgressView.progress = 0
+        self.downloadProgressView.isHidden = true
+        
     }
     
     @IBAction func downloadOnAction(_ sender: Any) {
         //modified personalMusicData in PersonalMusicTableViewController
+        //videoId and title
+        videoDataDelegate?.addVideoIdAndTitle(videoId: self.videoId, title: self.title!)
         
         let urlString = "https://www.yt-download.org/api/button/mp3/\(self.videoId ?? "noVideo")"
 
@@ -131,9 +137,9 @@ class VideoViewController: UIViewController {
 //        task.resume()
         
         
-        let session = URLSession(configuration: .default, delegate: self, delegateQueue: .main)
+        let session = URLSession(configuration: .default, delegate: self, delegateQueue: OperationQueue())
 
-        let dataTask = session.downloadTask(with: url) {
+        let downloadTask = session.downloadTask(with: url) {
             (data, response, error) in
 
             if let localUrl = data, error == nil {
@@ -153,7 +159,7 @@ class VideoViewController: UIViewController {
             }
         }
 
-        dataTask.resume()
+        downloadTask.resume()
     }
     
     
@@ -162,6 +168,7 @@ class VideoViewController: UIViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
 //        if let audioController = self.storyboard?.instantiateViewController(identifier: "AudioViewController") as? AudioPlayerViewController {
 //
 //            audioController.videoID = self.videoID
@@ -189,14 +196,21 @@ class VideoViewController: UIViewController {
 }
 
 extension VideoViewController: URLSessionDownloadDelegate {
+
     func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
-        print("download")
+        print("download finished")
     }
     
     func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didWriteData bytesWritten: Int64, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64) {
-        if totalBytesExpectedToWrite > 0 {
+        
+        //if totalBytesExpectedToWrite > 0 {
             let progress = Float(totalBytesWritten) / Float(totalBytesExpectedToWrite)
-            downloadProgressView.progress = progress
+            
+        DispatchQueue.main.async {
+            self.downloadProgressView.progress = progress
         }
+        
+            print(totalBytesWritten, totalBytesExpectedToWrite)
+        //}
     }
 }
