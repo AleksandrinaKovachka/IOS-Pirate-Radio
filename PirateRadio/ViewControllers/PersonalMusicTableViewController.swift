@@ -26,11 +26,11 @@ class PersonalMusicTableViewController: UITableViewController, UISearchBarDelega
         searchController.definesPresentationContext = true
         
         //get music data from user default
-        if let musicData = UserDefaults.standard.object(forKey: "personalMusicData") as? [String: String] {
+        if let musicData = UserDefaults.standard.object(forKey: "PersonalMusicData") as? [String: String] {
             self.personalMusicData = musicData
         }
         
-        //observ self when video is download
+        //observed self when video is download
         NotificationCenter.default.addObserver(self, selector: #selector(onHasDownloadVideo(_:)), name: .hasDownloadVideo, object: nil)
         
     }

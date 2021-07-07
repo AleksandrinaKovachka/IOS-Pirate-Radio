@@ -35,10 +35,8 @@ class VideoViewController: UIViewController {
     }
     
     @IBAction func downloadOnAction(_ sender: Any) {
-        //modified personalMusicData in PersonalMusicTableViewController
-        //videoId and title
-        //get from user default save this data -> save user default
-        NotificationCenter.default.post(name: .hasDownloadVideo, object: nil, userInfo: [self.videoId: self.songTitle ?? "no title"])
+        //modified personalMusicData in PersonalMusicTableViewController or save data in user default
+        saveDownloadVideoData()
         
         //TODO: save image
         
@@ -113,7 +111,7 @@ class VideoViewController: UIViewController {
             return
         }
         
-        let session = URLSession(configuration: .default) //, delegate: self, delegateQueue: OperationQueue())
+        let session = URLSession(configuration: .default)
 
         let downloadTask = session.downloadTask(with: url) {
             (data, response, error) in
@@ -139,6 +137,17 @@ class VideoViewController: UIViewController {
         DispatchQueue.main.async {
             self.downloadProgressView.observedProgress = downloadTask.progress
         }
+    }
+    
+    func saveDownloadVideoData() {
+        if var musicData = UserDefaults.standard.object(forKey: "PersonalMusicData") as? [String: String] {
+            musicData[self.videoId] = self.songTitle
+            UserDefaults.standard.set(musicData, forKey: "PersonalMusicData")
+        } else {
+            UserDefaults.standard.set([self.videoId: self.songTitle], forKey: "PersonalMusicData")
+        }
+        
+        NotificationCenter.default.post(name: .hasDownloadVideo, object: nil, userInfo: [self.videoId: self.songTitle ?? "no title"])
     }
     
     
