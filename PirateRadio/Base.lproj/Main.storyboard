@@ -197,6 +197,7 @@
                     </view>
                     <connections>
                         <outlet property="descriptionOfSongTextView" destination="ypB-5G-EPi" id="1dk-Jz-6Bi"/>
+                        <outlet property="downloadButton" destination="SoL-jZ-Ayh" id="FVK-75-DOt"/>
                         <outlet property="downloadProgressView" destination="ano-g4-Bsb" id="52w-D7-gwf"/>
                     </connections>
                 </viewController>

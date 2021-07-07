@@ -12,6 +12,7 @@ import WebKit
 class VideoViewController: UIViewController {
     
     @IBOutlet weak var descriptionOfSongTextView: UITextView!
+    @IBOutlet weak var downloadButton: UIButton!
     @IBOutlet weak var downloadProgressView: UIProgressView!
     
     //TODO: template for optional property
@@ -32,6 +33,9 @@ class VideoViewController: UIViewController {
         self.downloadProgressView.progress = 0
         self.downloadProgressView.isHidden = true
         
+        //check if video is download
+        didDownloadVideo()
+        
     }
     
     @IBAction func downloadOnAction(_ sender: Any) {
@@ -42,6 +46,21 @@ class VideoViewController: UIViewController {
         downloadImage()
         
         searchVideoURLForDownload()
+    }
+    
+    func didDownloadVideo() {
+        
+        let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        let videoURLName = (documentDirectory.appendingPathComponent(self.videoId + ".mp3"))
+        
+        if FileManager.default.fileExists(atPath: videoURLName.path) {
+            print("The file already exists")
+            
+            DispatchQueue.main.async {
+                self.downloadButton.isEnabled = false
+            }
+            
+        }
     }
     
     func downloadImage() {
