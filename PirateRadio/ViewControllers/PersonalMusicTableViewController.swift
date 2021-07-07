@@ -7,10 +7,6 @@
 
 import UIKit
 
-protocol VideoDataProtocol: AnyObject {
-    func addVideoIdAndTitle(videoId: String, title: String)
-}
-
 class PersonalMusicTableViewController: UITableViewController, UISearchBarDelegate {
     
     var searchController : UISearchController!
@@ -33,6 +29,9 @@ class PersonalMusicTableViewController: UITableViewController, UISearchBarDelega
         if let musicData = UserDefaults.standard.object(forKey: "personalMusicData") as? [String: String] {
             self.personalMusicData = musicData
         }
+        
+        //observ self when video is download
+        NotificationCenter.default.addObserver(self, selector: #selector(onHasDownloadVideo(_:)), name: .hasDownloadVideo, object: nil)
         
     }
 
@@ -102,25 +101,26 @@ class PersonalMusicTableViewController: UITableViewController, UISearchBarDelega
 
     
     // MARK: - Navigation
-
+    /*
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let controller = self.storyboard?.instantiateViewController(identifier: "VideoViewController") as? VideoViewController {
-            controller.videoDataDelegate = self
-        }
-    }
-    
-
-}
-
-extension PersonalMusicTableViewController: VideoDataProtocol {
-    
-    func addVideoIdAndTitle(videoId: String, title: String) {
-        personalMusicData[videoId] = title
         
-        DispatchQueue.main.async {
-            self.tableView.reloadData()
+    }
+    */
+    
+    //MARK: - Notification
+    
+    @objc func onHasDownloadVideo(_ notification: Notification) {
+        if let data = notification.userInfo as? [String: String] {
+            for (videoId, title) in data {
+                print(videoId, title)
+                personalMusicData[videoId] = title
+                
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            }
         }
     }
-    
+
 }

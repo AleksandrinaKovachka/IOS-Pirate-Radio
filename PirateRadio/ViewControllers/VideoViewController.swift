@@ -14,8 +14,6 @@ class VideoViewController: UIViewController {
     @IBOutlet weak var descriptionOfSongTextView: UITextView!
     @IBOutlet weak var downloadProgressView: UIProgressView!
     
-    weak var videoDataDelegate: VideoDataProtocol?
-    
     //TODO: template for optional property
     var videoId: String!
     var songTitle: String!
@@ -39,7 +37,10 @@ class VideoViewController: UIViewController {
     @IBAction func downloadOnAction(_ sender: Any) {
         //modified personalMusicData in PersonalMusicTableViewController
         //videoId and title
-        videoDataDelegate?.addVideoIdAndTitle(videoId: self.videoId, title: self.title!)
+        //get from user default save this data -> save user default
+        NotificationCenter.default.post(name: .hasDownloadVideo, object: nil, userInfo: [self.videoId: self.songTitle ?? "no title"])
+        
+        //TODO: save image
         
         let urlString = "https://www.yt-download.org/api/button/mp3/\(self.videoId ?? "noVideo")"
 
@@ -94,9 +95,7 @@ class VideoViewController: UIViewController {
         }
 
         dataTask.resume()
-        
-        
-        
+   
         
     }
     
@@ -114,30 +113,7 @@ class VideoViewController: UIViewController {
             return
         }
         
-//        let session = URLSession(configuration: .default, delegate: self, delegateQueue: .main)
-//        let task = session.dataTask(with: url) {
-//            (data, response, error) in
-//
-//            if error != nil {
-//
-//                print(error!.localizedDescription)
-//                return
-//            }
-//
-//            guard let httpResponse = response as? HTTPURLResponse, (200...299).contains(httpResponse.statusCode) else {
-//
-//                print("client error")
-//                return
-//            }
-//
-//            if let _ = try? data?.write(to: videoURLName) {
-//                print("save video")
-//            }
-//        }
-//        task.resume()
-        
-        
-        let session = URLSession(configuration: .default, delegate: self, delegateQueue: OperationQueue())
+        let session = URLSession(configuration: .default) //, delegate: self, delegateQueue: OperationQueue())
 
         let downloadTask = session.downloadTask(with: url) {
             (data, response, error) in
@@ -160,6 +136,9 @@ class VideoViewController: UIViewController {
         }
 
         downloadTask.resume()
+        DispatchQueue.main.async {
+            self.downloadProgressView.observedProgress = downloadTask.progress
+        }
     }
     
     
@@ -168,11 +147,6 @@ class VideoViewController: UIViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-//        if let audioController = self.storyboard?.instantiateViewController(identifier: "AudioViewController") as? AudioPlayerViewController {
-//
-//            audioController.videoID = self.videoID
-//        }
         
         if segue.destination is AudioPlayerViewController {
             let audioViewController = segue.destination as! AudioPlayerViewController
@@ -186,31 +160,7 @@ class VideoViewController: UIViewController {
             channelViewController.channelId = self.channelId
         }
         
-//        if segue.destination is DescriptionViewController {
-//            let descriptionViewController = segue.destination as! DescriptionViewController
-//            descriptionViewController.videoID = self.videoID
-//        }
     }
     
 
-}
-
-extension VideoViewController: URLSessionDownloadDelegate {
-
-    func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
-        print("download finished")
-    }
-    
-    func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didWriteData bytesWritten: Int64, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64) {
-        
-        //if totalBytesExpectedToWrite > 0 {
-            let progress = Float(totalBytesWritten) / Float(totalBytesExpectedToWrite)
-            
-        DispatchQueue.main.async {
-            self.downloadProgressView.progress = progress
-        }
-        
-            print(totalBytesWritten, totalBytesExpectedToWrite)
-        //}
-    }
 }

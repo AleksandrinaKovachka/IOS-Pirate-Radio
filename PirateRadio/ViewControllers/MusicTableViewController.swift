@@ -189,7 +189,6 @@ class MusicTableViewController: UITableViewController {
                     self.tableView.reloadData()
                 }
                 
-                
                 for video in jsonData.items {
                     print(video.snippet.title)
                 }
