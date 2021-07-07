@@ -38,8 +38,53 @@ class VideoViewController: UIViewController {
         //modified personalMusicData in PersonalMusicTableViewController or save data in user default
         saveDownloadVideoData()
         
-        //TODO: save image
+        //save image
+        downloadImage()
         
+        searchVideoURLForDownload()
+    }
+    
+    func downloadImage() {
+        
+        guard let url = URL(string: self.imageUrl) else {
+            print("wrong image url")
+            return
+        }
+        
+        let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        let imageURLName = (documentDirectory.appendingPathComponent(self.videoId + ".jpg"))
+        
+        if FileManager.default.fileExists(atPath: imageURLName.path) {
+            print("The file already exists")
+            return
+        }
+        
+        let session = URLSession(configuration: .default)
+
+        let downloadTask = session.downloadTask(with: url) {
+            (data, response, error) in
+
+            if let localUrl = data, error == nil {
+
+                if let statusCode = (response as? HTTPURLResponse)?.statusCode {
+                    print("Successfully downloaded. Status code: \(statusCode)")
+                }
+
+                do {
+                    try FileManager.default.copyItem(at: localUrl, to: imageURLName)
+                } catch (let writeError) {
+                    print("Error creating a file \(imageURLName) : \(writeError)")
+                }
+
+            } else {
+                print("Error took place while downloading a file. Error description: %@", error?.localizedDescription ?? "not specified");
+            }
+        }
+
+        downloadTask.resume()
+    }
+    
+    func searchVideoURLForDownload() {
         let urlString = "https://www.yt-download.org/api/button/mp3/\(self.videoId ?? "noVideo")"
 
         guard let url = URL(string: urlString) else {
@@ -93,8 +138,6 @@ class VideoViewController: UIViewController {
         }
 
         dataTask.resume()
-   
-        
     }
     
     func downloadVideo(url: URL) {

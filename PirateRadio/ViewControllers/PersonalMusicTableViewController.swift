@@ -52,15 +52,33 @@ class PersonalMusicTableViewController: UITableViewController, UISearchBarDelega
         let videosId = [String] (self.personalMusicData.keys)
         
         let title = self.personalMusicData[videosId[indexPath.row]]
-        //let imageData = self.personalMusicData[title]!
-        
         cell.titleLabel.text = title
+        
+        cell.videoImage.image = savedImageForVideoId(videoId: videosId[indexPath.row])
+        
+        //let imageData = self.personalMusicData[title]!
         
 //        if let image = UIImage.init(data: imageData) {
 //            cell.videoImage.image = image
 //        }
 
         return cell
+    }
+    
+    func savedImageForVideoId(videoId: String) -> UIImage {
+        let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        
+        let imageURLName = documentDirectory.appendingPathComponent(videoId + ".jpg")
+        
+        if FileManager.default.fileExists(atPath: imageURLName.path) {
+            
+            guard let imageFromPath = UIImage(contentsOfFile: imageURLName.path) else { return UIImage(named: "no_image")!}
+            return imageFromPath
+            
+        } else {
+            print("the image not exist")
+            return UIImage(named: "no_image")!
+        }
     }
     
 
