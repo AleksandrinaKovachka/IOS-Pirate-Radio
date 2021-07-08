@@ -24,6 +24,7 @@
 		8E6DD866268E0F8300A419C2 /* PersonalMusicTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6DD865268E0F8300A419C2 /* PersonalMusicTableViewController.swift */; };
 		8E6DD869268E0F9B00A419C2 /* PersonalMusicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6DD868268E0F9B00A419C2 /* PersonalMusicTableViewCell.swift */; };
 		8E6DD874269591CD00A419C2 /* NotificationNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6DD873269591CD00A419C2 /* NotificationNames.swift */; };
+		8EC4D0EC2696DF55003BDD69 /* PersonalVideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC4D0EB2696DF55003BDD69 /* PersonalVideoView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		8E6DD865268E0F8300A419C2 /* PersonalMusicTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalMusicTableViewController.swift; sourceTree = "<group>"; };
 		8E6DD868268E0F9B00A419C2 /* PersonalMusicTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalMusicTableViewCell.swift; sourceTree = "<group>"; };
 		8E6DD873269591CD00A419C2 /* NotificationNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationNames.swift; sourceTree = "<group>"; };
+		8EC4D0EB2696DF55003BDD69 /* PersonalVideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalVideoView.swift; sourceTree = "<group>"; };
 		BFF5042E2A3CFD2556D374D9 /* Pods_PirateRadio.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PirateRadio.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9D56F56356F2E67F597EA46 /* Pods-PirateRadio.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PirateRadio.debug.xcconfig"; path = "Target Support Files/Pods-PirateRadio/Pods-PirateRadio.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -81,6 +83,7 @@
 				8E0A7CA2268C623C009EA65C /* ChannelViewController.swift */,
 				8E6DD865268E0F8300A419C2 /* PersonalMusicTableViewController.swift */,
 				8E6DD868268E0F9B00A419C2 /* PersonalMusicTableViewCell.swift */,
+				8EC4D0EB2696DF55003BDD69 /* PersonalVideoView.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -265,6 +268,7 @@
 				8E6DD874269591CD00A419C2 /* NotificationNames.swift in Sources */,
 				8E0A7C9D268B64FF009EA65C /* VideoViewController.swift in Sources */,
 				8E0A7C7F2689BE6E009EA65C /* MusicTableViewController.swift in Sources */,
+				8EC4D0EC2696DF55003BDD69 /* PersonalVideoView.swift in Sources */,
 				8E0A7CA3268C623C009EA65C /* ChannelViewController.swift in Sources */,
 				8E0A7C912689FF1F009EA65C /* VideoStructure.swift in Sources */,
 				8E4992E5267B373300E5BDBF /* AppDelegate.swift in Sources */,

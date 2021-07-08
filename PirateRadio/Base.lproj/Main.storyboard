@@ -255,7 +255,9 @@
                             <outlet property="delegate" destination="Rkl-DJ-A3b" id="Izq-kb-xYa"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="My Music Collection" id="G39-fN-YIQ"/>
+                    <navigationItem key="navigationItem" title="My Music Collection" id="G39-fN-YIQ">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="Q1d-9u-qkE"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MdN-aJ-S9w" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

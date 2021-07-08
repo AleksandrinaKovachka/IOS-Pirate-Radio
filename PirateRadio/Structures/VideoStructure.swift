@@ -96,3 +96,10 @@ struct PopularVideoStruct : Codable{
     let snippet : VideoSnippetStruct
 }
 
+//structure for video data
+struct VideoDataStruct {
+    var videoId: String
+    var videoTitle: String
+    var videoImagePath: String
+}
+

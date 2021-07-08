@@ -39,13 +39,13 @@ class VideoViewController: UIViewController {
     }
     
     @IBAction func downloadOnAction(_ sender: Any) {
-        //modified personalMusicData in PersonalMusicTableViewController or save data in user default
-        saveDownloadVideoData()
-        
         //save image
         downloadImage()
         
         searchVideoURLForDownload()
+        
+        //modified personalMusicData in PersonalMusicTableViewController or save data in user default
+        saveDownloadVideoData()
     }
     
     func didDownloadVideo() {

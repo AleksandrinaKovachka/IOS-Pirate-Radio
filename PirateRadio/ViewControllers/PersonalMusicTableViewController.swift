@@ -11,7 +11,9 @@ class PersonalMusicTableViewController: UITableViewController, UISearchBarDelega
     
     var searchController : UISearchController!
     
-    var personalMusicData: [String: String] = [:]
+    var personalMusicData: [VideoDataStruct] = []
+    
+    //var personalMusicData: [String: String] = [:]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,9 +28,11 @@ class PersonalMusicTableViewController: UITableViewController, UISearchBarDelega
         searchController.definesPresentationContext = true
         
         //get music data from user default
-        if let musicData = UserDefaults.standard.object(forKey: "PersonalMusicData") as? [String: String] {
-            self.personalMusicData = musicData
-        }
+        initPersonalMusicData()
+        
+//        if let musicData = UserDefaults.standard.object(forKey: "PersonalMusicData") as? [String: String] {
+//            self.personalMusicData = musicData
+//        }
         
         //observed self when video is download
         NotificationCenter.default.addObserver(self, selector: #selector(onHasDownloadVideo(_:)), name: .hasDownloadVideo, object: nil)
@@ -49,12 +53,15 @@ class PersonalMusicTableViewController: UITableViewController, UISearchBarDelega
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PersonalMusicCell", for: indexPath) as! PersonalMusicTableViewCell
 
-        let videosId = [String] (self.personalMusicData.keys)
+        cell.titleLabel.text = personalMusicData[indexPath.row].videoTitle
+        cell.videoImage.image = UIImage.init(named: personalMusicData[indexPath.row].videoImagePath)
         
-        let title = self.personalMusicData[videosId[indexPath.row]]
-        cell.titleLabel.text = title
-        
-        cell.videoImage.image = savedImageForVideoId(videoId: videosId[indexPath.row])
+//        let videosId = [String] (self.personalMusicData.keys)
+//
+//        let title = self.personalMusicData[videosId[indexPath.row]]
+//        cell.titleLabel.text = title
+//
+//        cell.videoImage.image = savedImageForVideoId(videoId: videosId[indexPath.row])
         
         //let imageData = self.personalMusicData[title]!
         
@@ -63,6 +70,31 @@ class PersonalMusicTableViewController: UITableViewController, UISearchBarDelega
 //        }
 
         return cell
+    }
+    
+    func initPersonalMusicData() {
+        if let musicData = UserDefaults.standard.object(forKey: "PersonalMusicData") as? [String: String] {
+            let musicKeys = [String] (musicData.keys)
+            for key in musicKeys {
+                print(key)
+                personalMusicData.append(VideoDataStruct(videoId: key, videoTitle: musicData[key]!, videoImagePath: imagePathForVideoId(videoId: key)))
+            }
+        }
+    }
+    
+    func imagePathForVideoId(videoId: String) -> String {
+        let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        
+        let imageURLName = documentDirectory.appendingPathComponent(videoId + ".jpg")
+        
+        if FileManager.default.fileExists(atPath: imageURLName.path) {
+            
+            return imageURLName.path
+            
+        } else {
+            print("the image not exist")
+            return "no_image"
+        }
     }
     
     func savedImageForVideoId(videoId: String) -> UIImage {
@@ -132,7 +164,9 @@ class PersonalMusicTableViewController: UITableViewController, UISearchBarDelega
         if let data = notification.userInfo as? [String: String] {
             for (videoId, title) in data {
                 print(videoId, title)
-                personalMusicData[videoId] = title
+                //personalMusicData[videoId] = title
+                personalMusicData.append(VideoDataStruct(videoId: videoId, videoTitle: title, videoImagePath: imagePathForVideoId(videoId: videoId)))
+                //send image path
                 
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
