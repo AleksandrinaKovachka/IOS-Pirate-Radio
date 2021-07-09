@@ -166,6 +166,12 @@
                             <progressView hidden="YES" opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ano-g4-Bsb">
                                 <rect key="frame" x="20" y="702.5" width="374" height="4"/>
                             </progressView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Download started...." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zml-6i-qWh">
+                                <rect key="frame" x="10" y="669" width="394" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="QWx-lU-kLw"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -176,6 +182,8 @@
                             <constraint firstItem="QWx-lU-kLw" firstAttribute="trailing" secondItem="ano-g4-Bsb" secondAttribute="trailing" constant="20" id="3a2-h0-JKz"/>
                             <constraint firstItem="ano-g4-Bsb" firstAttribute="top" secondItem="SoL-jZ-Ayh" secondAttribute="bottom" constant="3" id="7xD-Ig-KlD"/>
                             <constraint firstItem="exI-Bg-In3" firstAttribute="top" secondItem="2r5-gF-qCt" secondAttribute="bottom" constant="5" id="AHA-pt-SE5"/>
+                            <constraint firstItem="QWx-lU-kLw" firstAttribute="trailing" secondItem="zml-6i-qWh" secondAttribute="trailing" constant="10" id="D28-DL-5li"/>
+                            <constraint firstItem="zml-6i-qWh" firstAttribute="leading" secondItem="QWx-lU-kLw" secondAttribute="leading" constant="10" id="Dqr-e6-ctW"/>
                             <constraint firstItem="SoL-jZ-Ayh" firstAttribute="top" secondItem="ypB-5G-EPi" secondAttribute="bottom" constant="2" id="Edb-zj-vD1"/>
                             <constraint firstItem="SoL-jZ-Ayh" firstAttribute="leading" secondItem="QWx-lU-kLw" secondAttribute="leading" constant="20" id="Ihf-vA-S1f"/>
                             <constraint firstItem="2r5-gF-qCt" firstAttribute="centerX" secondItem="fZs-s7-Zsd" secondAttribute="centerX" id="KYe-oq-z5A"/>
@@ -185,6 +193,8 @@
                             <constraint firstItem="QWx-lU-kLw" firstAttribute="trailing" secondItem="ypB-5G-EPi" secondAttribute="trailing" constant="20" id="aHz-th-Pmn"/>
                             <constraint firstItem="2r5-gF-qCt" firstAttribute="top" secondItem="bE1-sT-371" secondAttribute="bottom" constant="10" id="bkD-P3-dK0"/>
                             <constraint firstItem="ypB-5G-EPi" firstAttribute="centerX" secondItem="fZs-s7-Zsd" secondAttribute="centerX" id="eJV-Zn-KA5"/>
+                            <constraint firstItem="zml-6i-qWh" firstAttribute="centerX" secondItem="fZs-s7-Zsd" secondAttribute="centerX" id="fbe-sO-F02"/>
+                            <constraint firstItem="zml-6i-qWh" firstAttribute="top" secondItem="ypB-5G-EPi" secondAttribute="bottom" constant="11.5" id="gxR-u4-LC2"/>
                             <constraint firstItem="exI-Bg-In3" firstAttribute="centerX" secondItem="fZs-s7-Zsd" secondAttribute="centerX" id="joW-Bn-Keq"/>
                             <constraint firstItem="QWx-lU-kLw" firstAttribute="trailing" secondItem="SoL-jZ-Ayh" secondAttribute="trailing" constant="20" id="klm-dv-r9p"/>
                             <constraint firstItem="QWx-lU-kLw" firstAttribute="trailing" secondItem="exI-Bg-In3" secondAttribute="trailing" constant="25" id="poq-xh-XnS"/>
@@ -198,6 +208,7 @@
                     <connections>
                         <outlet property="descriptionOfSongTextView" destination="ypB-5G-EPi" id="1dk-Jz-6Bi"/>
                         <outlet property="downloadButton" destination="SoL-jZ-Ayh" id="FVK-75-DOt"/>
+                        <outlet property="downloadLabel" destination="zml-6i-qWh" id="qGc-sr-BL1"/>
                         <outlet property="downloadProgressView" destination="ano-g4-Bsb" id="52w-D7-gwf"/>
                     </connections>
                 </viewController>

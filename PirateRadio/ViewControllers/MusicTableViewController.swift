@@ -11,10 +11,14 @@ class MusicTableViewController: UITableViewController {
     
     var searchController : UISearchController!
     var videoResources : [VideoStruct] = []
-    var popularVideoResources : [PopularVideoStruct] = []
+    var popularVideoResources : [VideoStruct] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+//        deleteAllSavedFiles()
+//        
+//        UserDefaults.standard.set([:], forKey: "PersonalMusicData")
         
         self.searchController = UISearchController.init(searchResultsController: nil)
         
@@ -29,6 +33,24 @@ class MusicTableViewController: UITableViewController {
         mostPopularSongs()
         
     }
+    
+    func deleteAllSavedFiles() {
+        let documentURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        
+        do {
+            let fileURLs = try FileManager.default.contentsOfDirectory(at: documentURL, includingPropertiesForKeys: nil, options: .skipsHiddenFiles)
+            
+            for fileURL in fileURLs {
+                print(fileURL)
+                if fileURL.pathExtension == "mp3" || fileURL.pathExtension == "jpg" {
+                    try FileManager.default.removeItem(at: fileURL)
+                }
+            }
+            
+        } catch {
+            print(error)
+        }
+    }
 
     // MARK: - Table view data source
 
@@ -37,35 +59,16 @@ class MusicTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if self.videoResources.count != 0 {
-            return self.videoResources.count
-        }
         
-        return self.popularVideoResources.count
+        return self.videoResources.count
     }
-//
-//    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-//        return CGFloat.leastNormalMagnitude
-//    }
 
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MusicCell", for: indexPath) as! MusicTableViewCell
-
-        // load data from structure Video
         
-        let title : String
-        let imageURL : String
-        
-        if self.videoResources.count != 0 {
-            title = self.videoResources[indexPath.row].snippet.title
-            imageURL = self.videoResources[indexPath.row].snippet.thumbnails.high.url
-        } else {
-            title = self.popularVideoResources[indexPath.row].snippet.title
-            imageURL = self.popularVideoResources[indexPath.row].snippet.thumbnails.high.url
-        }
-        
-       
+        let title = self.videoResources[indexPath.row].snippet.title
+        let imageURL = self.videoResources[indexPath.row].snippet.thumbnails.high.url
         
         if let url = URL(string: imageURL) {
             if let data = try? Data.init(contentsOf: url) {
@@ -84,21 +87,12 @@ class MusicTableViewController: UITableViewController {
         
         if let videoController = self.storyboard?.instantiateViewController(identifier: "VideoViewController") as? VideoViewController {
             
-            if self.videoResources.count != 0 {
-                videoController.videoId = self.videoResources[indexPath.row].id.videoId
-                videoController.songTitle = self.videoResources[indexPath.row].snippet.title
-                videoController.publishedDate = self.videoResources[indexPath.row].snippet.publishedAt
-                videoController.channelId = self.videoResources[indexPath.row].snippet.channelId
-                videoController.descriptionOfSong = self.videoResources[indexPath.row].snippet.description
-                videoController.imageUrl = self.videoResources[indexPath.row].snippet.thumbnails.high.url
-            } else {
-                videoController.videoId = self.popularVideoResources[indexPath.row].id
-                videoController.songTitle = self.popularVideoResources[indexPath.row].snippet.title
-                videoController.publishedDate = self.popularVideoResources[indexPath.row].snippet.publishedAt
-                videoController.channelId = self.popularVideoResources[indexPath.row].snippet.channelId
-                videoController.descriptionOfSong = self.popularVideoResources[indexPath.row].snippet.description
-                videoController.imageUrl = self.popularVideoResources[indexPath.row].snippet.thumbnails.high.url
-            }
+            videoController.videoId = self.videoResources[indexPath.row].id.videoId
+            videoController.songTitle = self.videoResources[indexPath.row].snippet.title
+            videoController.publishedDate = self.videoResources[indexPath.row].snippet.publishedAt
+            videoController.channelId = self.videoResources[indexPath.row].snippet.channelId
+            videoController.descriptionOfSong = self.videoResources[indexPath.row].snippet.description
+            videoController.imageUrl = self.videoResources[indexPath.row].snippet.thumbnails.high.url
             
             self.navigationController?.pushViewController(videoController, animated: true)
         }
@@ -183,15 +177,14 @@ class MusicTableViewController: UITableViewController {
             print(data!)
             do {
                 let jsonData = try JSONDecoder().decode(PopularVideoResources.self, from: data!)
-                self.popularVideoResources = jsonData.items
+                
+                self.representMostPopular(popularVideoStruct: jsonData)
+                self.videoResources = self.popularVideoResources
                 
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }
                 
-                for video in jsonData.items {
-                    print(video.snippet.title)
-                }
             }
             catch {
                 print(error.localizedDescription)
@@ -200,6 +193,14 @@ class MusicTableViewController: UITableViewController {
         }
 
         dataTask.resume()
+    }
+    
+    func representMostPopular(popularVideoStruct: PopularVideoResources) {
+        for videoData in popularVideoStruct.items {
+            let data: VideoStruct! = VideoStruct(id: VideoIDStruct(videoId: videoData.id), snippet: videoData.snippet)
+
+            self.popularVideoResources.append(data)
+        }
     }
     
 }
@@ -211,72 +212,10 @@ extension MusicTableViewController: UISearchBarDelegate {
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        self.videoResources.removeAll()
+        self.videoResources = self.popularVideoResources
         
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
     }
 }
-
-/*
- func searchVideos(searchText: String) {
-     let urlString = "https://www.googleapis.com/youtube/v3/search?part=snippet&q=\(searchText)&type=video&key=\(Constants.API_KEY)&maxResults=20"
-     
-     print(urlString)
-     
-     searchVideosWithURL(urlString: urlString)
- }
-
- func mostPopularSongs() {
-     let countryCode = (Locale.current as NSLocale).object(forKey: .countryCode) as! String
-     
-     let urlString =
-     "https://youtube.googleapis.com/youtube/v3/search?part=snippet&chart=mostPopular&maxResults=20&regionCode=\(countryCode)&key=\(Constants.API_KEY)"
-     
-     print(urlString)
-     
-     searchVideosWithURL(urlString: urlString)
- }
- 
- func searchVideosWithURL(urlString: String) {
-     guard let url = URL(string: urlString) else {return}
-
-     let session = URLSession.init(configuration:.default)
-     
-     let dataTask = session.dataTask(with: url) {
-         (data, response, error) in
-         
-         print("here")
-         
-         if error != nil {
-
-             print(error!.localizedDescription)
-             return
-         }
-         
-         guard let httpResponse = response as? HTTPURLResponse, (200...299).contains(httpResponse.statusCode) else {
-
-             print("client error")
-             return
-         }
-
-         print(data!)
-         do {
-//                let jsonData = try JSONDecoder().decode(VideoResources.self, from: data!)
-             let jsonData = try JSONDecoder().decode(VideoSearchStruct.self, from: data!)
-             self.videoResources = jsonData.items
-             
-             DispatchQueue.main.async {
-                 self.tableView.reloadData()
-             }
-         }
-         catch {
-             print(error.localizedDescription)
-         }
-
-     }
-
-     dataTask.resume()
- }
- */

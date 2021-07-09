@@ -7,13 +7,11 @@
 
 import UIKit
 
-class PersonalMusicTableViewController: UITableViewController, UISearchBarDelegate {
+class PersonalMusicTableViewController: UITableViewController {
     
     var searchController : UISearchController!
     
     var personalMusicData: [VideoDataStruct] = []
-    
-    //var personalMusicData: [String: String] = [:]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,10 +27,6 @@ class PersonalMusicTableViewController: UITableViewController, UISearchBarDelega
         
         //get music data from user default
         initPersonalMusicData()
-        
-//        if let musicData = UserDefaults.standard.object(forKey: "PersonalMusicData") as? [String: String] {
-//            self.personalMusicData = musicData
-//        }
         
         //observed self when video is download
         NotificationCenter.default.addObserver(self, selector: #selector(onHasDownloadVideo(_:)), name: .hasDownloadVideo, object: nil)
@@ -55,19 +49,6 @@ class PersonalMusicTableViewController: UITableViewController, UISearchBarDelega
 
         cell.titleLabel.text = personalMusicData[indexPath.row].videoTitle
         cell.videoImage.image = UIImage.init(named: personalMusicData[indexPath.row].videoImagePath)
-        
-//        let videosId = [String] (self.personalMusicData.keys)
-//
-//        let title = self.personalMusicData[videosId[indexPath.row]]
-//        cell.titleLabel.text = title
-//
-//        cell.videoImage.image = savedImageForVideoId(videoId: videosId[indexPath.row])
-        
-        //let imageData = self.personalMusicData[title]!
-        
-//        if let image = UIImage.init(data: imageData) {
-//            cell.videoImage.image = image
-//        }
 
         return cell
     }
@@ -164,9 +145,8 @@ class PersonalMusicTableViewController: UITableViewController, UISearchBarDelega
         if let data = notification.userInfo as? [String: String] {
             for (videoId, title) in data {
                 print(videoId, title)
-                //personalMusicData[videoId] = title
                 personalMusicData.append(VideoDataStruct(videoId: videoId, videoTitle: title, videoImagePath: imagePathForVideoId(videoId: videoId)))
-                //send image path
+                //TODO: send image path
                 
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
@@ -175,4 +155,14 @@ class PersonalMusicTableViewController: UITableViewController, UISearchBarDelega
         }
     }
 
+}
+
+extension PersonalMusicTableViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+
+    }
 }

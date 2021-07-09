@@ -13,6 +13,7 @@ class VideoViewController: UIViewController {
     
     @IBOutlet weak var descriptionOfSongTextView: UITextView!
     @IBOutlet weak var downloadButton: UIButton!
+    @IBOutlet weak var downloadLabel: UILabel!
     @IBOutlet weak var downloadProgressView: UIProgressView!
     
     //TODO: template for optional property
@@ -41,11 +42,13 @@ class VideoViewController: UIViewController {
     @IBAction func downloadOnAction(_ sender: Any) {
         //save image
         downloadImage()
+        print("Download image")
         
         searchVideoURLForDownload()
         
         //modified personalMusicData in PersonalMusicTableViewController or save data in user default
         saveDownloadVideoData()
+        print("Save video data")
     }
     
     func didDownloadVideo() {
@@ -104,6 +107,12 @@ class VideoViewController: UIViewController {
     }
     
     func searchVideoURLForDownload() {
+        
+        DispatchQueue.main.async {
+            self.downloadButton.isHidden = true
+            self.downloadLabel.isHidden = false
+        }
+        
         let urlString = "https://www.yt-download.org/api/button/mp3/\(self.videoId ?? "noVideo")"
 
         guard let url = URL(string: urlString) else {
@@ -181,7 +190,7 @@ class VideoViewController: UIViewController {
             if let localUrl = data, error == nil {
 
                 if let statusCode = (response as? HTTPURLResponse)?.statusCode {
-                    print("Successfully downloaded. Status code: \(statusCode)")
+                    print("Successfully downloaded video. Status code: \(statusCode)")
                 }
 
                 do {
