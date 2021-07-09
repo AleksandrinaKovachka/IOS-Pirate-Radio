@@ -24,7 +24,7 @@ struct PersonalVideoView: View {
             }
             
             HStack {
-                Image(videoData.videoImagePath).resizable().frame(width: 300, height: 300, alignment: .topLeading).clipShape(Circle()).overlay(Circle().stroke(Color.white)).shadow(radius: 10)
+                Image(uiImage: UIImage(named: videoData.videoImagePath)!).resizable().frame(width: 300, height: 300, alignment: .topLeading).clipShape(Circle()).overlay(Circle().stroke(Color.white)).shadow(radius: 10)
             }
             
             VStack {

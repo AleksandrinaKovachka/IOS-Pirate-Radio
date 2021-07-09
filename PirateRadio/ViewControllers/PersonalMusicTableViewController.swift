@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 class PersonalMusicTableViewController: UITableViewController {
     
@@ -52,6 +53,16 @@ class PersonalMusicTableViewController: UITableViewController {
 
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //connect with PersonalVideoView
+        let personalVideoView = UIHostingController(rootView: PersonalVideoView(videoData: self.personalMusicData[indexPath.row], isPlaying: false))
+        
+        navigationController?.pushViewController(personalVideoView, animated: true)
+    }
+
+    
+    // MARK: - Get image from document directory
     
     func initPersonalMusicData() {
         if let musicData = UserDefaults.standard.object(forKey: "PersonalMusicData") as? [String: String] {

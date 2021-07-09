@@ -99,6 +99,7 @@ class MusicTableViewController: UITableViewController {
 
     }
 
+    // MARK: - Search video functions
 
     func searchVideos(searchText: String) {
         let urlString = "https://www.googleapis.com/youtube/v3/search?part=snippet&q=\(searchText)&type=video&key=\(Constants.API_KEY)&maxResults=20"
