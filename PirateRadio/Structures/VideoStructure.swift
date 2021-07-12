@@ -101,5 +101,6 @@ struct VideoDataStruct {
     var videoId: String
     var videoTitle: String
     var videoImagePath: String
+    var videoPath: String
 }
 

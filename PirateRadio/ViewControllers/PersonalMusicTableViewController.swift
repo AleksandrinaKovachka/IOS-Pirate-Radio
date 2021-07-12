@@ -56,7 +56,8 @@ class PersonalMusicTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //connect with PersonalVideoView
-        let personalVideoView = UIHostingController(rootView: PersonalVideoView(videoData: self.personalMusicData[indexPath.row], isPlaying: false))
+        
+        let personalVideoView = UIHostingController(rootView: PersonalVideoView(videoResources: self.personalMusicData, index: indexPath.row, isPlaying: false))
         
         navigationController?.pushViewController(personalVideoView, animated: true)
     }
@@ -69,7 +70,7 @@ class PersonalMusicTableViewController: UITableViewController {
             let musicKeys = [String] (musicData.keys)
             for key in musicKeys {
                 print(key)
-                personalMusicData.append(VideoDataStruct(videoId: key, videoTitle: musicData[key]!, videoImagePath: imagePathForVideoId(videoId: key)))
+                personalMusicData.append(VideoDataStruct(videoId: key, videoTitle: musicData[key]!, videoImagePath: imagePathForVideoId(videoId: key), videoPath: videoPathForVideoId(videoId: key)))
             }
         }
     }
@@ -86,6 +87,22 @@ class PersonalMusicTableViewController: UITableViewController {
         } else {
             print("the image not exist")
             return "no_image"
+        }
+    }
+    
+    func videoPathForVideoId(videoId: String) -> String {
+        let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        
+        let videoURLName = documentDirectory.appendingPathComponent(videoId + ".mp3")
+        
+        if FileManager.default.fileExists(atPath: videoURLName.path) {
+            
+            print(videoURLName.path)
+            return videoURLName.path
+            
+        } else {
+            print("the video not exist")
+            return "no_video"
         }
     }
     
@@ -156,7 +173,7 @@ class PersonalMusicTableViewController: UITableViewController {
         if let data = notification.userInfo as? [String: String] {
             for (videoId, title) in data {
                 print(videoId, title)
-                personalMusicData.append(VideoDataStruct(videoId: videoId, videoTitle: title, videoImagePath: imagePathForVideoId(videoId: videoId)))
+                personalMusicData.append(VideoDataStruct(videoId: videoId, videoTitle: title, videoImagePath: imagePathForVideoId(videoId: videoId), videoPath: videoPathForVideoId(videoId: videoId)))
                 //TODO: send image path
                 
                 DispatchQueue.main.async {
