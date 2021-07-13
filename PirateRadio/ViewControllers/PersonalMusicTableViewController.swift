@@ -31,6 +31,8 @@ class PersonalMusicTableViewController: UITableViewController {
         
         //observed self when video is download
         NotificationCenter.default.addObserver(self, selector: #selector(onHasDownloadVideo(_:)), name: .hasDownloadVideo, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(onHasDeleteVideo(_:)), name: .hasDeleteVideo, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(onHasDismissSwiftUI(_:)), name: .hasDismissSwiftUI, object: nil)
         
     }
 
@@ -182,7 +184,65 @@ class PersonalMusicTableViewController: UITableViewController {
             }
         }
     }
-
+    
+    @objc func onHasDeleteVideo(_ notification: Notification) {
+        if let videoData = notification.userInfo as? [String: String] {
+            let videoId = videoData["videoId"]!
+            
+            deleteVideo(videoId: videoId)
+            
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+    }
+    
+    @objc func onHasDismissSwiftUI(_ notification: Notification) {
+        //navigationController?.dismiss(animated: true, completion: nil)
+        navigationController?.viewControllers.remove(at: 1)
+    }
+    
+    //MARK: - Delete files
+    
+    func deleteVideo(videoId: String) {
+        
+        //TODO: if videoId not exist
+        
+        var index: Int = 0
+        
+        for videoData in self.personalMusicData {
+            if videoData.videoId == videoId {
+                break
+            }
+            
+            index += 1
+        }
+        
+        self.personalMusicData.remove(at: index)
+        
+        if var musicData = UserDefaults.standard.object(forKey: "PersonalMusicData") as? [String: String] {
+            musicData.removeValue(forKey: videoId)
+            UserDefaults.standard.set(musicData, forKey: "PersonalMusicData")
+        }
+        
+        deleteSavedFiles(videoId: videoId)
+    }
+    
+    func deleteSavedFiles(videoId: String) {
+        let documentURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        let videofilePath = documentURL.appendingPathComponent(videoId + ".mp3")
+        let imagefilePath = documentURL.appendingPathComponent(videoId + ".jpg")
+        
+        do {
+            try FileManager.default.removeItem(at: videofilePath)
+            try FileManager.default.removeItem(at: imagefilePath)
+            print("Files deleted")
+            
+        } catch {
+            print(error)
+        }
+    }
+    
 }
 
 extension PersonalMusicTableViewController: UISearchBarDelegate {

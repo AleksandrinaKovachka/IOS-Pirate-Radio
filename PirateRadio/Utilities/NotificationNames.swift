@@ -9,4 +9,6 @@ import Foundation
 
 extension Notification.Name {
     static let hasDownloadVideo = Notification.Name("hasDownloadVideo")
+    static let hasDeleteVideo = Notification.Name("hasDeleteVideo")
+    static let hasDismissSwiftUI = Notification.Name("hasDismissSwiftUI")
 }

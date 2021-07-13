@@ -10,7 +10,7 @@ import AVKit
 
 struct PersonalVideoView: View {
 
-    let videoResources: [VideoDataStruct]
+    @State var videoResources: [VideoDataStruct]
     
     @State var index: Int
     @State var audioPlayer: AVAudioPlayer!
@@ -20,6 +20,8 @@ struct PersonalVideoView: View {
     @State var totalTime: String = "00:00"
     @State var disabledForward: Bool = true
     @State var disabledBackward: Bool = true
+    
+    //var dismiss: (() -> Void)
     
     var body: some View {
 
@@ -120,18 +122,41 @@ struct PersonalVideoView: View {
     
     func deleteVideo() {
         
+        let videoId = self.videoResources[self.index].videoId
+        
+        if self.videoResources.count == 1 {
+            //back to table view
+
+            NotificationCenter.default.post(name: .hasDeleteVideo, object: nil, userInfo: ["videoId": videoId])
+            NotificationCenter.default.post(name: .hasDismissSwiftUI, object: nil, userInfo: nil)
+            
+            return
+        }
+        
+        self.videoResources.remove(at: self.index)
+        
+        if self.index == self.videoResources.count {
+            
+            self.index -= 1
+            
+        }
+        
+        initAudioPlayer()
+        
+        //notification with videoId
+        NotificationCenter.default.post(name: .hasDeleteVideo, object: nil, userInfo: ["videoId": videoId])
     }
     
     func backwardAudio() {
         
-        self.index = self.index - 1
+        self.index -= 1
         
         initAudioPlayer()
     }
     
     func forwardAudio() {
         
-        self.index = self.index + 1
+        self.index += 1
         
         initAudioPlayer()
     }
