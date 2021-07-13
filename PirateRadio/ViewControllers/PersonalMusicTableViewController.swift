@@ -198,7 +198,6 @@ class PersonalMusicTableViewController: UITableViewController {
     }
     
     @objc func onHasDismissSwiftUI(_ notification: Notification) {
-        //navigationController?.dismiss(animated: true, completion: nil)
         navigationController?.viewControllers.remove(at: 1)
     }
     

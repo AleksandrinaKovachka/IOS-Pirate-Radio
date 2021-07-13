@@ -15,13 +15,13 @@ struct PersonalVideoView: View {
     @State var index: Int
     @State var audioPlayer: AVAudioPlayer!
     @State var isPlaying: Bool = false
+    @State var isFinished: Bool = false
     @State var time: CGFloat = 0
     @State var currentTime: String = "00:00"
     @State var totalTime: String = "00:00"
     @State var disabledForward: Bool = true
     @State var disabledBackward: Bool = true
-    
-    //var dismiss: (() -> Void)
+    @State var del = AVDelegate()
     
     var body: some View {
 
@@ -86,6 +86,11 @@ struct PersonalVideoView: View {
                     self.currentTime = "\(Int(current/60)):\(Int(current.truncatingRemainder(dividingBy: 60)) <= 9 ? "0": "")\(Int(round(current.truncatingRemainder(dividingBy: 60))))"
                 }
             }
+            
+            NotificationCenter.default.addObserver(forName: .didVideoFinished, object: nil, queue: .main) {
+                (_) in
+                self.forwardAudio()
+            }
         }
     }
     
@@ -98,6 +103,9 @@ struct PersonalVideoView: View {
         
         let url = URL(fileURLWithPath: self.videoResources[index].videoPath)
         self.audioPlayer = try! AVAudioPlayer(contentsOf: url)
+        
+        self.audioPlayer.delegate = self.del
+        
         self.audioPlayer.prepareToPlay()
         
         let seconds = Double(self.audioPlayer.duration)
@@ -115,6 +123,7 @@ struct PersonalVideoView: View {
             isPlaying = false
             audioPlayer.stop()
         } else {
+            
             isPlaying = true
             audioPlayer.play()
         }
@@ -184,5 +193,12 @@ struct PersonalVideoView_Previews: PreviewProvider {
 //        PersonalVideoView(videoData: VideoDataStruct(videoId: "id", videoTitle: "Title", videoImagePath: "no_image"))
         
         PersonalVideoView(videoResources: [VideoDataStruct(videoId: "id", videoTitle: "Title", videoImagePath: "no_image", videoPath: "file:///Users/a-teamintern/Library/Developer/CoreSimulator/Devices/7F9371B4-610A-443F-8338-93EC1FC01AA1/data/Containers/Data/Application/6E4FCC91-D34D-4327-B9F7-61547DB717B3/Documents/5kbAFlBuRDY.mp3")], index: 0)
+    }
+}
+
+class AVDelegate : NSObject, AVAudioPlayerDelegate {
+    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+        print("Finished")
+        NotificationCenter.default.post(name: .didVideoFinished, object: nil, userInfo: nil)
     }
 }

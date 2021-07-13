@@ -11,4 +11,5 @@ extension Notification.Name {
     static let hasDownloadVideo = Notification.Name("hasDownloadVideo")
     static let hasDeleteVideo = Notification.Name("hasDeleteVideo")
     static let hasDismissSwiftUI = Notification.Name("hasDismissSwiftUI")
+    static let didVideoFinished = Notification.Name("didVideoFinished")
 }
