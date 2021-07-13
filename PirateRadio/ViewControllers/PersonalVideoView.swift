@@ -9,11 +9,10 @@ import SwiftUI
 import AVKit
 
 struct PersonalVideoView: View {
-    
-    //let videoData: VideoDataStruct
+
     let videoResources: [VideoDataStruct]
-    let index: Int
     
+    @State var index: Int
     @State var audioPlayer: AVAudioPlayer!
     @State var isPlaying: Bool = false
     @State var time: CGFloat = 0
@@ -53,6 +52,7 @@ struct PersonalVideoView: View {
             }
             
             HStack(spacing: UIScreen.main.bounds.width / 3 - 50) {
+                
                 Button(action: self.backwardAudio, label: {
                     Image(systemName: "backward.fill").resizable().frame(width: 40, height: 40)
                 }).disabled(self.disabledBackward)
@@ -69,16 +69,7 @@ struct PersonalVideoView: View {
         .offset(x: 0, y: 0)
         .onAppear {
             
-            self.disabledBackward = self.isDisabledBackward()
-            self.disabledForward = self.isDisabledForward()
-            
-            let url = URL(fileURLWithPath: self.videoResources[index].videoPath)
-            print(url)
-            self.audioPlayer = try! AVAudioPlayer(contentsOf: url)
-            self.audioPlayer.prepareToPlay()
-            
-            let seconds = Double(self.audioPlayer.duration)
-            self.totalTime = "\(Int(seconds/60)):\(Int(seconds.truncatingRemainder(dividingBy: 60)) <= 9 ? "0": "")\(Int(round(seconds.truncatingRemainder(dividingBy: 60))))"
+            initAudioPlayer()
             
             Timer.scheduledTimer(withTimeInterval: 1, repeats: true) {
                 (_) in
@@ -93,6 +84,27 @@ struct PersonalVideoView: View {
                     self.currentTime = "\(Int(current/60)):\(Int(current.truncatingRemainder(dividingBy: 60)) <= 9 ? "0": "")\(Int(round(current.truncatingRemainder(dividingBy: 60))))"
                 }
             }
+        }
+    }
+    
+    func initAudioPlayer() {
+        
+        self.time = 0
+        
+        self.disabledBackward = self.isDisabledBackward()
+        self.disabledForward = self.isDisabledForward()
+        
+        let url = URL(fileURLWithPath: self.videoResources[index].videoPath)
+        self.audioPlayer = try! AVAudioPlayer(contentsOf: url)
+        self.audioPlayer.prepareToPlay()
+        
+        let seconds = Double(self.audioPlayer.duration)
+        self.totalTime = "\(Int(seconds/60)):\(Int(seconds.truncatingRemainder(dividingBy: 60)) <= 9 ? "0": "")\(Int(round(seconds.truncatingRemainder(dividingBy: 60))))"
+        
+        self.currentTime = "00:00"
+        
+        if isPlaying {
+            self.audioPlayer.play()
         }
     }
     
@@ -111,19 +123,17 @@ struct PersonalVideoView: View {
     }
     
     func backwardAudio() {
-//        NavigationView {
-//
-            NavigationLink(
-                destination: PersonalVideoView(videoResources: self.videoResources, index: self.index - 1) ) {
-                Text("test")
-            }
-//
-//        }
-            
+        
+        self.index = self.index - 1
+        
+        initAudioPlayer()
     }
     
     func forwardAudio() {
         
+        self.index = self.index + 1
+        
+        initAudioPlayer()
     }
     
     func isDisabledBackward() -> Bool {
