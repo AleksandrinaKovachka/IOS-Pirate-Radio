@@ -14,6 +14,7 @@ class VideoViewController: UIViewController {
     @IBOutlet weak var descriptionOfSongTextView: UITextView!
     @IBOutlet weak var downloadButton: UIButton!
     @IBOutlet weak var downloadLabel: UILabel!
+    @IBOutlet weak var showDownloadMusicButton: UIButton!
     @IBOutlet weak var downloadProgressView: UIProgressView!
     
     //TODO: template for optional property
@@ -23,8 +24,6 @@ class VideoViewController: UIViewController {
     var channelId: String!
     var descriptionOfSong: String!
     var imageUrl: String!
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,15 +40,26 @@ class VideoViewController: UIViewController {
     
     @IBAction func downloadOnAction(_ sender: Any) {
         //save image
+        print("Function for download image")
         downloadImage()
-        print("Download image")
+        print("Finished function for download image")
         
+        print("Function for searching video url")
         searchVideoURLForDownload()
-        
-        //modified personalMusicData in PersonalMusicTableViewController or save data in user default
-        saveDownloadVideoData()
-        print("Save video data")
+        print("Finished function for download video")
     }
+    
+    @IBAction func showDownloadMusicOnAction(_ sender: Any) {
+        //send notification with videoId - in personal music table view highlight cell
+        
+        if let personalController = self.storyboard?.instantiateViewController(identifier: "PersonalMusicTableView") as? PersonalMusicTableViewController {
+            
+            self.navigationController?.pushViewController(personalController, animated: true)
+            
+            //self.present(personalController, animated: true, completion: nil)
+        }
+    }
+    
     
     func didDownloadVideo() {
         
@@ -75,12 +85,12 @@ class VideoViewController: UIViewController {
         
         let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
         let imageURLName = (documentDirectory.appendingPathComponent(self.videoId + ".jpg"))
-        
+
         if FileManager.default.fileExists(atPath: imageURLName.path) {
             print("The file already exists")
             return
         }
-        
+
         let session = URLSession(configuration: .default)
 
         let downloadTask = session.downloadTask(with: url) {
@@ -89,7 +99,7 @@ class VideoViewController: UIViewController {
             if let localUrl = data, error == nil {
 
                 if let statusCode = (response as? HTTPURLResponse)?.statusCode {
-                    print("Successfully downloaded. Status code: \(statusCode)")
+                    print("Successfully downloaded image. Status code: \(statusCode)")
                 }
 
                 do {
@@ -152,7 +162,6 @@ class VideoViewController: UIViewController {
                 for url in urls {
                     let stringURL = url.absoluteString
                     if stringURL.contains(self.videoId) {
-                        print(url)
                         //download with url
                         self.downloadVideo(url: url)
                         break
@@ -174,14 +183,15 @@ class VideoViewController: UIViewController {
             self.downloadProgressView.isHidden = false
         }
         
+        
         let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
         let videoURLName = (documentDirectory.appendingPathComponent(self.videoId + ".mp3"))
-        
+
         if FileManager.default.fileExists(atPath: videoURLName.path) {
             print("The file already exists")
             return
         }
-        
+
         let session = URLSession(configuration: .default)
 
         let downloadTask = session.downloadTask(with: url) {
@@ -191,6 +201,13 @@ class VideoViewController: UIViewController {
 
                 if let statusCode = (response as? HTTPURLResponse)?.statusCode {
                     print("Successfully downloaded video. Status code: \(statusCode)")
+
+                    self.saveDownloadVideoData()
+                    
+                    DispatchQueue.main.async {
+                        self.downloadLabel.text = "Downloaded!"
+                        self.showDownloadMusicButton.isHidden = false
+                    }
                 }
 
                 do {
@@ -205,6 +222,7 @@ class VideoViewController: UIViewController {
         }
 
         downloadTask.resume()
+        
         DispatchQueue.main.async {
             self.downloadProgressView.observedProgress = downloadTask.progress
         }

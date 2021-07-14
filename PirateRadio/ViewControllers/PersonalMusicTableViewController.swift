@@ -71,7 +71,6 @@ class PersonalMusicTableViewController: UITableViewController {
         if let musicData = UserDefaults.standard.object(forKey: "PersonalMusicData") as? [String: String] {
             let musicKeys = [String] (musicData.keys)
             for key in musicKeys {
-                print(key)
                 personalMusicData.append(VideoDataStruct(videoId: key, videoTitle: musicData[key]!, videoImagePath: imagePathForVideoId(videoId: key), videoPath: videoPathForVideoId(videoId: key)))
             }
         }

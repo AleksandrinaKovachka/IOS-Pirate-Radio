@@ -166,12 +166,19 @@
                             <progressView hidden="YES" opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ano-g4-Bsb">
                                 <rect key="frame" x="20" y="702.5" width="374" height="4"/>
                             </progressView>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Download started...." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zml-6i-qWh">
-                                <rect key="frame" x="10" y="669" width="394" height="21"/>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Download started...." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zml-6i-qWh">
+                                <rect key="frame" x="20" y="669" width="384" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Smw-cE-m6h">
+                                <rect key="frame" x="270" y="664" width="124" height="30"/>
+                                <state key="normal" title="Show in My Music"/>
+                                <connections>
+                                    <action selector="showDownloadMusicOnAction:" destination="Of6-pT-tru" eventType="touchUpInside" id="k7Y-Sp-94O"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="QWx-lU-kLw"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -183,8 +190,9 @@
                             <constraint firstItem="ano-g4-Bsb" firstAttribute="top" secondItem="SoL-jZ-Ayh" secondAttribute="bottom" constant="3" id="7xD-Ig-KlD"/>
                             <constraint firstItem="exI-Bg-In3" firstAttribute="top" secondItem="2r5-gF-qCt" secondAttribute="bottom" constant="5" id="AHA-pt-SE5"/>
                             <constraint firstItem="QWx-lU-kLw" firstAttribute="trailing" secondItem="zml-6i-qWh" secondAttribute="trailing" constant="10" id="D28-DL-5li"/>
-                            <constraint firstItem="zml-6i-qWh" firstAttribute="leading" secondItem="QWx-lU-kLw" secondAttribute="leading" constant="10" id="Dqr-e6-ctW"/>
+                            <constraint firstItem="zml-6i-qWh" firstAttribute="leading" secondItem="QWx-lU-kLw" secondAttribute="leading" constant="20" id="Dqr-e6-ctW"/>
                             <constraint firstItem="SoL-jZ-Ayh" firstAttribute="top" secondItem="ypB-5G-EPi" secondAttribute="bottom" constant="2" id="Edb-zj-vD1"/>
+                            <constraint firstItem="QWx-lU-kLw" firstAttribute="trailing" secondItem="Smw-cE-m6h" secondAttribute="trailing" constant="20" id="H1U-Av-mJf"/>
                             <constraint firstItem="SoL-jZ-Ayh" firstAttribute="leading" secondItem="QWx-lU-kLw" secondAttribute="leading" constant="20" id="Ihf-vA-S1f"/>
                             <constraint firstItem="2r5-gF-qCt" firstAttribute="centerX" secondItem="fZs-s7-Zsd" secondAttribute="centerX" id="KYe-oq-z5A"/>
                             <constraint firstItem="QWx-lU-kLw" firstAttribute="trailing" secondItem="bE1-sT-371" secondAttribute="trailing" constant="20" id="U9Y-n0-k4m"/>
@@ -193,12 +201,12 @@
                             <constraint firstItem="QWx-lU-kLw" firstAttribute="trailing" secondItem="ypB-5G-EPi" secondAttribute="trailing" constant="20" id="aHz-th-Pmn"/>
                             <constraint firstItem="2r5-gF-qCt" firstAttribute="top" secondItem="bE1-sT-371" secondAttribute="bottom" constant="10" id="bkD-P3-dK0"/>
                             <constraint firstItem="ypB-5G-EPi" firstAttribute="centerX" secondItem="fZs-s7-Zsd" secondAttribute="centerX" id="eJV-Zn-KA5"/>
-                            <constraint firstItem="zml-6i-qWh" firstAttribute="centerX" secondItem="fZs-s7-Zsd" secondAttribute="centerX" id="fbe-sO-F02"/>
                             <constraint firstItem="zml-6i-qWh" firstAttribute="top" secondItem="ypB-5G-EPi" secondAttribute="bottom" constant="11.5" id="gxR-u4-LC2"/>
                             <constraint firstItem="exI-Bg-In3" firstAttribute="centerX" secondItem="fZs-s7-Zsd" secondAttribute="centerX" id="joW-Bn-Keq"/>
                             <constraint firstItem="QWx-lU-kLw" firstAttribute="trailing" secondItem="SoL-jZ-Ayh" secondAttribute="trailing" constant="20" id="klm-dv-r9p"/>
                             <constraint firstItem="QWx-lU-kLw" firstAttribute="trailing" secondItem="exI-Bg-In3" secondAttribute="trailing" constant="25" id="poq-xh-XnS"/>
                             <constraint firstItem="ypB-5G-EPi" firstAttribute="top" secondItem="exI-Bg-In3" secondAttribute="bottom" constant="1" id="qLN-DK-A5R"/>
+                            <constraint firstItem="Smw-cE-m6h" firstAttribute="top" secondItem="ypB-5G-EPi" secondAttribute="bottom" constant="6.5" id="qhx-3P-065"/>
                             <constraint firstItem="bE1-sT-371" firstAttribute="top" secondItem="QWx-lU-kLw" secondAttribute="top" constant="20" id="sKV-ri-nyX"/>
                             <constraint firstItem="SoL-jZ-Ayh" firstAttribute="centerX" secondItem="fZs-s7-Zsd" secondAttribute="centerX" id="wZ7-ZY-FSx"/>
                             <constraint firstItem="exI-Bg-In3" firstAttribute="leading" secondItem="QWx-lU-kLw" secondAttribute="leading" constant="25" id="yEx-ab-QKV"/>
@@ -210,6 +218,7 @@
                         <outlet property="downloadButton" destination="SoL-jZ-Ayh" id="FVK-75-DOt"/>
                         <outlet property="downloadLabel" destination="zml-6i-qWh" id="qGc-sr-BL1"/>
                         <outlet property="downloadProgressView" destination="ano-g4-Bsb" id="52w-D7-gwf"/>
+                        <outlet property="showDownloadMusicButton" destination="Smw-cE-m6h" id="bDI-Wi-oGW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5D7-Yx-mfW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -277,7 +286,7 @@
         <!--My Music-->
         <scene sceneID="Rwf-Im-SXG">
             <objects>
-                <navigationController id="gga-Vm-Hq6" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="PersonalMusicNavigationController" id="gga-Vm-Hq6" customClass="PersonalMusicNavigationViewController" customModule="PirateRadio" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="My Music" image="music.house.fill" catalog="system" id="Qb7-Ja-cCv"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZHL-by-FzI">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
