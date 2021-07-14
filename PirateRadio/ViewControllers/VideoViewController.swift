@@ -54,6 +54,8 @@ class VideoViewController: UIViewController {
         
         if let personalController = self.storyboard?.instantiateViewController(identifier: "PersonalMusicTableView") as? PersonalMusicTableViewController {
             
+            personalController.showDownloadVideo["videoId"] = self.videoId
+            
             self.navigationController?.pushViewController(personalController, animated: true)
             
             //self.present(personalController, animated: true, completion: nil)

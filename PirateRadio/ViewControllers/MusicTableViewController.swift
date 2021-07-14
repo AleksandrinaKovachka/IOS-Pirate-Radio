@@ -41,7 +41,6 @@ class MusicTableViewController: UITableViewController {
             let fileURLs = try FileManager.default.contentsOfDirectory(at: documentURL, includingPropertiesForKeys: nil, options: .skipsHiddenFiles)
             
             for fileURL in fileURLs {
-                print(fileURL)
                 if fileURL.pathExtension == "mp3" || fileURL.pathExtension == "jpg" {
                     try FileManager.default.removeItem(at: fileURL)
                 }
@@ -124,19 +123,12 @@ class MusicTableViewController: UITableViewController {
                 return
             }
 
-            print(data!)
             do {
                 let jsonData = try JSONDecoder().decode(VideoResources.self, from: data!)
                 self.videoResources = jsonData.items
                 
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
-                }
-                
-                
-                for video in jsonData.items {
-                    print(video.snippet.title)
-                    print("Video id: " + video.id.videoId)
                 }
             }
             catch {
@@ -174,8 +166,7 @@ class MusicTableViewController: UITableViewController {
                 print("client error")
                 return
             }
-
-            print(data!)
+            
             do {
                 let jsonData = try JSONDecoder().decode(PopularVideoResources.self, from: data!)
                 

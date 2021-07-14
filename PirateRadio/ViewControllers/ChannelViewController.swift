@@ -26,8 +26,6 @@ class ChannelViewController: UIViewController {
         "https://youtube.googleapis.com/youtube/v3/channels?part=snippet,contentDetails,statistics&id=\(self.channelId!)&key=\(Constants.API_KEY)"
         
         guard let url = URL(string: urlString) else {return}
-        
-        print(urlString)
 
         let session = URLSession.init(configuration:.default)
         

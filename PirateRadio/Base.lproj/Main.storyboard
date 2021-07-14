@@ -172,8 +172,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Smw-cE-m6h">
-                                <rect key="frame" x="270" y="664" width="124" height="30"/>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Smw-cE-m6h">
+                                <rect key="frame" x="20" y="664" width="374" height="30"/>
                                 <state key="normal" title="Show in My Music"/>
                                 <connections>
                                     <action selector="showDownloadMusicOnAction:" destination="Of6-pT-tru" eventType="touchUpInside" id="k7Y-Sp-94O"/>
@@ -200,11 +200,11 @@
                             <constraint firstItem="QWx-lU-kLw" firstAttribute="trailing" secondItem="2r5-gF-qCt" secondAttribute="trailing" constant="20" id="ZdQ-Tw-YJv"/>
                             <constraint firstItem="QWx-lU-kLw" firstAttribute="trailing" secondItem="ypB-5G-EPi" secondAttribute="trailing" constant="20" id="aHz-th-Pmn"/>
                             <constraint firstItem="2r5-gF-qCt" firstAttribute="top" secondItem="bE1-sT-371" secondAttribute="bottom" constant="10" id="bkD-P3-dK0"/>
+                            <constraint firstItem="Smw-cE-m6h" firstAttribute="leading" secondItem="zml-6i-qWh" secondAttribute="leading" id="e6S-g0-CYp"/>
                             <constraint firstItem="ypB-5G-EPi" firstAttribute="centerX" secondItem="fZs-s7-Zsd" secondAttribute="centerX" id="eJV-Zn-KA5"/>
                             <constraint firstItem="zml-6i-qWh" firstAttribute="top" secondItem="ypB-5G-EPi" secondAttribute="bottom" constant="11.5" id="gxR-u4-LC2"/>
                             <constraint firstItem="exI-Bg-In3" firstAttribute="centerX" secondItem="fZs-s7-Zsd" secondAttribute="centerX" id="joW-Bn-Keq"/>
                             <constraint firstItem="QWx-lU-kLw" firstAttribute="trailing" secondItem="SoL-jZ-Ayh" secondAttribute="trailing" constant="20" id="klm-dv-r9p"/>
-                            <constraint firstItem="QWx-lU-kLw" firstAttribute="trailing" secondItem="exI-Bg-In3" secondAttribute="trailing" constant="25" id="poq-xh-XnS"/>
                             <constraint firstItem="ypB-5G-EPi" firstAttribute="top" secondItem="exI-Bg-In3" secondAttribute="bottom" constant="1" id="qLN-DK-A5R"/>
                             <constraint firstItem="Smw-cE-m6h" firstAttribute="top" secondItem="ypB-5G-EPi" secondAttribute="bottom" constant="6.5" id="qhx-3P-065"/>
                             <constraint firstItem="bE1-sT-371" firstAttribute="top" secondItem="QWx-lU-kLw" secondAttribute="top" constant="20" id="sKV-ri-nyX"/>
@@ -287,7 +287,7 @@
         <scene sceneID="Rwf-Im-SXG">
             <objects>
                 <navigationController storyboardIdentifier="PersonalMusicNavigationController" id="gga-Vm-Hq6" customClass="PersonalMusicNavigationViewController" customModule="PirateRadio" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="My Music" image="music.house.fill" catalog="system" id="Qb7-Ja-cCv"/>
+                    <tabBarItem key="tabBarItem" title="My Music" image="music.note.house.fill" catalog="system" id="Qb7-Ja-cCv"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZHL-by-FzI">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -422,7 +422,7 @@
     </scenes>
     <resources>
         <image name="arrow.down.circle.fill" catalog="system" width="128" height="121"/>
-        <image name="music.house.fill" catalog="system" width="128" height="106"/>
+        <image name="music.note.house.fill" catalog="system" width="128" height="106"/>
         <image name="music.note.list" catalog="system" width="128" height="115"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

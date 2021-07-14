@@ -13,6 +13,8 @@ class PersonalMusicTableViewController: UITableViewController {
     var searchController : UISearchController!
     
     var personalMusicData: [VideoDataStruct] = []
+    
+    var showDownloadVideo: [String: String] = ["videoId": ""]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,11 +31,15 @@ class PersonalMusicTableViewController: UITableViewController {
         //get music data from user default
         initPersonalMusicData()
         
+        //check if is showed downloaded video
+        if self.showDownloadVideo["videoId"] != "" {
+            self.onHasShowMyMusic()
+        }
+        
         //observed self when video is download
         NotificationCenter.default.addObserver(self, selector: #selector(onHasDownloadVideo(_:)), name: .hasDownloadVideo, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(onHasDeleteVideo(_:)), name: .hasDeleteVideo, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(onHasDismissSwiftUI(_:)), name: .hasDismissSwiftUI, object: nil)
-        
     }
 
     // MARK: - Table view data source
@@ -97,8 +103,6 @@ class PersonalMusicTableViewController: UITableViewController {
         let videoURLName = documentDirectory.appendingPathComponent(videoId + ".mp3")
         
         if FileManager.default.fileExists(atPath: videoURLName.path) {
-            
-            print(videoURLName.path)
             return videoURLName.path
             
         } else {
@@ -123,57 +127,25 @@ class PersonalMusicTableViewController: UITableViewController {
         }
     }
     
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    
-    // MARK: - Navigation
-    /*
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    @objc func onHasShowMyMusic() {
         
+        print("scroll")
+        
+        let index: Int = indexOf(videoId: self.showDownloadVideo["videoId"]!)
+
+        let indexPath = NSIndexPath(row: index, section: 0)
+        tableView.scrollToRow(at: indexPath as IndexPath, at: .top, animated: true)
+            
+        //highlight
+        let cell = tableView.cellForRow(at: indexPath as IndexPath) as? PersonalMusicTableViewCell
+        cell?.contentView.backgroundColor = UIColor.gray
     }
-    */
     
     //MARK: - Notification
     
     @objc func onHasDownloadVideo(_ notification: Notification) {
         if let data = notification.userInfo as? [String: String] {
             for (videoId, title) in data {
-                print(videoId, title)
                 personalMusicData.append(VideoDataStruct(videoId: videoId, videoTitle: title, videoImagePath: imagePathForVideoId(videoId: videoId), videoPath: videoPathForVideoId(videoId: videoId)))
                 //TODO: send image path
                 
@@ -202,19 +174,25 @@ class PersonalMusicTableViewController: UITableViewController {
     
     //MARK: - Delete files
     
-    func deleteVideo(videoId: String) {
-        
-        //TODO: if videoId not exist
-        
+    func indexOf(videoId: String) -> Int {
         var index: Int = 0
         
         for videoData in self.personalMusicData {
             if videoData.videoId == videoId {
-                break
+                return index
             }
             
             index += 1
         }
+        
+        return index
+    }
+    
+    func deleteVideo(videoId: String) {
+        
+        //TODO: if videoId not exist
+        
+        let index: Int = indexOf(videoId: videoId)
         
         self.personalMusicData.remove(at: index)
         
