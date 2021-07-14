@@ -14,6 +14,8 @@ class PersonalMusicTableViewController: UITableViewController {
     
     var personalMusicData: [VideoDataStruct] = []
     
+    var allPersonalMusicData: [VideoDataStruct] = []
+    
     var showDownloadVideo: [String: String] = ["videoId": ""]
 
     override func viewDidLoad() {
@@ -32,14 +34,20 @@ class PersonalMusicTableViewController: UITableViewController {
         initPersonalMusicData()
         
         //check if is showed downloaded video
-        if self.showDownloadVideo["videoId"] != "" {
-            self.onHasShowMyMusic()
-        }
+//        if self.showDownloadVideo["videoId"] != "" {
+//            self.onHasShowMyMusic()
+//        }
         
         //observed self when video is download
         NotificationCenter.default.addObserver(self, selector: #selector(onHasDownloadVideo(_:)), name: .hasDownloadVideo, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(onHasDeleteVideo(_:)), name: .hasDeleteVideo, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(onHasDismissSwiftUI(_:)), name: .hasDismissSwiftUI, object: nil)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if self.showDownloadVideo["videoId"] != "" {
+            self.onHasShowMyMusic()
+        }
     }
 
     // MARK: - Table view data source
@@ -80,6 +88,8 @@ class PersonalMusicTableViewController: UITableViewController {
                 personalMusicData.append(VideoDataStruct(videoId: key, videoTitle: musicData[key]!, videoImagePath: imagePathForVideoId(videoId: key), videoPath: videoPathForVideoId(videoId: key)))
             }
         }
+        
+        self.allPersonalMusicData = self.personalMusicData
     }
     
     func imagePathForVideoId(videoId: String) -> String {
@@ -137,8 +147,15 @@ class PersonalMusicTableViewController: UITableViewController {
         tableView.scrollToRow(at: indexPath as IndexPath, at: .top, animated: true)
             
         //highlight
-        let cell = tableView.cellForRow(at: indexPath as IndexPath) as? PersonalMusicTableViewCell
+        let cell = tableView.cellForRow(at: indexPath as IndexPath) as? PersonalMusicTableViewCell //nil
+        
         cell?.contentView.backgroundColor = UIColor.gray
+        
+//        UIView.animate(withDuration: 0.9, animations: {
+//            cell?.contentView.backgroundColor = UIColor.gray
+//        })
+        
+        self.showDownloadVideo["videoId"] = ""
     }
     
     //MARK: - Notification
@@ -219,14 +236,48 @@ class PersonalMusicTableViewController: UITableViewController {
         }
     }
     
+    //MARK: - Search audio in my music
+    
+    func findAudio(text: String) {
+        
+        self.personalMusicData.removeAll()
+        
+        for musicData in self.allPersonalMusicData {
+            if musicData.videoTitle.uppercased().contains(text.uppercased()) {
+                self.personalMusicData.append(musicData)
+            }
+        }
+        
+        let cell: PersonalMusicTableViewCell
+        
+        if self.personalMusicData.count == 0 {
+            let indexPath = NSIndexPath(row: 0, section: 0)
+            cell = tableView.cellForRow(at: indexPath as IndexPath)! as! PersonalMusicTableViewCell
+            cell.titleLabel.text = "No audio"
+            cell.videoImage.image = UIImage(named: "no_image")
+        }
+        
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+        
+    }
+    
 }
 
 extension PersonalMusicTableViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        let text = searchBar.text!
+        self.findAudio(text: text)
         
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
 
+        self.personalMusicData = self.allPersonalMusicData
+        
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
 }
