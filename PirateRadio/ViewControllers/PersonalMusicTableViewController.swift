@@ -20,6 +20,8 @@ class PersonalMusicTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.allowsMultipleSelectionDuringEditing = false
 
         self.searchController = UISearchController.init(searchResultsController: nil)
         
@@ -32,11 +34,6 @@ class PersonalMusicTableViewController: UITableViewController {
         
         //get music data from user default
         initPersonalMusicData()
-        
-        //check if is showed downloaded video
-//        if self.showDownloadVideo["videoId"] != "" {
-//            self.onHasShowMyMusic()
-//        }
         
         //observed self when video is download
         NotificationCenter.default.addObserver(self, selector: #selector(onHasDownloadVideo(_:)), name: .hasDownloadVideo, object: nil)
@@ -57,6 +54,10 @@ class PersonalMusicTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if self.personalMusicData.count == 0 {
+            setDefaultMessage(message: "There is no video in My Music")
+        }
+        
         return self.personalMusicData.count
     }
 
@@ -88,8 +89,6 @@ class PersonalMusicTableViewController: UITableViewController {
                 personalMusicData.append(VideoDataStruct(videoId: key, videoTitle: musicData[key]!, videoImagePath: imagePathForVideoId(videoId: key), videoPath: videoPathForVideoId(videoId: key)))
             }
         }
-        
-        self.allPersonalMusicData = self.personalMusicData
     }
     
     func imagePathForVideoId(videoId: String) -> String {
@@ -248,25 +247,28 @@ class PersonalMusicTableViewController: UITableViewController {
             }
         }
         
-        let cell: PersonalMusicTableViewCell
-        
-        if self.personalMusicData.count == 0 {
-            let indexPath = NSIndexPath(row: 0, section: 0)
-            cell = tableView.cellForRow(at: indexPath as IndexPath)! as! PersonalMusicTableViewCell
-            cell.titleLabel.text = "No audio"
-            cell.videoImage.image = UIImage(named: "no_image")
-        }
-        
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
         
     }
     
+    func setDefaultMessage(message: String) {
+        let messageLabel = UILabel(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: tableView.bounds.height))
+        messageLabel.text = message
+        messageLabel.numberOfLines = 0
+        messageLabel.textAlignment = .center
+        messageLabel.sizeToFit()
+        
+        tableView.backgroundView = messageLabel
+    }
+    
 }
 
 extension PersonalMusicTableViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        self.allPersonalMusicData = self.personalMusicData
+        
         let text = searchBar.text!
         self.findAudio(text: text)
         

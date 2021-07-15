@@ -102,7 +102,14 @@ struct PersonalVideoView: View {
         self.disabledForward = self.isDisabledForward()
         
         let url = URL(fileURLWithPath: self.videoResources[index].videoPath)
-        self.audioPlayer = try! AVAudioPlayer(contentsOf: url)
+        
+        do {
+            self.audioPlayer = try AVAudioPlayer(contentsOf: url)
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback, mode: AVAudioSession.Mode.default, options: AVAudioSession.CategoryOptions.mixWithOthers)
+        } catch {
+            print(error)
+        }
+        
         
         self.audioPlayer.delegate = self.del
         
