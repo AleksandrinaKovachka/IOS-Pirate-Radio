@@ -35,7 +35,7 @@ struct PersonalVideoView: View {
             }
             
             HStack {
-                Image(uiImage: UIImage(named: videoResources[index].videoImagePath)!).resizable().frame(width: 300, height: 300, alignment: .topLeading).clipShape(Circle()).overlay(Circle().stroke(Color.white)).shadow(radius: 10)
+                Image(uiImage: (UIImage(named: videoResources[index].videoImagePath) ?? UIImage(named: "no_image"))!).resizable().frame(width: 300, height: 300, alignment: .topLeading).clipShape(Circle()).overlay(Circle().stroke(Color.white)).shadow(radius: 10)
             }
             
             VStack {
@@ -139,17 +139,18 @@ struct PersonalVideoView: View {
     func deleteVideo() {
         
         let videoId = self.videoResources[self.index].videoId
+        self.videoResources.remove(at: self.index)
         
-        if self.videoResources.count == 1 {
+        if self.videoResources.count == 0 {
             //back to table view
 
             NotificationCenter.default.post(name: .hasDeleteVideo, object: nil, userInfo: ["videoId": videoId])
             NotificationCenter.default.post(name: .hasDismissSwiftUI, object: nil, userInfo: nil)
-            
+//            self.videoResources.remove(at: self.index)
             return
         }
         
-        self.videoResources.remove(at: self.index)
+//        self.videoResources.remove(at: self.index)
         
         if self.index == self.videoResources.count {
             

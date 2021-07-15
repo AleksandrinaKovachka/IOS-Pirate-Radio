@@ -203,8 +203,6 @@ class VideoViewController: UIViewController {
 
                 if let statusCode = (response as? HTTPURLResponse)?.statusCode {
                     print("Successfully downloaded video. Status code: \(statusCode)")
-
-                    self.saveDownloadVideoData()
                     
                     DispatchQueue.main.async {
                         self.downloadLabel.text = "Downloaded!"
@@ -214,6 +212,7 @@ class VideoViewController: UIViewController {
 
                 do {
                     try FileManager.default.copyItem(at: localUrl, to: videoURLName)
+                    self.saveDownloadVideoData()
                 } catch (let writeError) {
                     print("Error creating a file \(videoURLName) : \(writeError)")
                 }

@@ -56,6 +56,9 @@ class PersonalMusicTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if self.personalMusicData.count == 0 {
             setDefaultMessage(message: "There is no video in My Music")
+        } else {
+            tableView.backgroundView = nil
+            tableView.separatorStyle = .singleLine
         }
         
         return self.personalMusicData.count
@@ -77,6 +80,20 @@ class PersonalMusicTableViewController: UITableViewController {
         let personalVideoView = UIHostingController(rootView: PersonalVideoView(videoResources: self.personalMusicData, index: indexPath.row, isPlaying: false))
         
         navigationController?.pushViewController(personalVideoView, animated: true)
+    }
+    
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == UITableViewCell.EditingStyle.delete {
+            deleteSavedFiles(videoId: self.personalMusicData[indexPath.row].videoId, index: indexPath.row)
+            
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
     }
 
     
@@ -210,6 +227,11 @@ class PersonalMusicTableViewController: UITableViewController {
         
         let index: Int = indexOf(videoId: videoId)
         
+        deleteSavedFiles(videoId: videoId, index: index)
+    }
+    
+    func deleteSavedFiles(videoId: String, index: Int) {
+        
         self.personalMusicData.remove(at: index)
         
         if var musicData = UserDefaults.standard.object(forKey: "PersonalMusicData") as? [String: String] {
@@ -217,10 +239,6 @@ class PersonalMusicTableViewController: UITableViewController {
             UserDefaults.standard.set(musicData, forKey: "PersonalMusicData")
         }
         
-        deleteSavedFiles(videoId: videoId)
-    }
-    
-    func deleteSavedFiles(videoId: String) {
         let documentURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
         let videofilePath = documentURL.appendingPathComponent(videoId + ".mp3")
         let imagefilePath = documentURL.appendingPathComponent(videoId + ".jpg")
