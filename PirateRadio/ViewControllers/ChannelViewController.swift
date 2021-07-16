@@ -49,24 +49,7 @@ class ChannelViewController: UIViewController {
                 let channelInfo = jsonData.items[0]
                 
                 DispatchQueue.main.async {
-                    self.channelNameLabel.text = channelInfo.snippet.title
-                    self.subscribersLabel.text = channelInfo.statistics.subscriberCount + " subscribers"
-                    
-                    let imageURL = channelInfo.snippet.thumbnails.high.url
-                    
-                    if let url = URL(string: imageURL) {
-                        if let data = try? Data.init(contentsOf: url) {
-                            if let image = UIImage.init(data: data) {
-                                
-                                self.channelImageView.image = image
-                                self.channelImageView.layer.masksToBounds = false
-                                self.channelImageView.layer.cornerRadius = self.channelImageView.frame.height / 2
-                                self.channelImageView.clipsToBounds = true
-                                
-                            }
-                        }
-                    }
-                    
+                    self.initChannelViewWithData(channelInfo: channelInfo)
                 }
                 
             }
@@ -77,6 +60,34 @@ class ChannelViewController: UIViewController {
         }
 
         dataTask.resume()
+    }
+    
+    func initChannelViewWithData(channelInfo: ChannelItemsStruct) {
+        self.channelNameLabel.text = channelInfo.snippet.title
+        self.subscribersLabel.text = self.formatViews(subscriberCount: channelInfo.statistics.subscriberCount) + " subscribers"
+        
+        let imageURL = channelInfo.snippet.thumbnails.high.url
+        
+        if let url = URL(string: imageURL) {
+            if let data = try? Data.init(contentsOf: url) {
+                if let image = UIImage.init(data: data) {
+                    
+                    self.channelImageView.image = image
+                    self.channelImageView.layer.masksToBounds = false
+                    self.channelImageView.layer.cornerRadius = self.channelImageView.frame.height / 2
+                    self.channelImageView.clipsToBounds = true
+                    
+                }
+            }
+        }
+    }
+    
+    func formatViews(subscriberCount: String) -> String {
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = NumberFormatter.Style.decimal
+        numberFormatter.groupingSeparator = " "
+        
+        return numberFormatter.string(from: NSNumber(value: Int(subscriberCount)!))!
     }
     
 

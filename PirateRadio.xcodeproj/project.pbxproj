@@ -25,6 +25,9 @@
 		8E6DD869268E0F9B00A419C2 /* PersonalMusicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6DD868268E0F9B00A419C2 /* PersonalMusicTableViewCell.swift */; };
 		8E6DD874269591CD00A419C2 /* NotificationNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6DD873269591CD00A419C2 /* NotificationNames.swift */; };
 		8EC4D0EC2696DF55003BDD69 /* PersonalVideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC4D0EB2696DF55003BDD69 /* PersonalVideoView.swift */; };
+		8EC4D0F326A1739B003BDD69 /* VideoViewsStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC4D0F226A1739B003BDD69 /* VideoViewsStructure.swift */; };
+		8EC4D0F626A173DD003BDD69 /* ChannelStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC4D0F526A173DD003BDD69 /* ChannelStructure.swift */; };
+		8EC4D0F926A1BD22003BDD69 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC4D0F826A1BD22003BDD69 /* NetworkMonitor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +51,9 @@
 		8E6DD868268E0F9B00A419C2 /* PersonalMusicTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalMusicTableViewCell.swift; sourceTree = "<group>"; };
 		8E6DD873269591CD00A419C2 /* NotificationNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationNames.swift; sourceTree = "<group>"; };
 		8EC4D0EB2696DF55003BDD69 /* PersonalVideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalVideoView.swift; sourceTree = "<group>"; };
+		8EC4D0F226A1739B003BDD69 /* VideoViewsStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewsStructure.swift; sourceTree = "<group>"; };
+		8EC4D0F526A173DD003BDD69 /* ChannelStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelStructure.swift; sourceTree = "<group>"; };
+		8EC4D0F826A1BD22003BDD69 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		BFF5042E2A3CFD2556D374D9 /* Pods_PirateRadio.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PirateRadio.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9D56F56356F2E67F597EA46 /* Pods-PirateRadio.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PirateRadio.debug.xcconfig"; path = "Target Support Files/Pods-PirateRadio/Pods-PirateRadio.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -93,6 +99,8 @@
 			children = (
 				8E0A7C8D2689FDA1009EA65C /* Constants.swift */,
 				8E0A7C902689FF1F009EA65C /* VideoStructure.swift */,
+				8EC4D0F226A1739B003BDD69 /* VideoViewsStructure.swift */,
+				8EC4D0F526A173DD003BDD69 /* ChannelStructure.swift */,
 			);
 			path = Structures;
 			sourceTree = "<group>";
@@ -128,6 +136,7 @@
 				8E4992ED267B373400E5BDBF /* Assets.xcassets */,
 				8E4992EF267B373400E5BDBF /* LaunchScreen.storyboard */,
 				8E4992F2267B373400E5BDBF /* Info.plist */,
+				8EC4D0F826A1BD22003BDD69 /* NetworkMonitor.swift */,
 			);
 			path = PirateRadio;
 			sourceTree = "<group>";
@@ -268,10 +277,13 @@
 				8E6DD874269591CD00A419C2 /* NotificationNames.swift in Sources */,
 				8E0A7C9D268B64FF009EA65C /* VideoViewController.swift in Sources */,
 				8E0A7C7F2689BE6E009EA65C /* MusicTableViewController.swift in Sources */,
+				8EC4D0F326A1739B003BDD69 /* VideoViewsStructure.swift in Sources */,
 				8EC4D0EC2696DF55003BDD69 /* PersonalVideoView.swift in Sources */,
+				8EC4D0F926A1BD22003BDD69 /* NetworkMonitor.swift in Sources */,
 				8E0A7CA3268C623C009EA65C /* ChannelViewController.swift in Sources */,
 				8E0A7C912689FF1F009EA65C /* VideoStructure.swift in Sources */,
 				8E4992E5267B373300E5BDBF /* AppDelegate.swift in Sources */,
+				8EC4D0F626A173DD003BDD69 /* ChannelStructure.swift in Sources */,
 				8E4992E7267B373300E5BDBF /* SceneDelegate.swift in Sources */,
 				8E6DD866268E0F8300A419C2 /* PersonalMusicTableViewController.swift in Sources */,
 				8E0A7C8E2689FDA1009EA65C /* Constants.swift in Sources */,

@@ -106,6 +106,8 @@ class PersonalMusicTableViewController: UITableViewController {
                 personalMusicData.append(VideoDataStruct(videoId: key, videoTitle: musicData[key]!, videoImagePath: imagePathForVideoId(videoId: key), videoPath: videoPathForVideoId(videoId: key)))
             }
         }
+        
+        self.allPersonalMusicData = self.personalMusicData
     }
     
     func imagePathForVideoId(videoId: String) -> String {
@@ -285,7 +287,6 @@ class PersonalMusicTableViewController: UITableViewController {
 
 extension PersonalMusicTableViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        self.allPersonalMusicData = self.personalMusicData
         
         let text = searchBar.text!
         self.findAudio(text: text)

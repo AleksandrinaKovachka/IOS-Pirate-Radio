@@ -19,6 +19,7 @@ class AudioPlayerViewController: UIViewController {
     var videoID: String!
     var songTitle: String!
     var publishedDate: String!
+    var videoViews: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,10 +69,10 @@ class AudioPlayerViewController: UIViewController {
 
             do {
                 let jsonData = try JSONDecoder().decode(VideoResourcesViews.self, from: data!)
-                let views = jsonData.items[0].statistics.viewCount
+                self.videoViews = jsonData.items[0].statistics.viewCount
                 
                 DispatchQueue.main.async {
-                    self.viewsLabel.text = "Views: " + views
+                    self.viewsLabel.text = "Views: " + self.formatViews()
                 }
                 
             }
@@ -82,6 +83,14 @@ class AudioPlayerViewController: UIViewController {
         }
 
         dataTask.resume()
+    }
+    
+    func formatViews() -> String {
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = NumberFormatter.Style.decimal
+        numberFormatter.groupingSeparator = " "
+        
+        return numberFormatter.string(from: NSNumber(value: Int(self.videoViews)!))!
     }
     
 

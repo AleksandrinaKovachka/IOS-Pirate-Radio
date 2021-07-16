@@ -16,10 +16,6 @@ class MusicTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        deleteAllSavedFiles()
-//
-//        UserDefaults.standard.set([:], forKey: "PersonalMusicData")
-        
         self.searchController = UISearchController.init(searchResultsController: nil)
         
         self.navigationItem.searchController = searchController
@@ -29,26 +25,16 @@ class MusicTableViewController: UITableViewController {
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.definesPresentationContext = true
         
+        //check for internet connection
+//        if NetworkMonitor.shared.isConnected {
+//            mostPopularSongs()
+//        } else {
+//            searchController.searchBar.isHidden = true
+//        }
+        
         //get most popular songs - display in first visit
         mostPopularSongs()
         
-    }
-    
-    func deleteAllSavedFiles() {
-        let documentURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-        
-        do {
-            let fileURLs = try FileManager.default.contentsOfDirectory(at: documentURL, includingPropertiesForKeys: nil, options: .skipsHiddenFiles)
-            
-            for fileURL in fileURLs {
-                if fileURL.pathExtension == "mp3" || fileURL.pathExtension == "jpg" {
-                    try FileManager.default.removeItem(at: fileURL)
-                }
-            }
-            
-        } catch {
-            print(error)
-        }
     }
 
     // MARK: - Table view data source
@@ -58,6 +44,12 @@ class MusicTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if self.videoResources.count == 0 {
+            setDefaultMessage(message: "Loading...")
+        } else {
+            tableView.backgroundView = nil
+            tableView.separatorStyle = .singleLine
+        }
         
         return self.videoResources.count
     }
@@ -100,7 +92,7 @@ class MusicTableViewController: UITableViewController {
 
     // MARK: - Search video functions
 
-    func searchVideos(searchText: String) {
+    func findVideos(searchText: String) {
         let urlString = "https://www.googleapis.com/youtube/v3/search?part=snippet&q=\(searchText)&type=video&key=\(Constants.API_KEY)&maxResults=20"
         guard let url = URL(string: urlString) else {return}
 
@@ -195,12 +187,22 @@ class MusicTableViewController: UITableViewController {
         }
     }
     
+    func setDefaultMessage(message: String) {
+        let messageLabel = UILabel(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: tableView.bounds.height))
+        messageLabel.text = message
+        messageLabel.numberOfLines = 0
+        messageLabel.textAlignment = .center
+        messageLabel.sizeToFit()
+        
+        tableView.backgroundView = messageLabel
+    }
+
 }
 
 extension MusicTableViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         let text = searchBar.text?.split(separator: " ").joined(separator: "%20")
-        searchVideos(searchText: text!)
+        findVideos(searchText: text!)
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {

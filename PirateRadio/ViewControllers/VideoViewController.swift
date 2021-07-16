@@ -39,14 +39,9 @@ class VideoViewController: UIViewController {
     }
     
     @IBAction func downloadOnAction(_ sender: Any) {
-        //save image
-        print("Function for download image")
         downloadImage()
-        print("Finished function for download image")
         
-        print("Function for searching video url")
         searchVideoURLForDownload()
-        print("Finished function for download video")
     }
     
     @IBAction func showDownloadMusicOnAction(_ sender: Any) {
