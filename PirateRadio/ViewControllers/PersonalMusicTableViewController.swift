@@ -39,6 +39,8 @@ class PersonalMusicTableViewController: UITableViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(onHasDownloadVideo(_:)), name: .hasDownloadVideo, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(onHasDeleteVideo(_:)), name: .hasDeleteVideo, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(onHasDismissSwiftUI(_:)), name: .hasDismissSwiftUI, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(onDidPlayMusic(_:)), name: .didPlayMusic, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(onDidShuffleMusic(_:)), name: .didShuffleMusic, object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -205,6 +207,21 @@ class PersonalMusicTableViewController: UITableViewController {
     
     @objc func onHasDismissSwiftUI(_ notification: Notification) {
         navigationController?.viewControllers.remove(at: 1)
+    }
+    
+    @objc func onDidPlayMusic(_ notification: Notification) {
+        let personalVideoView = UIHostingController(rootView: PersonalVideoView(videoResources: self.personalMusicData, index: 0, isPlaying: false))
+        
+        navigationController?.pushViewController(personalVideoView, animated: true)
+    }
+    
+    @objc func onDidShuffleMusic(_ notification: Notification) {
+        
+        let shuffleMusicData: [VideoDataStruct] = self.personalMusicData
+        
+        let personalVideoView = UIHostingController(rootView: PersonalVideoView(videoResources: shuffleMusicData.shuffled(), index: 0, isPlaying: false))
+        
+        navigationController?.pushViewController(personalVideoView, animated: true)
     }
     
     //MARK: - Delete files
