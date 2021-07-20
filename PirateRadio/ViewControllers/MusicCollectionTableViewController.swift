@@ -49,6 +49,11 @@ class MusicCollectionTableViewController: UITableViewController {
                 
                 self.navigationController?.pushViewController(songsController, animated: true)
             }
+        } else if Array(self.sections)[indexPath.row].key == "Playlist" {
+            if let playlistController = self.storyboard?.instantiateViewController(identifier: "PlaylistTableViewController") as? PlaylistTableViewController {
+                
+                self.navigationController?.pushViewController(playlistController, animated: true)
+            }
         }
     }
     
@@ -97,15 +102,5 @@ class MusicCollectionTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
-    
-    // MARK: - Play music buttons
-    
-    @IBAction func playMusicOnAction(_ sender: Any) {
-        NotificationCenter.default.post(name: .didPlayMusic, object: nil)
-    }
-    
-    @IBAction func shuffleMusicOnAction(_ sender: Any) {
-        NotificationCenter.default.post(name: .didShuffleMusic, object: nil)
-    }
 
 }

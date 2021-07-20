@@ -1,21 +1,25 @@
 //
-//  SongsViewController.swift
+//  CreatePlaylistViewController.swift
 //  PirateRadio
 //
-//  Created by A-Team Intern on 19.07.21.
+//  Created by A-Team Intern on 20.07.21.
 //
 
 import UIKit
 
-class SongsViewController: UIViewController {
+class CreatePlaylistViewController: UIViewController {
 
+    @IBOutlet weak var playlistNameTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
-    
 
+    @IBAction func createPlaylistOnAction(_ sender: Any) {
+    }
+    
     /*
     // MARK: - Navigation
 
@@ -25,14 +29,5 @@ class SongsViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-    
-    // MARK: - Play music buttons
-    @IBAction func playMusicOnAction(_ sender: Any) {
-        NotificationCenter.default.post(name: .didPlayMusic, object: nil)
-    }
-    
-    @IBAction func shuffleMusicOnAction(_ sender: Any) {
-        NotificationCenter.default.post(name: .didShuffleMusic, object: nil)
-    }
 
 }

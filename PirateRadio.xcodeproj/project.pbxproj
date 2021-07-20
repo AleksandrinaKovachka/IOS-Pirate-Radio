@@ -31,6 +31,11 @@
 		8EC4D10426A5A6F8003BDD69 /* MusicCollectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC4D10326A5A6F8003BDD69 /* MusicCollectionTableViewController.swift */; };
 		8EC4D10726A5A714003BDD69 /* MusicCollectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC4D10626A5A714003BDD69 /* MusicCollectionTableViewCell.swift */; };
 		8EC4D10A26A5B98C003BDD69 /* SongsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC4D10926A5B98C003BDD69 /* SongsViewController.swift */; };
+		8EC4D10D26A6AD2C003BDD69 /* PlaylistTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC4D10C26A6AD2C003BDD69 /* PlaylistTableViewController.swift */; };
+		8EC4D11026A6ADAC003BDD69 /* PlaylistTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC4D10F26A6ADAC003BDD69 /* PlaylistTableViewCell.swift */; };
+		8EC4D11326A6C56F003BDD69 /* CreatePlaylistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC4D11226A6C56F003BDD69 /* CreatePlaylistViewController.swift */; };
+		8EC4D11626A6C620003BDD69 /* SelectSongsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC4D11526A6C620003BDD69 /* SelectSongsTableViewController.swift */; };
+		8EC4D11926A6C635003BDD69 /* SelectSongsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC4D11826A6C635003BDD69 /* SelectSongsTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +65,11 @@
 		8EC4D10326A5A6F8003BDD69 /* MusicCollectionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicCollectionTableViewController.swift; sourceTree = "<group>"; };
 		8EC4D10626A5A714003BDD69 /* MusicCollectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicCollectionTableViewCell.swift; sourceTree = "<group>"; };
 		8EC4D10926A5B98C003BDD69 /* SongsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongsViewController.swift; sourceTree = "<group>"; };
+		8EC4D10C26A6AD2C003BDD69 /* PlaylistTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistTableViewController.swift; sourceTree = "<group>"; };
+		8EC4D10F26A6ADAC003BDD69 /* PlaylistTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistTableViewCell.swift; sourceTree = "<group>"; };
+		8EC4D11226A6C56F003BDD69 /* CreatePlaylistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePlaylistViewController.swift; sourceTree = "<group>"; };
+		8EC4D11526A6C620003BDD69 /* SelectSongsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectSongsTableViewController.swift; sourceTree = "<group>"; };
+		8EC4D11826A6C635003BDD69 /* SelectSongsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectSongsTableViewCell.swift; sourceTree = "<group>"; };
 		BFF5042E2A3CFD2556D374D9 /* Pods_PirateRadio.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PirateRadio.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9D56F56356F2E67F597EA46 /* Pods-PirateRadio.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PirateRadio.debug.xcconfig"; path = "Target Support Files/Pods-PirateRadio/Pods-PirateRadio.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -99,6 +109,11 @@
 				8EC4D10326A5A6F8003BDD69 /* MusicCollectionTableViewController.swift */,
 				8EC4D10626A5A714003BDD69 /* MusicCollectionTableViewCell.swift */,
 				8EC4D10926A5B98C003BDD69 /* SongsViewController.swift */,
+				8EC4D10C26A6AD2C003BDD69 /* PlaylistTableViewController.swift */,
+				8EC4D10F26A6ADAC003BDD69 /* PlaylistTableViewCell.swift */,
+				8EC4D11226A6C56F003BDD69 /* CreatePlaylistViewController.swift */,
+				8EC4D11526A6C620003BDD69 /* SelectSongsTableViewController.swift */,
+				8EC4D11826A6C635003BDD69 /* SelectSongsTableViewCell.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -290,14 +305,19 @@
 				8EC4D0EC2696DF55003BDD69 /* PersonalVideoView.swift in Sources */,
 				8EC4D0F926A1BD22003BDD69 /* NetworkMonitor.swift in Sources */,
 				8E0A7CA3268C623C009EA65C /* ChannelViewController.swift in Sources */,
+				8EC4D11326A6C56F003BDD69 /* CreatePlaylistViewController.swift in Sources */,
 				8E0A7C912689FF1F009EA65C /* VideoStructure.swift in Sources */,
 				8E4992E5267B373300E5BDBF /* AppDelegate.swift in Sources */,
 				8EC4D0F626A173DD003BDD69 /* ChannelStructure.swift in Sources */,
+				8EC4D11026A6ADAC003BDD69 /* PlaylistTableViewCell.swift in Sources */,
 				8EC4D10726A5A714003BDD69 /* MusicCollectionTableViewCell.swift in Sources */,
+				8EC4D11626A6C620003BDD69 /* SelectSongsTableViewController.swift in Sources */,
 				8E4992E7267B373300E5BDBF /* SceneDelegate.swift in Sources */,
 				8E6DD866268E0F8300A419C2 /* PersonalMusicTableViewController.swift in Sources */,
+				8EC4D10D26A6AD2C003BDD69 /* PlaylistTableViewController.swift in Sources */,
 				8E0A7C8E2689FDA1009EA65C /* Constants.swift in Sources */,
 				8EC4D10A26A5B98C003BDD69 /* SongsViewController.swift in Sources */,
+				8EC4D11926A6C635003BDD69 /* SelectSongsTableViewCell.swift in Sources */,
 				8E0A7CA0268C621C009EA65C /* AudioPlayerViewController.swift in Sources */,
 				8EC4D10426A5A6F8003BDD69 /* MusicCollectionTableViewController.swift in Sources */,
 			);
