@@ -12,6 +12,8 @@ class PersonalMusicTableViewController: UITableViewController {
     
     var searchController : UISearchController!
     
+    var musicData: [String: String] = [:]
+    
     var personalMusicData: [VideoDataStruct] = []
     
     var allPersonalMusicData: [VideoDataStruct] = []
@@ -25,7 +27,7 @@ class PersonalMusicTableViewController: UITableViewController {
 
         self.searchController = UISearchController.init(searchResultsController: nil)
         
-        self.navigationItem.searchController = searchController
+        self.tableView.tableHeaderView = self.searchController.searchBar
         
         searchController.searchBar.delegate = self
         
@@ -102,11 +104,16 @@ class PersonalMusicTableViewController: UITableViewController {
     // MARK: - Get image from document directory
     
     func initPersonalMusicData() {
-        if let musicData = UserDefaults.standard.object(forKey: "PersonalMusicData") as? [String: String] {
-            let musicKeys = [String] (musicData.keys)
-            for key in musicKeys {
-                personalMusicData.append(VideoDataStruct(videoId: key, videoTitle: musicData[key]!, videoImagePath: imagePathForVideoId(videoId: key), videoPath: videoPathForVideoId(videoId: key)))
+        if self.musicData.count == 0 {
+            if let musicData = UserDefaults.standard.object(forKey: "PersonalMusicData") as? [String: String] {
+                self.musicData = musicData
             }
+        }
+        
+        let musicKeys = [String] (self.musicData.keys)
+            
+        for key in musicKeys {
+            personalMusicData.append(VideoDataStruct(videoId: key, videoTitle: self.musicData[key]!, videoImagePath: imagePathForVideoId(videoId: key), videoPath: videoPathForVideoId(videoId: key)))
         }
         
         self.allPersonalMusicData = self.personalMusicData

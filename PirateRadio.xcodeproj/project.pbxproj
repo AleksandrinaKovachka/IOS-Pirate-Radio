@@ -36,6 +36,7 @@
 		8EC4D11326A6C56F003BDD69 /* CreatePlaylistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC4D11226A6C56F003BDD69 /* CreatePlaylistViewController.swift */; };
 		8EC4D11626A6C620003BDD69 /* SelectSongsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC4D11526A6C620003BDD69 /* SelectSongsTableViewController.swift */; };
 		8EC4D11926A6C635003BDD69 /* SelectSongsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC4D11826A6C635003BDD69 /* SelectSongsTableViewCell.swift */; };
+		8EC4D11C26A70D0E003BDD69 /* PlaylistStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC4D11B26A70D0E003BDD69 /* PlaylistStructure.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +71,7 @@
 		8EC4D11226A6C56F003BDD69 /* CreatePlaylistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePlaylistViewController.swift; sourceTree = "<group>"; };
 		8EC4D11526A6C620003BDD69 /* SelectSongsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectSongsTableViewController.swift; sourceTree = "<group>"; };
 		8EC4D11826A6C635003BDD69 /* SelectSongsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectSongsTableViewCell.swift; sourceTree = "<group>"; };
+		8EC4D11B26A70D0E003BDD69 /* PlaylistStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistStructure.swift; sourceTree = "<group>"; };
 		BFF5042E2A3CFD2556D374D9 /* Pods_PirateRadio.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PirateRadio.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9D56F56356F2E67F597EA46 /* Pods-PirateRadio.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PirateRadio.debug.xcconfig"; path = "Target Support Files/Pods-PirateRadio/Pods-PirateRadio.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -125,6 +127,7 @@
 				8E0A7C902689FF1F009EA65C /* VideoStructure.swift */,
 				8EC4D0F226A1739B003BDD69 /* VideoViewsStructure.swift */,
 				8EC4D0F526A173DD003BDD69 /* ChannelStructure.swift */,
+				8EC4D11B26A70D0E003BDD69 /* PlaylistStructure.swift */,
 			);
 			path = Structures;
 			sourceTree = "<group>";
@@ -314,6 +317,7 @@
 				8EC4D11626A6C620003BDD69 /* SelectSongsTableViewController.swift in Sources */,
 				8E4992E7267B373300E5BDBF /* SceneDelegate.swift in Sources */,
 				8E6DD866268E0F8300A419C2 /* PersonalMusicTableViewController.swift in Sources */,
+				8EC4D11C26A70D0E003BDD69 /* PlaylistStructure.swift in Sources */,
 				8EC4D10D26A6AD2C003BDD69 /* PlaylistTableViewController.swift in Sources */,
 				8E0A7C8E2689FDA1009EA65C /* Constants.swift in Sources */,
 				8EC4D10A26A5B98C003BDD69 /* SongsViewController.swift in Sources */,

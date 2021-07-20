@@ -529,7 +529,7 @@
         <!--Select Songs Table View Controller-->
         <scene sceneID="fbC-PG-SjG">
             <objects>
-                <tableViewController id="VF9-S1-svi" customClass="SelectSongsTableViewController" customModule="PirateRadio" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="SelectSongsTableView" id="VF9-S1-svi" customClass="SelectSongsTableViewController" customModule="PirateRadio" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="wyq-ch-8dN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="497"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -15,11 +15,7 @@ class PlaylistTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        //init playlist data
     }
 
     // MARK: - Table view data source
@@ -61,6 +57,8 @@ class PlaylistTableViewController: UITableViewController {
             }
         } else {
             if let songsController = self.storyboard?.instantiateViewController(identifier: "SongsViewController") as? SongsViewController {
+                
+                //songsController.personalMusicViewController.musicData = musicData
                 
                 self.navigationController?.pushViewController(songsController, animated: true)
             }

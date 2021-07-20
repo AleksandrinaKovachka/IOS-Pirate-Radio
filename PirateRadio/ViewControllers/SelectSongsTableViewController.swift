@@ -11,6 +11,9 @@ class SelectSongsTableViewController: UITableViewController {
     
     var songsTitle: [String] = []
     var musicData: [String: String] = [:]
+    var playlistSongs: [String: String] = [:]
+    
+    var delegate: SongsDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,11 +50,32 @@ class SelectSongsTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let cell = tableView.cellForRow(at: indexPath) {
-            if cell.accessoryType == .checkmark {
-                cell.accessoryType = .none
+        if let cellTableView = tableView.cellForRow(at: indexPath) {
+            if cellTableView.accessoryType == .checkmark {
+                cellTableView.accessoryType = .none
+                    
+                deleteSong(songsTitle: self.songsTitle[indexPath.row])
+                    
             } else {
-                cell.accessoryType = .checkmark
+                cellTableView.accessoryType = .checkmark
+
+                addSong(songsTitle: self.songsTitle[indexPath.row])
+            }
+        }
+    }
+    
+    func addSong(songsTitle: String) {
+        for key in self.musicData.keys {
+            if self.musicData[key] == songsTitle {
+                self.delegate?.addSong(songKey: key, songTitle: songsTitle)
+            }
+        }
+    }
+    
+    func deleteSong(songsTitle: String) {
+        for key in self.musicData.keys {
+            if self.musicData[key] == songsTitle {
+                self.delegate?.deleteSong(songKey: key)
             }
         }
     }
