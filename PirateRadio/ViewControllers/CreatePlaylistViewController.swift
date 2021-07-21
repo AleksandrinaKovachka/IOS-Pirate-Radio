@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Toast_Swift
 
 protocol SongsDelegate {
     func addSong(songKey: String, songTitle: String)
@@ -36,6 +37,26 @@ class CreatePlaylistViewController: UIViewController, SongsDelegate {
 
     @IBAction func createPlaylistOnAction(_ sender: Any) {
         
+        var toastMessage: String = ""
+        if self.playlistNameTextField.text == "" {
+            toastMessage = "Input name"
+            
+        } else if self.playlistNameTextField.text == "New Playlist..." {
+            toastMessage.append(", different form New Playlist...!")
+        }
+        
+        if self.playlistSongs.count == 0 {
+            toastMessage.append("\nSelect at least one song!")
+        }
+        
+        if toastMessage == "" {
+            savePlaylistData()
+        } else {
+            self.view.makeToast(toastMessage, duration: 2.0, position: ToastPosition.center)
+        }
+    }
+    
+    func savePlaylistData() {
         if var playlistData = UserDefaults.standard.object(forKey: "PlaylistTitlesAndSongs") as? [String: [String: String]] {
             playlistData[self.playlistNameTextField.text!] = self.playlistSongs
             UserDefaults.standard.set(playlistData, forKey: "PlaylistTitlesAndSongs")
