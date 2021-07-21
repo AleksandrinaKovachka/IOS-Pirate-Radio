@@ -23,7 +23,7 @@ class PersonalMusicTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.allowsMultipleSelectionDuringEditing = false
+        //tableView.allowsMultipleSelectionDuringEditing = false
 
         self.searchController = UISearchController.init(searchResultsController: nil)
         
@@ -83,6 +83,7 @@ class PersonalMusicTableViewController: UITableViewController {
         
         let personalVideoView = UIHostingController(rootView: PersonalVideoView(videoResources: self.personalMusicData, index: indexPath.row, isPlaying: false))
         
+        self.searchController.dismiss(animated: true, completion: nil)
         navigationController?.pushViewController(personalVideoView, animated: true)
     }
     

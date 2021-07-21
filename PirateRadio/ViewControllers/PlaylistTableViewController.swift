@@ -9,11 +9,24 @@ import UIKit
 
 class PlaylistTableViewController: UITableViewController {
     
+    var searchController : UISearchController!
+    
     var playlistNames: [String] = ["New Playlist..."]
     var playlistData: [String: [String: String]] = [:]
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //tableView.allowsMultipleSelectionDuringEditing = false
+
+        self.searchController = UISearchController.init(searchResultsController: nil)
+        
+        self.tableView.tableHeaderView = self.searchController.searchBar
+        
+        searchController.searchBar.delegate = self
+        
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.definesPresentationContext = true
 
         self.initPlaylistData()
         
@@ -27,9 +40,7 @@ class PlaylistTableViewController: UITableViewController {
         if let playlistData = UserDefaults.standard.object(forKey: "PlaylistTitlesAndSongs") as? [String: [String: String]] {
             self.playlistData = playlistData
             
-            let names = self.playlistData.keys
-            
-            self.playlistNames.append(contentsOf: names.sorted())
+            self.playlistNames.append(contentsOf: self.playlistData.keys.sorted())
         }
         
     }
@@ -42,7 +53,14 @@ class PlaylistTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
+       
+        if self.playlistNames.count == 1 && self.playlistNames == ["New Playlist..."] {
+            setDefaultMessage(message: "There is no playlist")
+        } else {
+            tableView.backgroundView = nil
+            tableView.separatorStyle = .singleLine
+        }
+        
         return self.playlistNames.count
     }
 
@@ -66,6 +84,9 @@ class PlaylistTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        self.searchController.dismiss(animated: true, completion: nil)
+        
         if self.playlistNames[indexPath.row] == "New Playlist..." {
             if let createPlaylistController = self.storyboard?.instantiateViewController(identifier: "CreatePlaylistViewController") as? CreatePlaylistViewController {
                 
@@ -82,6 +103,9 @@ class PlaylistTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        if self.playlistNames[indexPath.row] == "New Playlist..." {
+            return false
+        }
         return true
     }
     
@@ -98,7 +122,7 @@ class PlaylistTableViewController: UITableViewController {
     // MARK: - Notification for create new Playlist
     
     @objc func onHasCreatePlaylist(_ notification: Notification) {
-        self.playlistData = [:]
+        self.playlistData.removeAll()
         self.playlistNames = ["New Playlist..."]
         initPlaylistData()
             
@@ -129,4 +153,52 @@ class PlaylistTableViewController: UITableViewController {
     }
     */
 
+    // MARK: - Search playlist
+    
+    func findPlaylist(text: String) {
+        
+        var searchedPlaylistNames: [String] = []
+        
+        for name in self.playlistNames {
+            if name.uppercased().contains(text.uppercased()) {
+                searchedPlaylistNames.append(name)
+            }
+        }
+        
+        self.playlistNames.removeAll()
+        self.playlistNames = searchedPlaylistNames
+        
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
+    
+    func setDefaultMessage(message: String) {
+        let messageLabel = UILabel(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: tableView.bounds.height))
+        messageLabel.text = message
+        messageLabel.numberOfLines = 0
+        messageLabel.textAlignment = .center
+        messageLabel.sizeToFit()
+        
+        tableView.backgroundView = messageLabel
+    }
+}
+
+extension PlaylistTableViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        
+        let text = searchBar.text!
+        self.findPlaylist(text: text)
+        
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        self.playlistNames.removeAll()
+        self.playlistNames = ["New Playlist..."]
+        self.playlistNames.append(contentsOf: self.playlistData.keys.sorted())
+        
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
 }
