@@ -36,14 +36,18 @@ class CreatePlaylistViewController: UIViewController, SongsDelegate {
 
     @IBAction func createPlaylistOnAction(_ sender: Any) {
         
-        if var playlistData = UserDefaults.standard.object(forKey: "PlaylistTitlesAndSongs") as? [PlaylistStruct] {
-            playlistData.append(PlaylistStruct(title: self.playlistNameTextField.text!, songs: self.playlistSongs))
+        if var playlistData = UserDefaults.standard.object(forKey: "PlaylistTitlesAndSongs") as? [String: [String: String]] {
+            playlistData[self.playlistNameTextField.text!] = self.playlistSongs
             UserDefaults.standard.set(playlistData, forKey: "PlaylistTitlesAndSongs")
+            print("successful added")
         } else {
-            UserDefaults.standard.set(PlaylistStruct(title: self.playlistNameTextField.text!, songs: self.playlistSongs), forKey: "PlaylistTitlesAndSongs")
+            UserDefaults.standard.set([self.playlistNameTextField.text: self.playlistSongs], forKey: "PlaylistTitlesAndSongs")
+            print("successful")
         }
+
+        NotificationCenter.default.post(name: .hasCreatePlaylist, object: nil, userInfo: [self.playlistNameTextField.text: self.playlistSongs])
         
-        //notify to update table with playlist
+        self.navigationController!.popViewController(animated: true)
     }
     
     
@@ -51,13 +55,21 @@ class CreatePlaylistViewController: UIViewController, SongsDelegate {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "SelectSongsTableView"{
+        
+        if segue.destination is SelectSongsTableViewController {
             let tableView = segue.destination as! SelectSongsTableViewController
             self.selectSongsController = tableView
             self.selectSongsController.delegate = self
-        } else {
-            print("error")
         }
+        
+//        if segue.identifier == "SelectSongsTableViewID" {
+//
+//            let tableView = segue.destination as! SelectSongsTableViewController
+//            self.selectSongsController = tableView
+//            self.selectSongsController.delegate = self
+//        } else {
+//            print("error")
+//        }
     }
     
 

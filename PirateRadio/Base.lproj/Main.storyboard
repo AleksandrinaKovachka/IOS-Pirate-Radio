@@ -467,7 +467,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I8e-hP-ts8">
-                                <rect key="frame" x="0.0" y="128" width="414" height="497"/>
+                                <rect key="frame" x="0.0" y="127.5" width="414" height="497"/>
                                 <connections>
                                     <segue destination="VF9-S1-svi" kind="embed" id="LMr-VP-EGi"/>
                                 </connections>
@@ -529,7 +529,7 @@
         <!--Select Songs Table View Controller-->
         <scene sceneID="fbC-PG-SjG">
             <objects>
-                <tableViewController storyboardIdentifier="SelectSongsTableView" id="VF9-S1-svi" customClass="SelectSongsTableViewController" customModule="PirateRadio" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="SelectSongsTableViewID" id="VF9-S1-svi" customClass="SelectSongsTableViewController" customModule="PirateRadio" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="wyq-ch-8dN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="497"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

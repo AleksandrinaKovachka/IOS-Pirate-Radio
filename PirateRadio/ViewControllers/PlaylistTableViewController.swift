@@ -9,13 +9,29 @@ import UIKit
 
 class PlaylistTableViewController: UITableViewController {
     
-    var playlistNames: [String] = ["New Playlist...", "Pop"]
-    
+    var playlistNames: [String] = ["New Playlist..."]
+    var playlistData: [String: [String: String]] = [:]
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        //init playlist data
+        self.initPlaylistData()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(onHasCreatePlaylist(_:)), name: .hasCreatePlaylist, object: nil)
+    }
+    
+    // MARK: - init playlist data
+    
+    func initPlaylistData() {
+        
+        if let playlistData = UserDefaults.standard.object(forKey: "PlaylistTitlesAndSongs") as? [String: [String: String]] {
+            self.playlistData = playlistData
+            
+            let names = self.playlistData.keys
+            
+            self.playlistNames.append(contentsOf: names.sorted())
+        }
+        
     }
 
     // MARK: - Table view data source
@@ -58,13 +74,51 @@ class PlaylistTableViewController: UITableViewController {
         } else {
             if let songsController = self.storyboard?.instantiateViewController(identifier: "SongsViewController") as? SongsViewController {
                 
-                //songsController.personalMusicViewController.musicData = musicData
+                songsController.musicData = self.playlistData[self.playlistNames[indexPath.row]]!
                 
                 self.navigationController?.pushViewController(songsController, animated: true)
             }
         }
     }
+    
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == UITableViewCell.EditingStyle.delete {
+            deletePlaylist(playlistName: self.playlistNames[indexPath.row], index: indexPath.row)
+            
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+    }
+    
+    // MARK: - Notification for create new Playlist
+    
+    @objc func onHasCreatePlaylist(_ notification: Notification) {
+        self.playlistData = [:]
+        self.playlistNames = ["New Playlist..."]
+        initPlaylistData()
+            
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
+    
+    // MARK: - Delete Playlist
 
+    func deletePlaylist(playlistName: String, index: Int) {
+        if var playlistData = UserDefaults.standard.object(forKey: "PlaylistTitlesAndSongs") as? [String: [String: String]] {
+            playlistData.removeValue(forKey: playlistName)
+            UserDefaults.standard.set(playlistData, forKey: "PlaylistTitlesAndSongs")
+        }
+        
+        self.playlistData.removeValue(forKey: playlistName)
+        self.playlistNames.remove(at: index)
+    }
+    
     /*
     // MARK: - Navigation
 

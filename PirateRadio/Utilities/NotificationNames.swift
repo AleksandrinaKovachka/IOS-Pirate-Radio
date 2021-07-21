@@ -14,4 +14,5 @@ extension Notification.Name {
     static let didVideoFinished = Notification.Name("didVideoFinished")
     static let didPlayMusic = Notification.Name("DidPlayMusic")
     static let didShuffleMusic = Notification.Name("DidShuffleMusic")
+    static let hasCreatePlaylist = Notification.Name("HasCreatePlaylist")
 }
