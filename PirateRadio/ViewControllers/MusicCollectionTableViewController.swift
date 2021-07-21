@@ -10,15 +10,13 @@ import UIKit
 class MusicCollectionTableViewController: UITableViewController {
     
     let sections: [String: String] = ["Playlist": "music.note.list", "Songs": "music.note"]
+    let sectionNames: [String] = ["Playlist", "Songs"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        tableView.backgroundView = UIImageView(image: UIImage(named: "wp"))
+        
     }
 
     // MARK: - Table view data source
@@ -37,19 +35,19 @@ class MusicCollectionTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MusicCollectionCell", for: indexPath) as! MusicCollectionTableViewCell
         
-        cell.sectionTypeLabel.text = Array(self.sections)[indexPath.row].key
-        cell.sectionImageView.image = UIImage(systemName: Array(self.sections)[indexPath.row].value)
+        cell.sectionTypeLabel.text = self.sectionNames[indexPath.row]
+        cell.sectionImageView.image = UIImage(systemName: self.sections[self.sectionNames[indexPath.row]]!)
 
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if Array(self.sections)[indexPath.row].key == "Songs" {
+        if self.sectionNames[indexPath.row] == "Songs" {
             if let songsController = self.storyboard?.instantiateViewController(identifier: "SongsViewController") as? SongsViewController {
                 
                 self.navigationController?.pushViewController(songsController, animated: true)
             }
-        } else if Array(self.sections)[indexPath.row].key == "Playlist" {
+        } else if self.sectionNames[indexPath.row] == "Playlist" {
             if let playlistController = self.storyboard?.instantiateViewController(identifier: "PlaylistTableViewController") as? PlaylistTableViewController {
                 
                 self.navigationController?.pushViewController(playlistController, animated: true)

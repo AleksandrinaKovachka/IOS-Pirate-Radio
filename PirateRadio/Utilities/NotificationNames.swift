@@ -15,4 +15,6 @@ extension Notification.Name {
     static let didPlayMusic = Notification.Name("DidPlayMusic")
     static let didShuffleMusic = Notification.Name("DidShuffleMusic")
     static let hasCreatePlaylist = Notification.Name("HasCreatePlaylist")
+    static let didSearchSongs = Notification.Name("DidSearchSongs")
+    static let didCancelSearchSongs = Notification.Name("DidCancelSearchSongs")
 }

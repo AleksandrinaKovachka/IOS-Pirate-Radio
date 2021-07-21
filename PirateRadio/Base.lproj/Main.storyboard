@@ -233,6 +233,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="xHT-b6-Dk8">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.78587912090000001" green="0.94309596350000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="MusicCollectionCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MusicCollectionCell" rowHeight="58" id="5FK-A8-kuU" customClass="MusicCollectionTableViewCell" customModule="PirateRadio" customModuleProvider="target">
                                 <rect key="frame" x="20" y="55.5" width="374" height="58"/>
@@ -265,7 +266,7 @@
                                         <constraint firstAttribute="bottom" secondItem="GRa-gJ-joQ" secondAttribute="bottom" constant="5" id="DUc-fM-vla"/>
                                         <constraint firstItem="GRa-gJ-joQ" firstAttribute="top" secondItem="GDq-HF-2J3" secondAttribute="top" constant="5" id="VKX-Ca-FdA"/>
                                         <constraint firstAttribute="bottom" secondItem="UUb-NN-7h8" secondAttribute="bottom" constant="5" id="g8s-WI-hj0"/>
-                                        <constraint firstAttribute="trailing" secondItem="s7f-Xj-sEi" secondAttribute="trailing" constant="5" id="lWd-b2-htw"/>
+                                        <constraint firstAttribute="trailing" secondItem="s7f-Xj-sEi" secondAttribute="trailing" constant="10" id="lWd-b2-htw"/>
                                         <constraint firstItem="s7f-Xj-sEi" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="GRa-gJ-joQ" secondAttribute="trailing" constant="8" symbolic="YES" id="xPW-4h-yQ8"/>
                                         <constraint firstItem="UUb-NN-7h8" firstAttribute="leading" secondItem="GDq-HF-2J3" secondAttribute="leading" constant="15" id="yPh-Iy-Xi8"/>
                                         <constraint firstItem="s7f-Xj-sEi" firstAttribute="top" secondItem="GDq-HF-2J3" secondAttribute="top" constant="5" id="zKt-av-nwY"/>
@@ -338,6 +339,10 @@
                             <constraint firstItem="V5Z-5B-DMH" firstAttribute="trailing" secondItem="mPG-vY-5S1" secondAttribute="trailing" id="yFD-nK-0Ww"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="playButton" destination="ar3-bG-y1T" id="dsW-xI-fZq"/>
+                        <outlet property="shuffleButton" destination="eRR-hB-ep6" id="Vk9-ln-wZh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aOE-CO-10H" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -408,7 +413,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="8M1-EA-bei">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PlaylistCell" rowHeight="125" id="xEr-St-b8Q" customClass="PlaylistTableViewCell" customModule="PirateRadio" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="55.5" width="414" height="125"/>
@@ -442,6 +447,7 @@
                                         <constraint firstItem="cJO-3c-bni" firstAttribute="leading" secondItem="kex-MB-Gxk" secondAttribute="trailing" constant="10" id="ydc-fd-y5Z"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="playlistImageView" destination="kex-MB-Gxk" id="Z3T-Sy-XIJ"/>
                                     <outlet property="playlistNameLabel" destination="cJO-3c-bni" id="74F-Nh-XgW"/>

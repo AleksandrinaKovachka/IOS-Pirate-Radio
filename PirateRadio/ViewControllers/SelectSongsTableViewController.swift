@@ -18,6 +18,8 @@ class SelectSongsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.tableView.backgroundView = UIImageView(image: UIImage(named: "wp"))
+        
         initMusicData()
     }
 

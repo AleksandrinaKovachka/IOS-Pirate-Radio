@@ -83,15 +83,6 @@ class CreatePlaylistViewController: UIViewController, SongsDelegate {
             self.selectSongsController.delegate = self
         }
         
-//        if segue.identifier == "SelectSongsTableViewID" {
-//
-//            let tableView = segue.destination as! SelectSongsTableViewController
-//            self.selectSongsController = tableView
-//            self.selectSongsController.delegate = self
-//        } else {
-//            print("error")
-//        }
     }
-    
 
 }

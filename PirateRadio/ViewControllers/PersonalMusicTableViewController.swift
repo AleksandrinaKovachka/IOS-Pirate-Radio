@@ -316,11 +316,14 @@ extension PersonalMusicTableViewController: UISearchBarDelegate {
         let text = searchBar.text!
         self.findAudio(text: text)
         
+        NotificationCenter.default.post(name: .didSearchSongs, object: nil)
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
 
         self.personalMusicData = self.allPersonalMusicData
+        
+        NotificationCenter.default.post(name: .didCancelSearchSongs, object: nil)
         
         DispatchQueue.main.async {
             self.tableView.reloadData()
