@@ -7,7 +7,13 @@
 
 import Foundation
 
-struct PlaylistStruct {
+struct PlaylistStruct : Codable{
     let title: String
-    let songs: [String: String]
+    let videos: [PlaylistVideosStruct]
+}
+
+struct PlaylistVideosStruct : Codable {
+    let videoId: String
+    let videoTitle: String
+    let videoImage: String?
 }

@@ -9,15 +9,16 @@ import UIKit
 
 class PlaylistTableViewController: UITableViewController {
     
+    var isYoutubePlaylist: Bool = false
+    
     var searchController : UISearchController!
     
     var playlistNames: [String] = ["New Playlist..."]
     var playlistData: [String: [String: String]] = [:]
+    var playlistYouTubeData: [PlaylistStruct] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //tableView.allowsMultipleSelectionDuringEditing = false
 
         self.searchController = UISearchController.init(searchResultsController: nil)
         
@@ -37,18 +38,34 @@ class PlaylistTableViewController: UITableViewController {
     
     func initPlaylistData() {
         
-        if let playlistData = UserDefaults.standard.object(forKey: "PlaylistTitlesAndSongs") as? [String: [String: String]] {
-            self.playlistData = playlistData
-            
-            self.playlistNames.append(contentsOf: self.playlistData.keys.sorted())
+        if self.isYoutubePlaylist {
+            if let playlistData = UserDefaults.standard.object(forKey: "PlaylistTitlesAndSongsFromYouTube") as? Data {
+                if let loadedPlaylistData = try? JSONDecoder().decode(Array<PlaylistStruct>.self, from: playlistData) {
+                    setPlaylistData(loadedPlaylistData: loadedPlaylistData)
+                }
+            }
+        } else {
+            if let playlistData = UserDefaults.standard.object(forKey: "PlaylistTitlesAndSongs") as? [String: [String: String]] {
+                self.playlistData = playlistData
+                
+                self.playlistNames.append(contentsOf: self.playlistData.keys.sorted())
+            }
         }
         
+    }
+    
+    func setPlaylistData(loadedPlaylistData: [PlaylistStruct]) {
+        self.playlistYouTubeData = loadedPlaylistData
+        var names: [String] = []
+        for data in loadedPlaylistData {
+            names.append(data.title)
+        }
+        self.playlistNames.append(contentsOf: names.sorted())
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
@@ -90,12 +107,21 @@ class PlaylistTableViewController: UITableViewController {
         if self.playlistNames[indexPath.row] == "New Playlist..." {
             if let createPlaylistController = self.storyboard?.instantiateViewController(identifier: "CreatePlaylistViewController") as? CreatePlaylistViewController {
                 
+                createPlaylistController.isYoutubePlaylist = self.isYoutubePlaylist
+                
                 self.navigationController?.pushViewController(createPlaylistController, animated: true)
             }
         } else {
+            
             if let songsController = self.storyboard?.instantiateViewController(identifier: "SongsViewController") as? SongsViewController {
                 
-                songsController.musicData = self.playlistData[self.playlistNames[indexPath.row]]!
+                if self.isYoutubePlaylist {
+                    songsController.youTubeMusicData = findVideos(videoName: self.playlistNames[indexPath.row])
+                } else {
+                    songsController.musicData = self.playlistData[self.playlistNames[indexPath.row]]!
+                }
+                
+                songsController.isYoutubePlaylist = self.isYoutubePlaylist
                 
                 self.navigationController?.pushViewController(songsController, animated: true)
             }
@@ -181,6 +207,15 @@ class PlaylistTableViewController: UITableViewController {
         messageLabel.sizeToFit()
         
         tableView.backgroundView = messageLabel
+    }
+    
+    func findVideos(videoName: String) -> [PlaylistVideosStruct] {
+        for data in self.playlistYouTubeData {
+            if data.title == videoName {
+                return data.videos
+            }
+        }
+        return []
     }
 }
 

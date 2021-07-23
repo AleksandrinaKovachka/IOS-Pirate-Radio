@@ -37,6 +37,7 @@
 		8EC4D11626A6C620003BDD69 /* SelectSongsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC4D11526A6C620003BDD69 /* SelectSongsTableViewController.swift */; };
 		8EC4D11926A6C635003BDD69 /* SelectSongsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC4D11826A6C635003BDD69 /* SelectSongsTableViewCell.swift */; };
 		8EC4D11C26A70D0E003BDD69 /* PlaylistStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC4D11B26A70D0E003BDD69 /* PlaylistStructure.swift */; };
+		8EC4D12026AAF7E9003BDD69 /* PersonalYouTubePlaylistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC4D11F26AAF7E9003BDD69 /* PersonalYouTubePlaylistViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +73,7 @@
 		8EC4D11526A6C620003BDD69 /* SelectSongsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectSongsTableViewController.swift; sourceTree = "<group>"; };
 		8EC4D11826A6C635003BDD69 /* SelectSongsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectSongsTableViewCell.swift; sourceTree = "<group>"; };
 		8EC4D11B26A70D0E003BDD69 /* PlaylistStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistStructure.swift; sourceTree = "<group>"; };
+		8EC4D11F26AAF7E9003BDD69 /* PersonalYouTubePlaylistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalYouTubePlaylistViewController.swift; sourceTree = "<group>"; };
 		BFF5042E2A3CFD2556D374D9 /* Pods_PirateRadio.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PirateRadio.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9D56F56356F2E67F597EA46 /* Pods-PirateRadio.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PirateRadio.debug.xcconfig"; path = "Target Support Files/Pods-PirateRadio/Pods-PirateRadio.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -110,6 +112,7 @@
 				8EC4D10926A5B98C003BDD69 /* SongsViewController.swift */,
 				8E6DD865268E0F8300A419C2 /* PersonalMusicTableViewController.swift */,
 				8E6DD868268E0F9B00A419C2 /* PersonalMusicTableViewCell.swift */,
+				8EC4D11F26AAF7E9003BDD69 /* PersonalYouTubePlaylistViewController.swift */,
 				8EC4D0EB2696DF55003BDD69 /* PersonalVideoView.swift */,
 				8EC4D10C26A6AD2C003BDD69 /* PlaylistTableViewController.swift */,
 				8EC4D10F26A6ADAC003BDD69 /* PlaylistTableViewCell.swift */,
@@ -314,6 +317,7 @@
 				8EC4D0F626A173DD003BDD69 /* ChannelStructure.swift in Sources */,
 				8EC4D11026A6ADAC003BDD69 /* PlaylistTableViewCell.swift in Sources */,
 				8EC4D10726A5A714003BDD69 /* MusicCollectionTableViewCell.swift in Sources */,
+				8EC4D12026AAF7E9003BDD69 /* PersonalYouTubePlaylistViewController.swift in Sources */,
 				8EC4D11626A6C620003BDD69 /* SelectSongsTableViewController.swift in Sources */,
 				8E4992E7267B373300E5BDBF /* SceneDelegate.swift in Sources */,
 				8E6DD866268E0F8300A419C2 /* PersonalMusicTableViewController.swift in Sources */,

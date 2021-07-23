@@ -25,6 +25,8 @@ class MusicTableViewController: UITableViewController {
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.definesPresentationContext = true
         
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "music.note.list"), style: .plain, target: self, action: #selector(makePlaylist))
+        
         //check for internet connection
 //        if NetworkMonitor.shared.isConnected {
 //            mostPopularSongs()
@@ -98,8 +100,6 @@ class MusicTableViewController: UITableViewController {
 
         let session = URLSession.init(configuration:.default)
         
-        //error states
-        
         let dataTask = session.dataTask(with: url) {
             (data, response, error) in
             
@@ -134,7 +134,6 @@ class MusicTableViewController: UITableViewController {
     
     func mostPopularSongs() {
         
-        //local code
         let countryCode = (Locale.current as NSLocale).object(forKey: .countryCode) as! String
         
         let urlString =
@@ -195,6 +194,15 @@ class MusicTableViewController: UITableViewController {
         messageLabel.sizeToFit()
         
         tableView.backgroundView = messageLabel
+    }
+    
+    @objc func makePlaylist() {
+        if let playlistController = self.storyboard?.instantiateViewController(identifier: "PlaylistTableViewController") as? PlaylistTableViewController {
+            
+            playlistController.isYoutubePlaylist = true
+            
+            self.navigationController?.pushViewController(playlistController, animated: true)
+        }
     }
 
 }

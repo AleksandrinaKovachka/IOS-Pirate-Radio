@@ -10,20 +10,16 @@ import SwiftUI
 
 class PersonalMusicTableViewController: UITableViewController {
     
+    var isYoutubePlaylist: Bool = false
     var searchController : UISearchController!
-    
     var musicData: [String: String] = [:]
-    
+    var youtubeMusicData: [PlaylistVideosStruct] = []
     var personalMusicData: [VideoDataStruct] = []
-    
-    var allPersonalMusicData: [VideoDataStruct] = []
-    
+    var allPersonalMusicData: [VideoDataStruct] = []    
     var showDownloadVideo: [String: String] = ["videoId": ""]
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //tableView.allowsMultipleSelectionDuringEditing = false
 
         self.searchController = UISearchController.init(searchResultsController: nil)
         
@@ -73,18 +69,40 @@ class PersonalMusicTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PersonalMusicCell", for: indexPath) as! PersonalMusicTableViewCell
 
         cell.titleLabel.text = personalMusicData[indexPath.row].videoTitle
-        cell.videoImage.image = UIImage.init(named: personalMusicData[indexPath.row].videoImagePath)
+        
+        if self.isYoutubePlaylist {
+            if let url = URL(string: self.personalMusicData[indexPath.row].videoImagePath) {
+                if let data = try? Data.init(contentsOf: url) {
+                    if let image = UIImage.init(data: data) {
+                        cell.videoImage.image = image
+                    }
+                }
+            }
+        } else {
+            cell.videoImage.image = UIImage.init(named: personalMusicData[indexPath.row].videoImagePath)
+        }
 
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //connect with PersonalVideoView
         
-        let personalVideoView = UIHostingController(rootView: PersonalVideoView(videoResources: self.personalMusicData, index: indexPath.row, isPlaying: false))
-        
-        self.searchController.dismiss(animated: true, completion: nil)
-        navigationController?.pushViewController(personalVideoView, animated: true)
+        if self.isYoutubePlaylist {
+            if let playlistController = self.storyboard?.instantiateViewController(identifier: "PersonalYouTubePlaylistViewController") as? PersonalYouTubePlaylistViewController {
+                
+                playlistController.videoResources = self.personalMusicData
+                playlistController.index = indexPath.row
+                
+                self.navigationController?.pushViewController(playlistController, animated: true)
+            }
+            
+        } else {
+            let personalVideoView = UIHostingController(rootView: PersonalVideoView(videoResources: self.personalMusicData, index: indexPath.row, isPlaying: false))
+            
+            self.searchController.dismiss(animated: true, completion: nil)
+            navigationController?.pushViewController(personalVideoView, animated: true)
+        }
+    
     }
     
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -105,16 +123,25 @@ class PersonalMusicTableViewController: UITableViewController {
     // MARK: - Get image from document directory
     
     func initPersonalMusicData() {
-        if self.musicData.count == 0 {
-            if let musicData = UserDefaults.standard.object(forKey: "PersonalMusicData") as? [String: String] {
-                self.musicData = musicData
-            }
-        }
         
-        let musicKeys = [String] (self.musicData.keys)
+        if self.isYoutubePlaylist {
             
-        for key in musicKeys {
-            personalMusicData.append(VideoDataStruct(videoId: key, videoTitle: self.musicData[key]!, videoImagePath: imagePathForVideoId(videoId: key), videoPath: videoPathForVideoId(videoId: key)))
+            for data in self.youtubeMusicData {
+                self.personalMusicData.append(VideoDataStruct(videoId: data.videoId, videoTitle: data.videoTitle, videoImagePath: data.videoImage!, videoPath: data.videoId))
+            }
+            
+        } else {
+            if self.musicData.count == 0 {
+                if let musicData = UserDefaults.standard.object(forKey: "PersonalMusicData") as? [String: String] {
+                    self.musicData = musicData
+                }
+            }
+            
+            let musicKeys = [String] (self.musicData.keys).sorted()
+                
+            for key in musicKeys {
+                personalMusicData.append(VideoDataStruct(videoId: key, videoTitle: self.musicData[key]!, videoImagePath: imagePathForVideoId(videoId: key), videoPath: videoPathForVideoId(videoId: key)))
+            }
         }
         
         self.allPersonalMusicData = self.personalMusicData
@@ -167,21 +194,14 @@ class PersonalMusicTableViewController: UITableViewController {
     
     @objc func onHasShowMyMusic() {
         
-        print("scroll")
-        
         let index: Int = indexOf(videoId: self.showDownloadVideo["videoId"]!)
 
         let indexPath = NSIndexPath(row: index, section: 0)
         tableView.scrollToRow(at: indexPath as IndexPath, at: .top, animated: true)
-            
-        //highlight
-        let cell = tableView.cellForRow(at: indexPath as IndexPath) as? PersonalMusicTableViewCell //nil
+
+        let cell = tableView.cellForRow(at: indexPath as IndexPath) as? PersonalMusicTableViewCell
         
         cell?.contentView.backgroundColor = UIColor.gray
-        
-//        UIView.animate(withDuration: 0.9, animations: {
-//            cell?.contentView.backgroundColor = UIColor.gray
-//        })
         
         self.showDownloadVideo["videoId"] = ""
     }
@@ -192,7 +212,6 @@ class PersonalMusicTableViewController: UITableViewController {
         if let data = notification.userInfo as? [String: String] {
             for (videoId, title) in data {
                 personalMusicData.append(VideoDataStruct(videoId: videoId, videoTitle: title, videoImagePath: imagePathForVideoId(videoId: videoId), videoPath: videoPathForVideoId(videoId: videoId)))
-                //TODO: send image path
                 
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
@@ -218,18 +237,43 @@ class PersonalMusicTableViewController: UITableViewController {
     }
     
     @objc func onDidPlayMusic(_ notification: Notification) {
-        let personalVideoView = UIHostingController(rootView: PersonalVideoView(videoResources: self.personalMusicData, index: 0, isPlaying: false))
         
-        navigationController?.pushViewController(personalVideoView, animated: true)
+        if self.isYoutubePlaylist {
+            if let playlistController = self.storyboard?.instantiateViewController(identifier: "PersonalYouTubePlaylistViewController") as? PersonalYouTubePlaylistViewController {
+                
+                playlistController.videoResources = self.personalMusicData
+                playlistController.index = 0
+                
+                self.navigationController?.pushViewController(playlistController, animated: true)
+            }
+            
+        } else {
+            let personalVideoView = UIHostingController(rootView: PersonalVideoView(videoResources: self.personalMusicData, index: 0, isPlaying: false))
+            
+            self.searchController.dismiss(animated: true, completion: nil)
+            navigationController?.pushViewController(personalVideoView, animated: true)
+        }
     }
     
     @objc func onDidShuffleMusic(_ notification: Notification) {
         
         let shuffleMusicData: [VideoDataStruct] = self.personalMusicData
         
-        let personalVideoView = UIHostingController(rootView: PersonalVideoView(videoResources: shuffleMusicData.shuffled(), index: 0, isPlaying: false))
-        
-        navigationController?.pushViewController(personalVideoView, animated: true)
+        if self.isYoutubePlaylist {
+            if let playlistController = self.storyboard?.instantiateViewController(identifier: "PersonalYouTubePlaylistViewController") as? PersonalYouTubePlaylistViewController {
+                
+                playlistController.videoResources = shuffleMusicData
+                playlistController.index = 0
+                
+                self.navigationController?.pushViewController(playlistController, animated: true)
+            }
+            
+        } else {
+            let personalVideoView = UIHostingController(rootView: PersonalVideoView(videoResources: shuffleMusicData.shuffled(), index: 0, isPlaying: false))
+            
+            self.searchController.dismiss(animated: true, completion: nil)
+            navigationController?.pushViewController(personalVideoView, animated: true)
+        }
     }
     
     //MARK: - Delete files
@@ -249,8 +293,6 @@ class PersonalMusicTableViewController: UITableViewController {
     }
     
     func deleteVideo(videoId: String) {
-        
-        //TODO: if videoId not exist
         
         let index: Int = indexOf(videoId: videoId)
         

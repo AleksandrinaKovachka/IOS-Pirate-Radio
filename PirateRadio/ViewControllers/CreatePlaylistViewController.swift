@@ -11,20 +11,24 @@ import Toast_Swift
 protocol SongsDelegate {
     func addSong(songKey: String, songTitle: String)
     func deleteSong(songKey: String)
+    func addYouTubeSong(data: PlaylistVideosStruct)
+    func deleteYoutubeSong(songTitle: String)
 }
 
 class CreatePlaylistViewController: UIViewController, SongsDelegate {
     
+    var isYoutubePlaylist: Bool = false
+    
     weak var selectSongsController: SelectSongsTableViewController!
     
     var playlistSongs: [String: String] = [:]
+    
+    var playlistYouTubeSongs: [PlaylistVideosStruct] = []
 
     @IBOutlet weak var playlistNameTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     
     func addSong(songKey: String, songTitle: String) {
@@ -33,6 +37,22 @@ class CreatePlaylistViewController: UIViewController, SongsDelegate {
     
     func deleteSong(songKey: String) {
         self.playlistSongs.removeValue(forKey: songKey)
+    }
+    
+    func deleteYoutubeSong(songTitle: String) {
+        var index: Int = 0
+        for data in self.playlistYouTubeSongs {
+            if data.videoTitle == songTitle {
+                break
+            }
+            index += 1
+        }
+        
+        self.playlistYouTubeSongs.remove(at: index)
+    }
+    
+    func addYouTubeSong(data: PlaylistVideosStruct) {
+        self.playlistYouTubeSongs.append(data)
     }
 
     @IBAction func createPlaylistOnAction(_ sender: Any) {
@@ -45,8 +65,14 @@ class CreatePlaylistViewController: UIViewController, SongsDelegate {
             toastMessage.append(", different form New Playlist...!")
         }
         
-        if self.playlistSongs.count == 0 {
-            toastMessage.append("\nSelect at least one song!")
+        if self.isYoutubePlaylist {
+            if self.playlistYouTubeSongs.count == 0 {
+                toastMessage.append("\nSelect at least one song!")
+            }
+        } else {
+            if self.playlistSongs.count == 0 {
+                toastMessage.append("\nSelect at least one song!")
+            }
         }
         
         if toastMessage == "" {
@@ -57,16 +83,33 @@ class CreatePlaylistViewController: UIViewController, SongsDelegate {
     }
     
     func savePlaylistData() {
-        if var playlistData = UserDefaults.standard.object(forKey: "PlaylistTitlesAndSongs") as? [String: [String: String]] {
-            playlistData[self.playlistNameTextField.text!] = self.playlistSongs
-            UserDefaults.standard.set(playlistData, forKey: "PlaylistTitlesAndSongs")
-            print("successful added")
+        if self.isYoutubePlaylist {
+            
+            if let playlistData = UserDefaults.standard.object(forKey: "PlaylistTitlesAndSongsFromYouTube") as? Data {
+                if var loadedPlaylistData = try? JSONDecoder().decode(Array<PlaylistStruct>.self, from: playlistData) {
+                    loadedPlaylistData.append(PlaylistStruct(title: self.playlistNameTextField.text!, videos: self.playlistYouTubeSongs))
+                    
+                    if let encoded = try? JSONEncoder().encode(loadedPlaylistData) {
+                        UserDefaults.standard.set(encoded, forKey: "PlaylistTitlesAndSongsFromYouTube")
+                    }
+                }
+            } else {
+                if let encoded = try? JSONEncoder().encode([PlaylistStruct(title: self.playlistNameTextField.text!, videos: self.playlistYouTubeSongs)]) {
+                    UserDefaults.standard.set(encoded, forKey: "PlaylistTitlesAndSongsFromYouTube")
+                }
+            }
         } else {
-            UserDefaults.standard.set([self.playlistNameTextField.text: self.playlistSongs], forKey: "PlaylistTitlesAndSongs")
-            print("successful")
+            if var playlistData = UserDefaults.standard.object(forKey: "PlaylistTitlesAndSongs") as? [String: [String: String]] {
+                playlistData[self.playlistNameTextField.text!] = self.playlistSongs
+                UserDefaults.standard.set(playlistData, forKey: "PlaylistTitlesAndSongs")
+            } else {
+                UserDefaults.standard.set([self.playlistNameTextField.text: self.playlistSongs], forKey: "PlaylistTitlesAndSongs")
+            }
         }
-
-        NotificationCenter.default.post(name: .hasCreatePlaylist, object: nil, userInfo: [self.playlistNameTextField.text: self.playlistSongs])
+        
+        NotificationCenter.default.post(name: .hasCreatePlaylist, object: nil)
+        
+        self.selectSongsController.searchController.dismiss(animated: true, completion: nil)
         
         self.navigationController!.popViewController(animated: true)
     }
@@ -79,6 +122,9 @@ class CreatePlaylistViewController: UIViewController, SongsDelegate {
         
         if segue.destination is SelectSongsTableViewController {
             let tableView = segue.destination as! SelectSongsTableViewController
+            
+            tableView.isYoutubePlaylist = self.isYoutubePlaylist
+            
             self.selectSongsController = tableView
             self.selectSongsController.delegate = self
         }

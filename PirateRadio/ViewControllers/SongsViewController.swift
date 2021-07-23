@@ -8,8 +8,12 @@
 import UIKit
 
 class SongsViewController: UIViewController {
+    
+    var isYoutubePlaylist: Bool = false
 
     var musicData: [String: String] = [:]
+    
+    var youTubeMusicData: [PlaylistVideosStruct] = []
 
     @IBOutlet weak var shuffleButton: UIButton!
     @IBOutlet weak var playButton: UIButton!
@@ -29,6 +33,8 @@ class SongsViewController: UIViewController {
         if segue.destination is PersonalMusicTableViewController {
             let personalMusicController = segue.destination as! PersonalMusicTableViewController
             personalMusicController.musicData = self.musicData
+            personalMusicController.youtubeMusicData = self.youTubeMusicData
+            personalMusicController.isYoutubePlaylist = self.isYoutubePlaylist
         }
 
     }

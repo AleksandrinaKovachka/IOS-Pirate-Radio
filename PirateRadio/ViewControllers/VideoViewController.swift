@@ -17,7 +17,6 @@ class VideoViewController: UIViewController {
     @IBOutlet weak var showDownloadMusicButton: UIButton!
     @IBOutlet weak var downloadProgressView: UIProgressView!
     
-    //TODO: template for optional property
     var videoId: String!
     var songTitle: String!
     var publishedDate: String!
@@ -33,7 +32,6 @@ class VideoViewController: UIViewController {
         self.downloadProgressView.progress = 0
         self.downloadProgressView.isHidden = true
         
-        //check if video is download
         didDownloadVideo()
         
     }
@@ -45,15 +43,12 @@ class VideoViewController: UIViewController {
     }
     
     @IBAction func showDownloadMusicOnAction(_ sender: Any) {
-        //send notification with videoId - in personal music table view highlight cell
         
         if let personalController = self.storyboard?.instantiateViewController(identifier: "PersonalMusicTableView") as? PersonalMusicTableViewController {
             
             personalController.showDownloadVideo["videoId"] = self.videoId
             
             self.navigationController?.pushViewController(personalController, animated: true)
-            
-            //self.present(personalController, animated: true, completion: nil)
         }
     }
     
@@ -130,8 +125,6 @@ class VideoViewController: UIViewController {
 
         let session = URLSession.init(configuration:.default)
         
-        //error states
-        
         let dataTask = session.dataTask(with: url) {
             (data, response, error) in
             
@@ -159,7 +152,6 @@ class VideoViewController: UIViewController {
                 for url in urls {
                     let stringURL = url.absoluteString
                     if stringURL.contains(self.videoId) {
-                        //download with url
                         self.downloadVideo(url: url)
                         break
                     }

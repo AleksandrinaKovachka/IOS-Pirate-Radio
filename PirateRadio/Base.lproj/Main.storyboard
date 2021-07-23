@@ -659,6 +659,84 @@
             </objects>
             <point key="canvasLocation" x="3738.4057971014495" y="-641.18303571428567"/>
         </scene>
+        <!--Personal You Tube Playlist View Controller-->
+        <scene sceneID="jhX-fM-Txi">
+            <objects>
+                <viewController storyboardIdentifier="PersonalYouTubePlaylistViewController" id="PQi-Q5-dka" customClass="PersonalYouTubePlaylistViewController" customModule="PirateRadio" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="aNL-Pt-bkM">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Biv-jK-Tjg" customClass="WKYTPlayerView">
+                                <rect key="frame" x="10" y="84" width="394" height="281"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="281" id="7Va-xw-4u9"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tLe-ei-Fht">
+                                <rect key="frame" x="10" y="435" width="394" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U1C-5g-r7j">
+                                <rect key="frame" x="176.5" y="733" width="61" height="59"/>
+                                <state key="normal" image="play.circle.fill" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="52"/>
+                                </state>
+                                <connections>
+                                    <action selector="playPauseOnAction:" destination="PQi-Q5-dka" eventType="touchUpInside" id="gyW-gV-SYh"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tg3-R4-OOp">
+                                <rect key="frame" x="40" y="745" width="77" height="47"/>
+                                <state key="normal" image="backward.fill" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="52"/>
+                                </state>
+                                <connections>
+                                    <action selector="backwardOnAction:" destination="PQi-Q5-dka" eventType="touchUpInside" id="Sv4-mf-Vfv"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6by-Gh-VJ9">
+                                <rect key="frame" x="297" y="745" width="77" height="47"/>
+                                <state key="normal" image="forward.fill" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="52"/>
+                                </state>
+                                <connections>
+                                    <action selector="forwardButton:" destination="PQi-Q5-dka" eventType="touchUpInside" id="cjP-OU-2Bj"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ccE-mg-5Vk"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="U1C-5g-r7j" firstAttribute="centerX" secondItem="aNL-Pt-bkM" secondAttribute="centerX" id="1yH-zz-GxP"/>
+                            <constraint firstItem="ccE-mg-5Vk" firstAttribute="bottom" secondItem="Tg3-R4-OOp" secondAttribute="bottom" constant="70" id="5GR-6M-vAW"/>
+                            <constraint firstItem="ccE-mg-5Vk" firstAttribute="trailing" secondItem="tLe-ei-Fht" secondAttribute="trailing" constant="10" id="8Fl-C2-0Wt"/>
+                            <constraint firstItem="tLe-ei-Fht" firstAttribute="top" secondItem="Biv-jK-Tjg" secondAttribute="bottom" constant="70" id="G0a-ay-ZQ9"/>
+                            <constraint firstItem="Tg3-R4-OOp" firstAttribute="leading" secondItem="ccE-mg-5Vk" secondAttribute="leading" constant="40" id="Gt9-yt-dwY"/>
+                            <constraint firstItem="ccE-mg-5Vk" firstAttribute="trailing" secondItem="6by-Gh-VJ9" secondAttribute="trailing" constant="40" id="KWy-1V-eG1"/>
+                            <constraint firstItem="ccE-mg-5Vk" firstAttribute="bottom" secondItem="U1C-5g-r7j" secondAttribute="bottom" constant="70" id="OSK-ZH-Ffa"/>
+                            <constraint firstItem="Biv-jK-Tjg" firstAttribute="top" secondItem="ccE-mg-5Vk" secondAttribute="top" constant="40" id="Q0O-7r-HSQ"/>
+                            <constraint firstItem="ccE-mg-5Vk" firstAttribute="trailing" secondItem="Biv-jK-Tjg" secondAttribute="trailing" constant="10" id="ZiS-5J-atw"/>
+                            <constraint firstItem="Biv-jK-Tjg" firstAttribute="leading" secondItem="ccE-mg-5Vk" secondAttribute="leading" constant="10" id="eVc-Iw-aD6"/>
+                            <constraint firstItem="ccE-mg-5Vk" firstAttribute="bottom" secondItem="6by-Gh-VJ9" secondAttribute="bottom" constant="70" id="jft-9U-qal"/>
+                            <constraint firstItem="tLe-ei-Fht" firstAttribute="leading" secondItem="ccE-mg-5Vk" secondAttribute="leading" constant="10" id="uUt-Ud-qw0"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="backwardButton" destination="Tg3-R4-OOp" id="Lj3-gr-kAa"/>
+                        <outlet property="forwardButton" destination="6by-Gh-VJ9" id="Nn5-sy-BtC"/>
+                        <outlet property="playPauseButton" destination="U1C-5g-r7j" id="jCT-wp-uWQ"/>
+                        <outlet property="videoTitleLabel" destination="tLe-ei-Fht" id="DhO-ir-8Ik"/>
+                        <outlet property="youTybePlayerView" destination="Biv-jK-Tjg" id="7kG-fS-aIe"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wc4-c7-N6B" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4473.913043478261" y="-490.17857142857139"/>
+        </scene>
         <!--Channel View Controller-->
         <scene sceneID="hEa-gR-4pt">
             <objects>
@@ -716,7 +794,9 @@
     </scenes>
     <resources>
         <image name="arrow.down.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="backward.fill" catalog="system" width="128" height="79"/>
         <image name="chevron.right" catalog="system" width="96" height="128"/>
+        <image name="forward.fill" catalog="system" width="128" height="79"/>
         <image name="music.note" catalog="system" width="97" height="128"/>
         <image name="music.note.house.fill" catalog="system" width="128" height="106"/>
         <image name="music.note.list" catalog="system" width="128" height="115"/>
